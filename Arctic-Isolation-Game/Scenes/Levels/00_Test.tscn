@@ -27,10 +27,8 @@ z_index = -100
 format = 1
 tile_data = PoolIntArray( -327669, 4, 0, -196614, 3, 0, -196613, 3, 0, -196612, 3, 0, -131079, 3, 0, -131078, 5, 0, -131077, 5, 0, -131076, 5, 0, -131075, 3, 0, -65543, 3, 0, -65542, 5, 0, -65541, 5, 0, -65540, 5, 0, -65539, 3, 0, -7, 3, 0, -6, 5, 0, -5, 5, 0, -4, 5, 0, -3, 1, 0, 65529, 3, 0, 65530, 5, 0, 65531, 5, 0, 65532, 5, 0, 65533, 3, 0, 131066, 3, 0, 131067, 3, 0, 131068, 3, 0, 6356995, 1, 0 )
 
-[node name="Starting Points" type="Node2D" parent="."]
+[node name="шо там" type="TileMap" parent="."]
+format = 1
+tile_data = PoolIntArray( -262156, 7, 0, 65537, 5, 0 )
 
-[node name="Start1" type="Position2D" parent="Starting Points"]
-
-[node name="Start2" type="Position2D" parent="Starting Points"]
-
-[node name="Start3" type="Position2D" parent="Starting Points"]
+[node name="Starting Point" type="Position2D" parent="."]
