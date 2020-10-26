@@ -16,7 +16,6 @@ _global_script_class_icons={
 [application]
 
 config/name="Arctic-Isolation-Game"
-run/main_scene="res://Scenes/Levels/01_River_Station.tscn"
 config/icon="res://icon.png"
 
 [input]
