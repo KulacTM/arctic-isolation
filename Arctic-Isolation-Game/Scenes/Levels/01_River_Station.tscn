@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Levels/00_Test.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scripts/Level_Manager.gd" type="Script" id=2]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 63.2437, 61.481 )
@@ -22,3 +23,7 @@ position = Vector2( 1085.49, 3708.85 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Exit_River_to_Forest" index="0"]
 position = Vector2( 4.2428, 2.12134 )
 shape = SubResource( 1 )
+
+[node name="Level_Manager" type="Node2D" parent="." index="4"]
+script = ExtResource( 2 )
+[connection signal="area_entered" from="Exit_River_to_Forest" to="Level_Manager" method="_on_Exit_River_to_Forest_area_entered"]
