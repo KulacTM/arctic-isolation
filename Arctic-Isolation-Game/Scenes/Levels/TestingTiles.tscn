@@ -1,6 +1,20 @@
-[gd_scene load_steps=2 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://GFX/Tiles/main.tres" type="TileSet" id=1]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/FallenTree1.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/FallenTreeVertical1.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/FallenTree2.png" type="Texture" id=4]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/FallenTree3.png" type="Texture" id=5]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/bridge2.png" type="Texture" id=6]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/landslide.png" type="Texture" id=7]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/trees2.png" type="Texture" id=8]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/bridge1.png" type="Texture" id=9]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/trees6.png" type="Texture" id=10]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/trees7.png" type="Texture" id=11]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/trees5.png" type="Texture" id=12]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/trees4.png" type="Texture" id=13]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/trees3.png" type="Texture" id=14]
+[ext_resource path="res://GFX/Tiles/SeparateTilesEnv/trees1.png" type="Texture" id=15]
 
 [node name="Node2D" type="Node2D"]
 
@@ -11,3 +25,59 @@ tile_data = PoolIntArray( 0, 12, 0, 1, 12, 1, 2, 12, 2, 8, 18, 0, 9, 18, 0, 10, 
 __meta__ = {
 "_editor_description_": ""
 }
+
+[node name="FallenTree1" type="Sprite" parent="MyTileMap"]
+position = Vector2( 582.381, 921.13 )
+texture = ExtResource( 2 )
+
+[node name="FallenTreeVertical1" type="Sprite" parent="MyTileMap/FallenTree1"]
+position = Vector2( -287.501, 65.7326 )
+texture = ExtResource( 3 )
+
+[node name="FallenTree2" type="Sprite" parent="MyTileMap"]
+position = Vector2( 505.04, 404.112 )
+texture = ExtResource( 4 )
+
+[node name="FallenTree3" type="Sprite" parent="MyTileMap"]
+position = Vector2( 1102.58, 149.84 )
+texture = ExtResource( 5 )
+
+[node name="landslide" type="Sprite" parent="."]
+position = Vector2( 1215.39, 864.397 )
+texture = ExtResource( 7 )
+
+[node name="bridge1" type="Sprite" parent="."]
+position = Vector2( 566.638, 1428.25 )
+texture = ExtResource( 9 )
+
+[node name="bridge2" type="Sprite" parent="."]
+position = Vector2( 813.933, 1424.48 )
+texture = ExtResource( 6 )
+
+[node name="trees1" type="Sprite" parent="."]
+position = Vector2( 1148.88, 1307.44 )
+texture = ExtResource( 15 )
+
+[node name="trees2" type="Sprite" parent="."]
+position = Vector2( 1248.5, 1296.01 )
+texture = ExtResource( 8 )
+
+[node name="trees3" type="Sprite" parent="."]
+position = Vector2( 1339.62, 1311.91 )
+texture = ExtResource( 14 )
+
+[node name="trees4" type="Sprite" parent="."]
+position = Vector2( 1105.47, 1448.58 )
+texture = ExtResource( 13 )
+
+[node name="trees5" type="Sprite" parent="."]
+position = Vector2( 1209.3, 1443.28 )
+texture = ExtResource( 12 )
+
+[node name="trees6" type="Sprite" parent="."]
+position = Vector2( 1291.94, 1500.49 )
+texture = ExtResource( 10 )
+
+[node name="trees7" type="Sprite" parent="."]
+position = Vector2( 1368.22, 1431.62 )
+texture = ExtResource( 11 )
