@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/shovel.png-9b160f0e28215c605b1cc0039536468f.stex"
+path="res://.import/battery.png-0ed45b0fef9741a3d9bf99a4ad7c3482.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GFX/Tiles/shovel.png"
-dest_files=[ "res://.import/shovel.png-9b160f0e28215c605b1cc0039536468f.stex" ]
+source_file="res://GFX/Tiles/Tools/battery.png"
+dest_files=[ "res://.import/battery.png-0ed45b0fef9741a3d9bf99a4ad7c3482.stex" ]
 
 [params]
 

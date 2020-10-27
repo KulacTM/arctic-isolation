@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/battery.png-f9d451aa4d4dca0b835281e450ea7cde.stex"
+path="res://.import/pick.png-a6162f211c949645aa2bb5871b5ce770.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GFX/Tiles/battery.png"
-dest_files=[ "res://.import/battery.png-f9d451aa4d4dca0b835281e450ea7cde.stex" ]
+source_file="res://GFX/Tiles/Tools/pick.png"
+dest_files=[ "res://.import/pick.png-a6162f211c949645aa2bb5871b5ce770.stex" ]
 
 [params]
 

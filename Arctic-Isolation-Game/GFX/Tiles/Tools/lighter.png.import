@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/axe.png-4354885bcd99b1abbe6645b1042e0a71.stex"
+path="res://.import/lighter.png-74ef1cb91e9cd01b117c86456ee8d2f3.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GFX/Tiles/axe.png"
-dest_files=[ "res://.import/axe.png-4354885bcd99b1abbe6645b1042e0a71.stex" ]
+source_file="res://GFX/Tiles/Tools/lighter.png"
+dest_files=[ "res://.import/lighter.png-74ef1cb91e9cd01b117c86456ee8d2f3.stex" ]
 
 [params]
 
