@@ -8,7 +8,6 @@ const SPEED = 20
 const MAX_SPEED = 200
 const FRICTION = 0.1
 
-
 func _physics_process(delta):
 	update_movement()
 	move_and_slide(motion * velocity_multiplier)
