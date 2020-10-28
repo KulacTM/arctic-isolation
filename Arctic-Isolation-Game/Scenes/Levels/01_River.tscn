@@ -130,6 +130,7 @@ position = Vector2( -175.363, -33.9412 )
 shape = SubResource( 6 )
 
 [node name="Barrel" parent="." index="6" instance=ExtResource( 13 )]
+position = Vector2( 1615.97, 1890.11 )
 
 [node name="Snowstorm" parent="." index="7" instance=ExtResource( 11 )]
 visible = false

@@ -1,5 +1,7 @@
 extends CanvasLayer
 
+func _ready():
+	$Pause/PauseOverlay/PauseText.text = "Пауза"
 
 func AddBatteryIcon():
 	$IconContainer/BatteryIcon.texture = load("res://GFX/textures/battary/battery1.png")
