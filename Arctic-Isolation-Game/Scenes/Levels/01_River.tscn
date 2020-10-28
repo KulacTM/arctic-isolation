@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Scenes/Levels/00_Test.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Objects/Battery.tscn" type="PackedScene" id=5]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 66.2374, 63.7959 )
@@ -20,18 +21,20 @@ position = Vector2( 1677.93, 4310.79 )
 [node name="Start3" parent="Starting_Points" index="2"]
 position = Vector2( 4052.5, 1210.47 )
 
-[node name="River_To_Forest_Exit" type="Area2D" parent="." index="3"]
+[node name="River_To_Forest_Exit" type="Area2D" parent="." index="2"]
 position = Vector2( 1731.75, 4475.61 )
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="River_To_Forest_Exit" index="0"]
 shape = SubResource( 1 )
 
-[node name="River_To_Pass" type="Area2D" parent="." index="4"]
+[node name="River_To_Pass" type="Area2D" parent="." index="3"]
 position = Vector2( 4223.86, 1210.47 )
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="River_To_Pass" index="0"]
 shape = SubResource( 1 )
+
+[node name="Battery" parent="." index="4" instance=ExtResource( 5 )]
 [connection signal="body_entered" from="River_To_Forest_Exit" to="." method="_on_River_To_Forest_Exit"]
 [connection signal="body_entered" from="River_To_Pass" to="." method="_on_River_To_Pass"]

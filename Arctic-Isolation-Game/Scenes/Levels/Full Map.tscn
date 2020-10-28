@@ -1,7 +1,9 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Full Map.gd" type="Script" id=2]
+[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Inventory.tscn" type="PackedScene" id=4]
 
 [node name="Full Map" type="Node2D" groups=[
 "FullMap",
@@ -12,3 +14,7 @@ script = ExtResource( 2 )
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 position = Vector2( 465.773, 303.862 )
+
+[node name="GUI" parent="." instance=ExtResource( 3 )]
+
+[node name="Inventory" parent="." instance=ExtResource( 4 )]

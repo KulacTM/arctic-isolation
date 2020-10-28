@@ -1,9 +1,7 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=3 format=2]
 
 [ext_resource path="res://GFX/Tiles/main.tres" type="TileSet" id=2]
-[ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scripts/Transitions.gd" type="Script" id=5]
-
 
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
@@ -21,5 +19,3 @@ tile_data = PoolIntArray( -196614, 3, 0, -196613, 3, 0, -196612, 3, 0, -131079, 
 [node name="Start2" type="Position2D" parent="Starting_Points"]
 
 [node name="Start3" type="Position2D" parent="Starting_Points"]
-
-[node name="GUI" parent="." instance=ExtResource( 4 )]
