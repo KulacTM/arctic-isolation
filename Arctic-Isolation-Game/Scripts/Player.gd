@@ -4,8 +4,8 @@ var motion = Vector2()
 
 var velocity_multiplier = 1
 
-const SPEED = 200 #20 и 200 было
-const MAX_SPEED = 1000
+const SPEED = 20 #20 и 200 было
+const MAX_SPEED = 200
 const FRICTION = 0.1
 
 func _physics_process(delta):

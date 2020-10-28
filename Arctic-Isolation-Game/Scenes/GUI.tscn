@@ -1,4 +1,4 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=2]
@@ -10,6 +10,9 @@
 [ext_resource path="res://GFX/Tiles/Tools/shovel.png" type="Texture" id=8]
 [ext_resource path="res://GFX/Tiles/Tools/axe.png" type="Texture" id=9]
 [ext_resource path="res://GFX/Tiles/Tools/lantern.png" type="Texture" id=10]
+[ext_resource path="res://Scripts/ColdMeter.gd" type="Script" id=11]
+[ext_resource path="res://GFX/textures/freazingSilhuete1.png" type="Texture" id=12]
+[ext_resource path="res://GFX/textures/freazingSilhuete2.png" type="Texture" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -59,8 +62,10 @@ anchor_left = 1.0
 anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
-margin_left = -472.0
-margin_top = -64.0
+margin_left = -481.449
+margin_top = -66.5199
+margin_right = -9.44946
+margin_bottom = -2.5199
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -131,6 +136,22 @@ margin_left = 408.0
 margin_right = 472.0
 margin_bottom = 64.0
 texture = ExtResource( 8 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ColdMeter" type="TextureProgress" parent="."]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 23.9853
+margin_top = -160.167
+margin_right = 63.9853
+margin_bottom = -112.167
+step = 0.01
+texture_under = ExtResource( 12 )
+texture_progress = ExtResource( 13 )
+fill_mode = 3
+script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

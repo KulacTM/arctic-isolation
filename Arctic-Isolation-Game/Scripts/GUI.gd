@@ -2,15 +2,16 @@ extends CanvasLayer
 
 
 func AddBatteryIcon():
+	$IconContainer/BatteryIcon.texture = load("res://GFX/textures/battary/battery1.png")
 	$IconContainer/BatteryIcon.show()
 
 
 func AddTwoBatteryIcons():
-	$IconContainer/BatteryIcon.texture = load("res://GFX/Tiles/Tools/key.png")
+	$IconContainer/BatteryIcon.texture = load("res://GFX/textures/battary/battery2.png")
 	$IconContainer/BatteryIcon.show()
 
 func AddThreeBatteryIcons():
-	$IconContainer/BatteryIcon.texture = load("res://GFX/Tiles/Tools/lantern.png")
+	$IconContainer/BatteryIcon.texture = load("res://GFX/textures/battary/battery3.png")
 	$IconContainer/BatteryIcon.show()
 
 

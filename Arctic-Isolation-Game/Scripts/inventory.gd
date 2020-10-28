@@ -15,7 +15,7 @@ var has_lighter = false
 
 
 func _process(_delta):
-	if has_first_battery or has_second_battery:
+	if has_first_battery or has_second_battery or has_third_battery:
 		get_tree().call_group("GUI", "AddBatteryIcon")
 	if has_second_battery and has_first_battery or has_first_battery and has_third_battery or has_second_battery and has_third_battery:
 		get_tree().call_group("GUI", "AddTwoBatteryIcons")
