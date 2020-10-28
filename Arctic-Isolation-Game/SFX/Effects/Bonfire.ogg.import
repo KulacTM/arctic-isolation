@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Bonfire.ogg-d13a2ddb8553aeb0d794282fe9e53350.oggstr"
+
+[deps]
+
+source_file="res://SFX/Effects/Bonfire.ogg"
+dest_files=[ "res://.import/Bonfire.ogg-d13a2ddb8553aeb0d794282fe9e53350.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

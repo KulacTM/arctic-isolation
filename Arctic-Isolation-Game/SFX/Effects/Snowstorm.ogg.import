@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Snowstorm.ogg-1d8bfc82939a5df6758035a2d393863a.oggstr"
+
+[deps]
+
+source_file="res://SFX/Effects/Snowstorm.ogg"
+dest_files=[ "res://.import/Snowstorm.ogg-1d8bfc82939a5df6758035a2d393863a.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

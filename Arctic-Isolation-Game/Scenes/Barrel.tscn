@@ -1,0 +1,37 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://SFX/Effects/Bonfire.ogg" type="AudioStream" id=1]
+[ext_resource path="res://Scripts/Barrel.gd" type="Script" id=2]
+[ext_resource path="res://GFX/textures/bochka/bochka1.png" type="Texture" id=3]
+
+[sub_resource type="CircleShape2D" id=7]
+radius = 33.3407
+
+[sub_resource type="RectangleShape2D" id=8]
+extents = Vector2( 69.2593, 67.3386 )
+
+[node name="Barrel" type="Area2D"]
+position = Vector2( 1222.18, 2945.98 )
+script = ExtResource( 2 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 3 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 7 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 8 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 10.0
+
+[node name="BonfireSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, -2.11548 )
+stream = ExtResource( 1 )
+attenuation = 0.105112
+[connection signal="body_entered" from="." to="." method="_on_Barrel_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Barrel_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

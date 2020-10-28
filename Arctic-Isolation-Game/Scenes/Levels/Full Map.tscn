@@ -1,9 +1,10 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://Scenes/Player.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scripts/Full Map.gd" type="Script" id=2]
 [ext_resource path="res://Scenes/GUI.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Scenes/Inventory.tscn" type="PackedScene" id=4]
+[ext_resource path="res://SFX/Effects/Snowstorm.ogg" type="AudioStream" id=5]
 
 [node name="Full Map" type="Node2D" groups=[
 "FullMap",
@@ -20,3 +21,10 @@ position = Vector2( 465.773, 303.862 )
 [node name="Inventory" parent="." instance=ExtResource( 4 )]
 visible = false
 script = null
+
+[node name="Sounds" type="Node" parent="."]
+
+[node name="Snowstorm" type="AudioStreamPlayer" parent="Sounds"]
+stream = ExtResource( 5 )
+volume_db = -15.0
+autoplay = true

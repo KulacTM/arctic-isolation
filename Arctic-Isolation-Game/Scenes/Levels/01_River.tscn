@@ -1,4 +1,4 @@
-[gd_scene load_steps=17 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://Scenes/Levels/00_Test.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Battery3.tscn" type="PackedScene" id=2]
@@ -10,11 +10,19 @@
 [ext_resource path="res://Scenes/Objects/Flashlight.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Scenes/Objects/Pickaxe.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Scenes/Objects/Shovel.tscn" type="PackedScene" id=10]
-[ext_resource path="res://Scripts/Warm_Zone.gd" type="Script" id=11]
+[ext_resource path="res://Scenes/Snowstorm.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Scenes/Warm_Zone.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Scenes/Barrel.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Scripts/Warm_Zone.gd" type="Script" id=14]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 66.2374, 63.7959 )
+
+[sub_resource type="RectangleShape2D" id=5]
+extents = Vector2( 275.173, 369.959 )
+
+[sub_resource type="RectangleShape2D" id=6]
+extents = Vector2( 139.246, 169.797 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 184.698, 181.763 )
@@ -81,17 +89,31 @@ position = Vector2( 1325.27, 2100.45 )
 [node name="Shovel" parent="Objects" index="8" instance=ExtResource( 10 )]
 position = Vector2( 1324.14, 1989.33 )
 
-[node name="Warm_Zone" parent="Warm_Zones" index="0" instance=ExtResource( 12 )]
+[node name="Warm_Zone4" parent="Warm_Zones" index="0" instance=ExtResource( 12 )]
+position = Vector2( 3277.5, 2943.86 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Warm_Zones/Warm_Zone4" index="0"]
+position = Vector2( -15.1453, 104.841 )
+shape = SubResource( 5 )
+
+[node name="Warm_Zone3" parent="Warm_Zones" index="1" instance=ExtResource( 12 )]
+position = Vector2( 1918.21, 1089.3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Warm_Zones/Warm_Zone3" index="0"]
+position = Vector2( 0, 19.0273 )
+shape = SubResource( 6 )
+
+[node name="Warm_Zone" parent="Warm_Zones" index="2" instance=ExtResource( 12 )]
 position = Vector2( 0, 1185.95 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Warm_Zones/Warm_Zone" index="0"]
 position = Vector2( -52.4558, 0 )
 shape = SubResource( 2 )
 
-[node name="Warm_Zone2" type="Area2D" parent="Warm_Zones" index="1"]
+[node name="Warm_Zone2" type="Area2D" parent="Warm_Zones" index="3"]
 position = Vector2( 990.557, 1507.81 )
 collision_layer = 4
-script = ExtResource( 11 )
+script = ExtResource( 14 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Warm_Zones/Warm_Zone2" index="0"]
 position = Vector2( 139.383, -103.237 )
@@ -100,6 +122,11 @@ shape = SubResource( 3 )
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="Warm_Zones/Warm_Zone2" index="1"]
 position = Vector2( -175.363, -33.9412 )
 shape = SubResource( 4 )
+
+[node name="Barrel" parent="." index="6" instance=ExtResource( 13 )]
+
+[node name="Snowstorm" parent="." index="7" instance=ExtResource( 11 )]
+z_index = 1
 [connection signal="body_entered" from="River_To_Forest_Exit" to="." method="_on_River_To_Forest_Exit"]
 [connection signal="body_entered" from="River_To_Pass" to="." method="_on_River_To_Pass"]
 [connection signal="body_entered" from="Warm_Zones/Warm_Zone2" to="Warm_Zones/Warm_Zone2" method="_on_Warm_Zone_body_entered"]
