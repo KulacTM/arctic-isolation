@@ -28,7 +28,7 @@ script = ExtResource( 4 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.156863, 0.270588, 0.890196, 0.0313726 )
+color = Color( 0.156863, 0.270588, 0.890196, 0.0980392 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -55,13 +55,13 @@ __meta__ = {
 [node name="PauseText" type="RichTextLabel" parent="Pause/PauseOverlay"]
 anchor_left = 0.5
 anchor_right = 0.5
-margin_left = -96.998
-margin_top = -1.52588e-05
-margin_right = 153.002
+margin_left = -71.5709
+margin_top = -1.09139e-11
+margin_right = 178.429
 margin_bottom = 100.0
 custom_fonts/normal_font = SubResource( 1 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
-text = "Paused"
+text = "Пауза"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -170,7 +170,6 @@ margin_left = -48.0
 margin_top = -72.0
 margin_right = 48.0
 margin_bottom = 72.0
-step = 1.0
 texture_under = ExtResource( 12 )
 texture_progress = ExtResource( 13 )
 fill_mode = 3

@@ -6,7 +6,12 @@
 [node name="Game" type="Node2D"]
 script = ExtResource( 5 )
 
-[node name="TileMap" type="TileMap" parent="."]
+[node name="TopTiles" type="TileMap" parent="."]
+visible = false
+z_index = -100
+format = 1
+
+[node name="Tilemap1" type="TileMap" parent="."]
 z_index = -100
 tile_set = ExtResource( 2 )
 format = 1
