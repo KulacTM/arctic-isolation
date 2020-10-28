@@ -80,3 +80,5 @@ func _on_PassToRiver(_body):
 func _on_PassToStation(_body):
 	get_tree().call_group("FullMap", "StationFromPass")
 
+
+

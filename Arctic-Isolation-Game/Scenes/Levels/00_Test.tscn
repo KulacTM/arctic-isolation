@@ -21,3 +21,5 @@ tile_data = PoolIntArray( -196614, 3, 0, -196613, 3, 0, -196612, 3, 0, -131079, 
 [node name="Start3" type="Position2D" parent="Starting_Points"]
 
 [node name="Objects" type="Node2D" parent="."]
+
+[node name="Warm_Zones" type="Node2D" parent="."]
