@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://font.ttf" type="DynamicFontData" id=1]
-[ext_resource path="res://Scripts/Objects/Battery1.gd" type="Script" id=2]
+[ext_resource path="res://Scripts/Objects/Battery3.gd" type="Script" id=2]
 [ext_resource path="res://GFX/Tiles/Tools/battery.png" type="Texture" id=3]
 
 [sub_resource type="RectangleShape2D" id=1]
@@ -46,5 +46,5 @@ text = "E"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="body_entered" from="." to="." method="_on_Battery_body_entered"]
-[connection signal="body_exited" from="." to="." method="_on_Battery_body_exited"]
+[connection signal="body_entered" from="." to="." method="_on_Battery3_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Battery3_body_exited"]
