@@ -1,8 +1,9 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://SFX/Effects/Bonfire.ogg" type="AudioStream" id=1]
 [ext_resource path="res://Scripts/Barrel.gd" type="Script" id=2]
 [ext_resource path="res://GFX/textures/bochka/bochka1.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Lightmaps/spot.png" type="Texture" id=4]
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 33.3407
@@ -33,6 +34,11 @@ stream = ExtResource( 1 )
 attenuation = 0.105112
 
 [node name="Light2D" type="Light2D" parent="."]
+enabled = false
+texture = ExtResource( 4 )
+texture_scale = 4.0
+color = Color( 0.72549, 0.623529, 0.305882, 1 )
+energy = 1.5
 [connection signal="body_entered" from="." to="." method="_on_Barrel_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Barrel_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]
