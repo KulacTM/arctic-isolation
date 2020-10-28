@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Scenes/Levels/00_Test.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Battery3.tscn" type="PackedScene" id=2]
 [ext_resource path="res://Scenes/Objects/Battery2.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Scenes/Objects/Axe.tscn" type="PackedScene" id=4]
 [ext_resource path="res://Scenes/Objects/Battery.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Objects/Lighter.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Objects/Key.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Objects/Flashlight.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Objects/Pickaxe.tscn" type="PackedScene" id=9]
+[ext_resource path="res://Scenes/Objects/Shovel.tscn" type="PackedScene" id=10]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 66.2374, 63.7959 )
@@ -37,12 +43,30 @@ collision_layer = 4
 [node name="CollisionShape2D" type="CollisionShape2D" parent="River_To_Pass" index="0"]
 shape = SubResource( 1 )
 
-[node name="Battery" parent="." index="4" instance=ExtResource( 5 )]
+[node name="Battery" parent="Objects" index="0" instance=ExtResource( 5 )]
 
-[node name="Battery2" parent="." index="5" instance=ExtResource( 3 )]
+[node name="Battery2" parent="Objects" index="1" instance=ExtResource( 3 )]
 position = Vector2( 1677.93, 1604.11 )
 
-[node name="Battery3" parent="." index="6" instance=ExtResource( 2 )]
+[node name="Battery3" parent="Objects" index="2" instance=ExtResource( 2 )]
 position = Vector2( 961.94, 1858.11 )
+
+[node name="Axe" parent="." index="5" instance=ExtResource( 4 )]
+position = Vector2( 967.202, 1988.21 )
+
+[node name="Flashlight" parent="." index="6" instance=ExtResource( 8 )]
+position = Vector2( 964.957, 2100.45 )
+
+[node name="Key" parent="." index="7" instance=ExtResource( 7 )]
+position = Vector2( 967.202, 2208.21 )
+
+[node name="Lighter" parent="." index="8" instance=ExtResource( 6 )]
+position = Vector2( 1328.63, 2204.84 )
+
+[node name="Pickaxe" parent="." index="9" instance=ExtResource( 9 )]
+position = Vector2( 1325.27, 2100.45 )
+
+[node name="Shovel" parent="." index="10" instance=ExtResource( 10 )]
+position = Vector2( 1324.14, 1989.33 )
 [connection signal="body_entered" from="River_To_Forest_Exit" to="." method="_on_River_To_Forest_Exit"]
 [connection signal="body_entered" from="River_To_Pass" to="." method="_on_River_To_Pass"]

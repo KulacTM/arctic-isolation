@@ -1,9 +1,15 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=2]
 [ext_resource path="res://GFX/Tiles/Tools/battery.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/GUI.gd" type="Script" id=4]
+[ext_resource path="res://GFX/Tiles/Tools/pick.png" type="Texture" id=5]
+[ext_resource path="res://GFX/Tiles/Tools/key.png" type="Texture" id=6]
+[ext_resource path="res://GFX/Tiles/Tools/lighter.png" type="Texture" id=7]
+[ext_resource path="res://GFX/Tiles/Tools/shovel.png" type="Texture" id=8]
+[ext_resource path="res://GFX/Tiles/Tools/axe.png" type="Texture" id=9]
+[ext_resource path="res://GFX/Tiles/Tools/lantern.png" type="Texture" id=10]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -48,11 +54,83 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="BatteryIcon" type="TextureRect" parent="."]
+[node name="IconContainer" type="HBoxContainer" parent="."]
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = -472.0
+margin_top = -64.0
+alignment = 2
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="BatteryIcon" type="TextureRect" parent="IconContainer"]
 visible = false
-margin_right = 40.0
-margin_bottom = 40.0
+margin_right = 64.0
+margin_bottom = 64.0
 texture = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AxeIcon" type="TextureRect" parent="IconContainer"]
+visible = false
+margin_left = 68.0
+margin_right = 132.0
+margin_bottom = 64.0
+texture = ExtResource( 9 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="FlashlightIcon" type="TextureRect" parent="IconContainer"]
+visible = false
+margin_left = 408.0
+margin_right = 472.0
+margin_bottom = 64.0
+texture = ExtResource( 10 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="KeyIcon" type="TextureRect" parent="IconContainer"]
+visible = false
+margin_left = 408.0
+margin_right = 472.0
+margin_bottom = 64.0
+texture = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="LighterIcon" type="TextureRect" parent="IconContainer"]
+visible = false
+margin_left = 408.0
+margin_right = 472.0
+margin_bottom = 64.0
+texture = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PickaxeIcon" type="TextureRect" parent="IconContainer"]
+visible = false
+margin_left = 340.0
+margin_right = 404.0
+margin_bottom = 64.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ShovelIcon" type="TextureRect" parent="IconContainer"]
+visible = false
+margin_left = 408.0
+margin_right = 472.0
+margin_bottom = 64.0
+texture = ExtResource( 8 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
