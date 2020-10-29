@@ -13,6 +13,7 @@ var has_axe = false
 var has_flashlight = false
 var has_lighter = false
 
+var bridge_repaired = false
 
 func _process(_delta):
 	if has_first_battery or has_second_battery or has_third_battery:

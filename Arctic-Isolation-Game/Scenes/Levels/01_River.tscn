@@ -47,7 +47,7 @@ position = Vector2( 779.263, 1453.71 )
 position = Vector2( 1677.93, 4310.79 )
 
 [node name="Start3" parent="Starting_Points" index="2"]
-position = Vector2( 3986.98, 1210.47 )
+position = Vector2( 3841.76, 1280.11 )
 
 [node name="Battery" parent="Objects" index="0" instance=ExtResource( 5 )]
 
