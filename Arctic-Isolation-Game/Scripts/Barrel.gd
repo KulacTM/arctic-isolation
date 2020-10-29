@@ -7,7 +7,7 @@ func _on_Barrel_body_entered(body):
 	if Inventory.has_lighter:
 		can_light = true
 	if is_fired:
-		Cold.multiplier = -50
+		Cold.multiplier = -300
 		can_light = false
 
 func _on_Barrel_body_exited(body):

@@ -84,3 +84,11 @@ func _on_PassToStation(_body):
 
 
 
+
+
+func _on_DetectionControllerZone_body_entered(body):
+	get_tree().call_group("GUI", "ShowDetection")
+
+
+func _on_DetectionControllerZone_body_exited(body):
+	get_tree().call_group("GUI", "HideDetection")

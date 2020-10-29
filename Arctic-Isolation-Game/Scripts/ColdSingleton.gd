@@ -1,4 +1,4 @@
 extends Control
 
-var default_multiplier = 50
-var multiplier = 50
+var default_multiplier = 30
+var multiplier = 30

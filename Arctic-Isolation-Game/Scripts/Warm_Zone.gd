@@ -13,4 +13,4 @@ func _on_Warm_Zone_body_exited(body):
 
 func _process(delta):
 	if is_warm_place:
-		Cold.multiplier = -50
+		Cold.multiplier = -300

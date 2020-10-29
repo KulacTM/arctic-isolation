@@ -4,9 +4,13 @@ var motion = Vector2()
 
 var velocity_multiplier = 1
 
-const SPEED = 200 #20 и 200 было
-const MAX_SPEED = 1000
-const FRICTION = 0.1
+export var SPEED = 200 #20 и 200 было
+export var MAX_SPEED = 1000
+const FRICTION = 0.2
+
+func _ready():
+	$Darkness.hide()
+
 
 func _physics_process(delta):
 	update_movement()
@@ -30,4 +34,21 @@ func update_movement():
 	else:
 		motion.x = lerp(motion.x, 0, FRICTION)
 	
+
+func In_Cave():
+	print("Вошел в пещеру")
+	$Light2D.shadow_enabled = true
+	if Inventory.has_flashlight:
+		pass
+	else:
+		$Light2D.texture_scale = 2.5
+	$Darkness.show()
+	#animate canvas modulate
+	if Input.is_action_pressed("move_down"):
+		$Flashlight.rotation_degrees = 90
 	
+func Out_Of_Cave():
+	print("Вышел из пещеры")
+	$Light2D.shadow_enabled = false
+	$Light2D.texture_scale = 6.82
+	$Darkness.hide()

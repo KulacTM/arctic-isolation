@@ -1,19 +1,22 @@
-[gd_scene load_steps=16 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=2]
-[ext_resource path="res://GFX/Tiles/Tools/battery.png" type="Texture" id=3]
+[ext_resource path="res://GFX/Tools/battery.png" type="Texture" id=3]
 [ext_resource path="res://Scripts/GUI.gd" type="Script" id=4]
-[ext_resource path="res://GFX/Tiles/Tools/pick.png" type="Texture" id=5]
-[ext_resource path="res://GFX/Tiles/Tools/key.png" type="Texture" id=6]
-[ext_resource path="res://GFX/Tiles/Tools/lighter.png" type="Texture" id=7]
-[ext_resource path="res://GFX/Tiles/Tools/shovel.png" type="Texture" id=8]
-[ext_resource path="res://GFX/Tiles/Tools/axe.png" type="Texture" id=9]
-[ext_resource path="res://GFX/Tiles/Tools/lantern.png" type="Texture" id=10]
+[ext_resource path="res://GFX/Tools/pick.png" type="Texture" id=5]
+[ext_resource path="res://GFX/Tools/key.png" type="Texture" id=6]
+[ext_resource path="res://GFX/Tools/lighter.png" type="Texture" id=7]
+[ext_resource path="res://GFX/Tools/shovel.png" type="Texture" id=8]
+[ext_resource path="res://GFX/Tools/axe.png" type="Texture" id=9]
+[ext_resource path="res://GFX/Tools/lantern.png" type="Texture" id=10]
 [ext_resource path="res://Scripts/ColdMeter.gd" type="Script" id=11]
 [ext_resource path="res://GFX/textures/freazingSilhuete1.png" type="Texture" id=12]
 [ext_resource path="res://GFX/textures/freazingSilhuete2.png" type="Texture" id=13]
 [ext_resource path="res://Scripts/ColdSingleton.gd" type="Script" id=14]
+[ext_resource path="res://GFX/textures/UI/exclamationMark/exclamationMark2.png" type="Texture" id=15]
+[ext_resource path="res://GFX/textures/UI/exclamationMark/exclamationMark1.png" type="Texture" id=16]
+[ext_resource path="res://Scenes/DetectionControl.gd" type="Script" id=17]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
@@ -81,7 +84,8 @@ __meta__ = {
 
 [node name="BatteryIcon" type="TextureRect" parent="IconContainer"]
 visible = false
-margin_right = 64.0
+margin_left = 407.0
+margin_right = 471.0
 margin_bottom = 64.0
 texture = ExtResource( 3 )
 __meta__ = {
@@ -90,8 +94,8 @@ __meta__ = {
 
 [node name="AxeIcon" type="TextureRect" parent="IconContainer"]
 visible = false
-margin_left = 68.0
-margin_right = 132.0
+margin_left = 407.0
+margin_right = 471.0
 margin_bottom = 64.0
 texture = ExtResource( 9 )
 __meta__ = {
@@ -100,8 +104,8 @@ __meta__ = {
 
 [node name="FlashlightIcon" type="TextureRect" parent="IconContainer"]
 visible = false
-margin_left = 408.0
-margin_right = 472.0
+margin_left = 407.0
+margin_right = 471.0
 margin_bottom = 64.0
 texture = ExtResource( 10 )
 __meta__ = {
@@ -169,10 +173,35 @@ margin_left = -48.0
 margin_top = -72.0
 margin_right = 48.0
 margin_bottom = 72.0
+step = 0.025
 texture_under = ExtResource( 12 )
 texture_progress = ExtResource( 13 )
 fill_mode = 3
 script = ExtResource( 11 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="DetectionControl" type="Control" parent="." groups=[
+"Detection",
+]]
+margin_right = 40.0
+margin_bottom = 40.0
+script = ExtResource( 17 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureProgress" type="TextureProgress" parent="DetectionControl"]
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 124.633
+margin_top = 473.0
+margin_right = 188.633
+margin_bottom = 537.0
+texture_under = ExtResource( 16 )
+texture_progress = ExtResource( 15 )
+fill_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
