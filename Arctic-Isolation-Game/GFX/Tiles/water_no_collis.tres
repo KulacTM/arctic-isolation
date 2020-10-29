@@ -1,0 +1,47 @@
+[gd_resource type="TileSet" load_steps=4 format=2]
+
+[ext_resource path="res://GFX/textures/TileMaps/environment.png" type="Texture" id=2]
+
+[sub_resource type="ConvexPolygonShape2D" id=2]
+points = PoolVector2Array( 64, 128, 0, 128, 0, 96, 64, 96 )
+
+[sub_resource type="ConvexPolygonShape2D" id=3]
+points = PoolVector2Array( 64, 128, 0, 128, 0, 96, 64, 96 )
+
+[resource]
+15/name = "water_no_collis"
+15/texture = ExtResource( 2 )
+15/tex_offset = Vector2( 0, 0 )
+15/modulate = Color( 1, 1, 1, 1 )
+15/region = Rect2( 0, 192, 384, 192 )
+15/tile_mode = 1
+15/autotile/bitmask_mode = 1
+15/autotile/bitmask_flags = [ Vector2( 0, 0 ), 432, Vector2( 0, 1 ), 446, Vector2( 0, 2 ), 54, Vector2( 1, 0 ), 506, Vector2( 1, 1 ), 511, Vector2( 1, 2 ), 191, Vector2( 2, 0 ), 216, Vector2( 2, 1 ), 251, Vector2( 2, 2 ), 27, Vector2( 3, 0 ), 144, Vector2( 3, 1 ), 18, Vector2( 3, 2 ), 48, Vector2( 4, 0 ), 219, Vector2( 4, 1 ), 438, Vector2( 4, 2 ), 24, Vector2( 5, 0 ), 504, Vector2( 5, 1 ), 63 ]
+15/autotile/icon_coordinate = Vector2( 1, 1 )
+15/autotile/tile_size = Vector2( 64, 64 )
+15/autotile/spacing = 0
+15/autotile/occluder_map = [  ]
+15/autotile/navpoly_map = [  ]
+15/autotile/priority_map = [  ]
+15/autotile/z_index_map = [  ]
+15/occluder_offset = Vector2( 0, 0 )
+15/navigation_offset = Vector2( 0, 0 )
+15/shape_offset = Vector2( 0, 0 )
+15/shape_transform = Transform2D( 1, 0, 0, 1, 0, 0 )
+15/shape = SubResource( 2 )
+15/shape_one_way = false
+15/shape_one_way_margin = 1.0
+15/shapes = [ {
+"autotile_coord": Vector2( 0, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 2 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+}, {
+"autotile_coord": Vector2( 1, 0 ),
+"one_way": false,
+"one_way_margin": 1.0,
+"shape": SubResource( 3 ),
+"shape_transform": Transform2D( 1, 0, 0, 1, 0, 0 )
+} ]
+15/z_index = 0

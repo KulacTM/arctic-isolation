@@ -1,19 +1,14 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=6 format=2]
 
-[ext_resource path="res://font.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://Scenes/Press_E.tscn" type="PackedScene" id=1]
 [ext_resource path="res://GFX/Tools/lantern.png" type="Texture" id=2]
 [ext_resource path="res://Scripts/Objects/Flashlight.gd" type="Script" id=3]
-
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 60.6803, 48.3789 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 17.2234, 23.3456 )
-
-[sub_resource type="DynamicFont" id=3]
-size = 50
-font_data = ExtResource( 1 )
 
 [node name="Flashlight" type="Area2D"]
 collision_layer = 4
@@ -35,18 +30,7 @@ position = Vector2( 0, 2 )
 scale = Vector2( 1.12492, 0.68 )
 shape = SubResource( 2 )
 
-[node name="Press_E" type="RichTextLabel" parent="."]
-visible = false
-margin_left = -101.965
-margin_top = -32.0
-margin_right = -61.9646
-margin_bottom = 8.0
-rect_min_size = Vector2( 40, 0 )
-custom_fonts/normal_font = SubResource( 3 )
-tab_size = 1
-text = "E"
-__meta__ = {
-"_edit_use_anchors_": false
-}
+[node name="Press_E" parent="." instance=ExtResource( 1 )]
+position = Vector2( 9.739, -44.5746 )
 [connection signal="body_entered" from="." to="." method="_on_Flashlight_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Flashlight_body_exited"]

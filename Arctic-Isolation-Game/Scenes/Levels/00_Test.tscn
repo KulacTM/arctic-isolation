@@ -1,7 +1,8 @@
-[gd_scene load_steps=4 format=2]
+[gd_scene load_steps=5 format=2]
 
 [ext_resource path="res://GFX/Tiles/upper.tres" type="TileSet" id=1]
 [ext_resource path="res://GFX/Tiles/main.tres" type="TileSet" id=2]
+[ext_resource path="res://GFX/Tiles/water_no_collis.tres" type="TileSet" id=3]
 [ext_resource path="res://Scripts/Transitions.gd" type="Script" id=5]
 
 [node name="Game" type="Node2D"]
@@ -21,6 +22,11 @@ script = ExtResource( 5 )
 
 [node name="TileMap_Upper" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )
+collision_layer = 2
+format = 1
+
+[node name="TileMap_Water_No_Collis" type="TileMap" parent="."]
+tile_set = ExtResource( 3 )
 collision_layer = 2
 format = 1
 
