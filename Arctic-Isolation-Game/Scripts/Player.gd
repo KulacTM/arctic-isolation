@@ -6,7 +6,7 @@ var velocity_multiplier = 1
 
 export var SPEED = 200 #20 и 200 было
 export var MAX_SPEED = 1000
-const FRICTION = 0.2
+const FRICTION = 0.3
 
 func _ready():
 	$Darkness.hide()

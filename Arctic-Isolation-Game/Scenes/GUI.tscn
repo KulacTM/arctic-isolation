@@ -185,8 +185,11 @@ __meta__ = {
 [node name="DetectionControl" type="Control" parent="." groups=[
 "Detection",
 ]]
-margin_right = 40.0
-margin_bottom = 40.0
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_top = -600.0
+margin_right = 1024.0
+margin_bottom = -6.10352e-05
 script = ExtResource( 17 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -195,12 +198,12 @@ __meta__ = {
 [node name="TextureProgress" type="TextureProgress" parent="DetectionControl"]
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 124.633
-margin_top = 473.0
-margin_right = 188.633
-margin_bottom = 537.0
-texture_under = ExtResource( 16 )
-texture_progress = ExtResource( 15 )
+margin_left = 124.632
+margin_top = -166.566
+margin_right = 1148.63
+margin_bottom = 433.434
+texture_under = ExtResource( 15 )
+texture_progress = ExtResource( 16 )
 fill_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false

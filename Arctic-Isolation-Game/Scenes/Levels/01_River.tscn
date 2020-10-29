@@ -1,4 +1,4 @@
-[gd_scene load_steps=24 format=2]
+[gd_scene load_steps=25 format=2]
 
 [ext_resource path="res://Scenes/Levels/00_Test.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Objects/Battery3.tscn" type="PackedScene" id=2]
@@ -16,7 +16,8 @@
 [ext_resource path="res://Scripts/Warm_Zone.gd" type="Script" id=14]
 [ext_resource path="res://GFX/textures/landslide.png" type="Texture" id=15]
 [ext_resource path="res://GFX/textures/snowFlake.png" type="Texture" id=16]
-[ext_resource path="res://GFX/textures/SeparateTilesEnv/bridge1.png" type="Texture" id=17]
+[ext_resource path="res://GFX/textures/bridge1.png" type="Texture" id=17]
+[ext_resource path="res://GFX/textures/bridgeFront.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 66.2374, 63.7959 )
@@ -80,9 +81,16 @@ rotation = -1.5708
 texture = ExtResource( 15 )
 
 [node name="bridge1" type="Sprite" parent="Objects" index="10"]
-position = Vector2( 1440.74, 3297.9 )
+position = Vector2( 1435.68, 3296.76 )
+scale = Vector2( 1.15015, 1.047 )
 z_index = 1
 texture = ExtResource( 17 )
+
+[node name="bridge2" type="Sprite" parent="Objects" index="11"]
+position = Vector2( 1435.68, 3296.76 )
+scale = Vector2( 1.15015, 1.047 )
+z_index = 11
+texture = ExtResource( 18 )
 
 [node name="River_To_Forest_Exit" type="Area2D" parent="." index="2"]
 position = Vector2( 1731.75, 4475.61 )
@@ -145,6 +153,7 @@ tile_data = PoolIntArray( -983006, 12, 0, -983005, 12, 1, -983004, 12, 1, -98300
 position = Vector2( 1615.97, 1890.11 )
 
 [node name="Snowstorm" parent="." index="9" instance=ExtResource( 11 )]
+visible = false
 z_index = 2
 texture = ExtResource( 16 )
 [connection signal="body_entered" from="River_To_Forest_Exit" to="." method="_on_River_To_Forest_Exit"]

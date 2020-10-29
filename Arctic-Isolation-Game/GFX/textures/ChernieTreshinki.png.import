@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/battery2.png-afc6456b350ddbd27ad91a92b3d271cc.stex"
+path="res://.import/ChernieTreshinki.png-4ed91df5bf24bffbdbfe5d0732763a0d.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GFX/textures/battary/battery2.png"
-dest_files=[ "res://.import/battery2.png-afc6456b350ddbd27ad91a92b3d271cc.stex" ]
+source_file="res://GFX/textures/ChernieTreshinki.png"
+dest_files=[ "res://.import/ChernieTreshinki.png-4ed91df5bf24bffbdbfe5d0732763a0d.stex" ]
 
 [params]
 

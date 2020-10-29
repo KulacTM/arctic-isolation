@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/battery3.png-bc203d0485de0dbeb009ff11f0d1d4ff.stex"
+path="res://.import/PlayQuitButton2.png-0f126ff1964bf9a977b8ee65cb38fe0a.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GFX/textures/battary/battery3.png"
-dest_files=[ "res://.import/battery3.png-bc203d0485de0dbeb009ff11f0d1d4ff.stex" ]
+source_file="res://GFX/textures/UI/PlayQuitButtons/PlayQuitButton2.png"
+dest_files=[ "res://.import/PlayQuitButton2.png-0f126ff1964bf9a977b8ee65cb38fe0a.stex" ]
 
 [params]
 

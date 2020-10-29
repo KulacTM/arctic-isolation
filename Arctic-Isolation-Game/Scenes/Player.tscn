@@ -28,7 +28,7 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 10, 18.5894 )
+extents = Vector2( 14.6227, 18.5894 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -37,15 +37,17 @@ position = Vector2( -274.216, -61.4499 )
 z_index = 2
 collision_mask = 2147483662
 script = ExtResource( 1 )
+SPEED = 20
+MAX_SPEED = 200
 
 [node name="Sprite" type="AnimatedSprite" parent="."]
-position = Vector2( 0, 6.61459 )
+position = Vector2( 0, -41.7534 )
 z_index = 1
 frames = SubResource( 1 )
 animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, 31.0962 )
+position = Vector2( 0, -17.3854 )
 rotation = -3.14159
 scale = Vector2( 0.946107, -1.02817 )
 shape = SubResource( 2 )
