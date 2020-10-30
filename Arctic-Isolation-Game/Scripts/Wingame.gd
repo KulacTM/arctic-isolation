@@ -18,7 +18,7 @@ func _process(delta):
 	if can_win and can_click and Input.is_action_just_pressed("action"):
 		get_tree().change_scene("res://Scenes/Levels/Win.tscn")
 	elif !can_win and can_click and Input.is_action_just_pressed("action"):
-		print("Иди собирай батареи")
+		get_tree().call_group("Dialogue", "NoBatteries")
 
 
 

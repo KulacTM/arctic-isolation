@@ -2,15 +2,15 @@
 
 [ext_resource path="res://GFX/textures/UI/PlayQuitButtons/PlayQuitButton2.png" type="Texture" id=1]
 
-[sub_resource type="StyleBoxTexture" id=6]
+[sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 128, 64 )
 
-[sub_resource type="StyleBoxTexture" id=7]
+[sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 128, 64 )
 
-[sub_resource type="StyleBoxTexture" id=5]
+[sub_resource type="StyleBoxTexture" id=3]
 texture = ExtResource( 1 )
 region_rect = Rect2( 0, 0, 128, 64 )
 
@@ -22,6 +22,6 @@ margin_left = 154.551
 margin_top = 158.078
 margin_right = 55.551
 margin_bottom = 218.078
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/normal = SubResource( 5 )
+custom_styles/hover = SubResource( 1 )
+custom_styles/pressed = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )

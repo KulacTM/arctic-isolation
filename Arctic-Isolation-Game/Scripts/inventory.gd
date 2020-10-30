@@ -16,6 +16,7 @@ var has_lighter = false
 var bridge_repaired = false
 var in_lake_zone = false
 var in_popup = false
+var snowstorm_said = false
 
 func _process(_delta):
 	if has_first_battery or has_second_battery or has_third_battery:

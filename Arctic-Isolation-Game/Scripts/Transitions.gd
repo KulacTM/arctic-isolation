@@ -109,3 +109,9 @@ func Snowstorm_off():
 
 func Snowstorm_on():
 	$Snowstorm.show()
+
+
+func _on_SnowStormDialogue_body_entered(body):
+	get_tree().call_group("Dialogue", "Snowstorm")
+
+

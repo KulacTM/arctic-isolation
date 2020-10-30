@@ -8,7 +8,7 @@ func _ready():
 func Stadia1():
 	$Stadia1.playing  = true
 	$Stadia1.volume_db = -10
-	$Background_Music.volume_db = -15
+	$Background_Music.volume_db = -12
 	
 func Stadia1_stop():
 #	$Stadia1.playing  = false
@@ -18,7 +18,7 @@ func Stadia1_stop():
 func Stadia2():
 	$Stadia2.playing  = true
 	$Stadia2.volume_db = -10
-	$Background_Music.volume_db = -15
+	$Background_Music.volume_db = -12
 	$Stadia1.volume_db = -15
 	
 func Stadia2_stop():
@@ -30,7 +30,7 @@ func Stadia2_stop():
 func Stadia3():
 	$Stadia3.playing  = true
 	$Stadia3.volume_db = -10
-	$Background_Music.volume_db = -15
+	$Background_Music.volume_db = -12
 #	$Stadia2.volume_db = -15
 	
 func Stadia3_stop():

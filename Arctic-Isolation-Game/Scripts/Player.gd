@@ -4,10 +4,10 @@ var motion = Vector2()
 
 var velocity_multiplier = 1
 
-var default_SPEED = 200
-var default_MAXSPEED = 1000
-export var SPEED = 200 #20 и 200 было
-export var MAX_SPEED = 1000
+var default_SPEED = 30
+var default_MAXSPEED = 300
+var SPEED = 30 #20 и 200 было
+var MAX_SPEED = 300
 const FRICTION = 0.3
 
 
@@ -39,7 +39,7 @@ func update_movement():
 	else:
 		motion.x = lerp(motion.x, 0, FRICTION)
 		
-	if Input.is_action_pressed("move_left") == false and Input.is_action_pressed("move_right") == false and Input.is_action_pressed("move_down") == false and Input.is_action_pressed("move_down") == false:
+	if Input.is_action_pressed("move_left") == false and Input.is_action_pressed("move_right") == false and Input.is_action_pressed("move_up") == false and Input.is_action_pressed("move_down") == false:
 		$AnimationSprite.Idle()
 	
 
@@ -47,9 +47,10 @@ func In_Cave():
 	print("Вошел в пещеру")
 	$Light2D.shadow_enabled = true
 	if Inventory.has_flashlight:
-		pass
+		get_tree().call_group("Dialogue", "Lantern")
 	else:
-		$Light2D.texture_scale = 2.5
+		get_tree().call_group("Dialogue", "NoLantern")
+		$NewTimer.start()
 	$Darkness.show()
 	#animate canvas modulate
 	if Input.is_action_pressed("move_down"):
@@ -70,3 +71,7 @@ func StopMotion():
 func _on_StartMotion_timeout():
 	SPEED = default_SPEED
 	MAX_SPEED = default_MAXSPEED
+
+
+func _on_NewTimer_timeout():
+	$Light2D.texture_scale = 2.5

@@ -30,7 +30,7 @@ animations = [ {
 "name": "walk_h",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
+"frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "walk_top",
 "speed": 5.0
@@ -84,7 +84,7 @@ position = Vector2( 0, -30.7534 )
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
 frames = SubResource( 1 )
-animation = "idle"
+animation = "walk_top"
 playing = true
 script = SubResource( 4 )
 
@@ -109,7 +109,7 @@ energy = 1.5
 
 [node name="Darkness" type="CanvasModulate" parent="."]
 position = Vector2( 274.216, 61.4499 )
-color = Color( 0, 0, 0, 0.964706 )
+color = Color( 0, 0, 0, 0.960784 )
 
 [node name="DialogueWindow" type="NinePatchRect" parent="." groups=[
 "Dialogue",
@@ -169,11 +169,15 @@ volume_db = -4.0
 pitch_scale = 0.85
 
 [node name="VoiceTimer" type="Timer" parent="DialogueWindow/Voice"]
-wait_time = 1.93
+wait_time = 1.65
 one_shot = true
 
 [node name="StartMotion" type="Timer" parent="."]
 one_shot = true
+
+[node name="NewTimer" type="Timer" parent="."]
+wait_time = 4.0
 [connection signal="timeout" from="DialogueWindow/Timer" to="DialogueWindow" method="_on_Timer_timeout"]
 [connection signal="timeout" from="DialogueWindow/Voice/VoiceTimer" to="DialogueWindow" method="_on_VoiceTimer_timeout"]
 [connection signal="timeout" from="StartMotion" to="." method="_on_StartMotion_timeout"]
+[connection signal="timeout" from="NewTimer" to="." method="_on_NewTimer_timeout"]

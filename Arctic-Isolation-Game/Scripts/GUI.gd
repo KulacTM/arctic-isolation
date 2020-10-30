@@ -65,6 +65,13 @@ func IcePopup():
 Если услышите треск под ногами - постарайтесь обойти опасную зону."""
 	$Popup.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	
+func LakePopup():
+	Inventory.in_popup = true
+	$"Popup/Popup_Text".text = """Осторожно! Здесь живут медведи.
+	В это время года они очень голодные. Постарайтесь к ним не подходить."""
+	$Popup.show()
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
 func _on_Popup_Button_pressed():
@@ -73,6 +80,7 @@ func _on_Popup_Button_pressed():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
-func _on_Button_pressed():
-	get_tree().quit()
 
+
+func _on_Button3_pressed():
+		get_tree().quit()

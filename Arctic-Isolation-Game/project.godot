@@ -15,15 +15,21 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Arctic-Isolation-Game"
+config/name="Don't Freeze"
+config/description="Не замерзай...."
 run/main_scene="res://Scenes/Levels/Full Map.tscn"
 boot_splash/image="res://splash.png"
-config/icon="res://icon.png"
+config/icon="res://icon_my.png"
 
 [autoload]
 
 Inventory="*res://Scripts/inventory.gd"
 Cold="*res://Scripts/ColdSingleton.gd"
+
+[display]
+
+window/size/borderless=true
+window/size/fullscreen=true
 
 [input]
 

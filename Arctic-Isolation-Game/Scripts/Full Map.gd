@@ -245,3 +245,6 @@ func _on_StationFromPass_timeout():
 	$"SceneNode/07_Pass".queue_free()
 	$SceneNode.add_child(load("res://Scenes/Levels/06_Station2.tscn").instance())
 	$Player.position = $"SceneNode/06_Station2/Starting_Points/Start2".position
+
+func ReloadAll():
+	get_tree().reload_current_scene()

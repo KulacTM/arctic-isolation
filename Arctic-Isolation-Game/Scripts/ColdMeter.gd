@@ -34,8 +34,7 @@ func _physics_process(delta):
 		$"SoundTimers/75Timer".start()
 		
 	if value == max_value:
-#		смерть
-		pass
+		get_tree().change_scene("res://Scenes/Levels/Loose.tscn")
 
 
 func _on_25Timer_timeout():

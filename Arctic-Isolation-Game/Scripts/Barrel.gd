@@ -32,7 +32,7 @@ func _process(delta):
 		$Timer.start()
 		is_fired = true
 		can_light = false
-	elif in_barrel_area and Input.is_action_just_pressed("action"):
+	elif in_barrel_area and Input.is_action_just_pressed("action") and Inventory.has_lighter == false:
 		get_tree().call_group("Dialogue", "NoLighter")
 		
 

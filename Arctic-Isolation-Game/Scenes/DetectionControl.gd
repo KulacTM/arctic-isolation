@@ -6,7 +6,7 @@ var multiplier = 1
 func AddSus():
 	$TextureProgress.value += $TextureProgress.step * multiplier 
 	if $TextureProgress.value == $TextureProgress.max_value:
-		print("сдох от льда")
+		get_tree().change_scene("res://Scenes/Levels/Loose.tscn")
 
 func RemoveSus():
 	$TextureProgress.value -= $TextureProgress.step * multiplier
@@ -14,7 +14,7 @@ func RemoveSus():
 func AddBearSus():
 	$TextureProgress.value += $TextureProgress.step * multiplier 
 	if $TextureProgress.value == $TextureProgress.max_value:
-		print("сдох от медведя")
+		get_tree().change_scene("res://Scenes/Levels/Loose.tscn")
 	
 func RemoveBearSus():
 	$TextureProgress.value = $TextureProgress.value
