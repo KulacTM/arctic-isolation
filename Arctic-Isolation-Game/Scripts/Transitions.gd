@@ -92,3 +92,13 @@ func _on_DetectionControllerZone_body_entered(body):
 
 func _on_DetectionControllerZone_body_exited(body):
 	get_tree().call_group("GUI", "HideDetection")
+
+
+func _on_BrokenPlateDialogue_body_entered(body):
+	get_tree().call_group("Dialogue", "BrokenPlate")
+
+
+
+
+func _on_EmptyPortDialogue_body_entered(body):
+	get_tree().call_group("Dialogue", "EmptyPort")

@@ -17,4 +17,11 @@ func AddBearSus():
 		print("сдох от медведя")
 	
 func RemoveBearSus():
-	$TextureProgress.value += $TextureProgress.step * multiplier
+	$TextureProgress.value = $TextureProgress.value
+	$ResetDetection.start()
+
+
+
+
+func _on_ResetDetection_timeout():
+	$TextureProgress.value = 0

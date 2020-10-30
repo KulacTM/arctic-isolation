@@ -1,8 +1,9 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://GFX/Tiles/upper.tres" type="TileSet" id=1]
 [ext_resource path="res://GFX/Tiles/main.tres" type="TileSet" id=2]
 [ext_resource path="res://GFX/Tiles/water_no_collis.tres" type="TileSet" id=3]
+[ext_resource path="res://GFX/Tiles/furniture.tres" type="TileSet" id=4]
 [ext_resource path="res://Scripts/Transitions.gd" type="Script" id=5]
 
 [node name="Game" type="Node2D"]
@@ -19,6 +20,11 @@ script = ExtResource( 5 )
 [node name="Objects" type="Node2D" parent="."]
 
 [node name="Warm_Zones" type="Node2D" parent="."]
+
+[node name="Tilemap_Furniture" type="TileMap" parent="."]
+tile_set = ExtResource( 4 )
+collision_layer = 2
+format = 1
 
 [node name="TileMap_Upper" type="TileMap" parent="."]
 tile_set = ExtResource( 1 )

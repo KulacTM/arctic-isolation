@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=2]
@@ -18,10 +18,10 @@
 [ext_resource path="res://GFX/textures/UI/exclamationMark/exclamationMark1.png" type="Texture" id=16]
 [ext_resource path="res://Scenes/DetectionControl.gd" type="Script" id=17]
 [ext_resource path="res://Scenes/BlackScreen.gd" type="Script" id=18]
-
-[sub_resource type="DynamicFont" id=1]
-size = 100
-font_data = ExtResource( 1 )
+[ext_resource path="res://GFX/textures/UI/pop-up.png" type="Texture" id=19]
+[ext_resource path="res://karkade.ttf" type="DynamicFontData" id=20]
+[ext_resource path="res://GFX/textures/UI/PlayQuitButtons/PlayQuitButton2.png" type="Texture" id=21]
+[ext_resource path="res://GFX/textures/UI/PlayQuitButtons/PlayQuitButton1.png" type="Texture" id=22]
 
 [sub_resource type="Animation" id=2]
 resource_name = "Fadeout"
@@ -38,6 +38,42 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
+[sub_resource type="DynamicFont" id=3]
+size = 32
+font_data = ExtResource( 20 )
+
+[sub_resource type="StyleBoxTexture" id=4]
+texture = ExtResource( 19 )
+region_rect = Rect2( 0, 0, 320, 128 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 100
+font_data = ExtResource( 1 )
+
+[sub_resource type="StyleBoxTexture" id=6]
+texture = ExtResource( 21 )
+region_rect = Rect2( 0, 0, 128, 64 )
+
+[sub_resource type="StyleBoxTexture" id=7]
+texture = ExtResource( 21 )
+region_rect = Rect2( 0, 0, 128, 64 )
+
+[sub_resource type="StyleBoxTexture" id=5]
+texture = ExtResource( 21 )
+region_rect = Rect2( 0, 0, 128, 64 )
+
+[sub_resource type="StyleBoxTexture" id=8]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 128, 64 )
+
+[sub_resource type="StyleBoxTexture" id=9]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 128, 64 )
+
+[sub_resource type="StyleBoxTexture" id=10]
+texture = ExtResource( 22 )
+region_rect = Rect2( 0, 0, 128, 64 )
+
 [node name="GUI" type="CanvasLayer" groups=[
 "GUI",
 ]]
@@ -48,38 +84,6 @@ script = ExtResource( 4 )
 anchor_right = 1.0
 anchor_bottom = 1.0
 color = Color( 0.0431373, 0.0431373, 0.117647, 0.752941 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Pause" type="Node" parent="."]
-script = ExtResource( 2 )
-
-[node name="PauseMenu" type="Node" parent="Pause"]
-
-[node name="PauseOverlay" type="ColorRect" parent="Pause"]
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -153.0
-margin_top = -52.51
-margin_right = 111.0
-margin_bottom = 47.49
-color = Color( 0, 0, 0, 0.329412 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="PauseText" type="RichTextLabel" parent="Pause/PauseOverlay"]
-anchor_left = 0.5
-anchor_right = 0.5
-margin_left = -77.3635
-margin_right = 102.637
-margin_bottom = 100.0
-custom_fonts/normal_font = SubResource( 1 )
-custom_colors/default_color = Color( 1, 1, 1, 1 )
-text = "Пауза"
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -189,7 +193,7 @@ margin_left = -48.0
 margin_top = -72.0
 margin_right = 48.0
 margin_bottom = 72.0
-step = 0.05
+step = 0.025
 texture_under = ExtResource( 12 )
 texture_progress = ExtResource( 13 )
 fill_mode = 3
@@ -236,6 +240,9 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="ResetDetection" type="Timer" parent="DetectionControl"]
+wait_time = 5.0
+
 [node name="BlackScreen" type="ColorRect" parent="." groups=[
 "BlackScreen",
 ]]
@@ -252,7 +259,118 @@ anims/Fadeout = SubResource( 2 )
 
 [node name="ChangeLocationTimer" type="Timer" parent="."]
 wait_time = 0.5
+
+[node name="Popup" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -273.5
+margin_top = -177.0
+margin_right = 273.5
+margin_bottom = 177.0
+texture = ExtResource( 19 )
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup_Text" type="RichTextLabel" parent="Popup"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -237.5
+margin_top = -134.0
+margin_right = 237.5
+margin_bottom = 134.0
+custom_fonts/normal_font = SubResource( 3 )
+text = "текст не имеет значения
+
+ничего не имеет значения
+
+
+жизнь - тлен
+"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Popup_Button" type="Button" parent="Popup"]
+anchor_left = 0.897
+anchor_top = 0.863
+anchor_right = 0.897
+anchor_bottom = 0.863
+margin_left = -19.8975
+margin_top = -16.9609
+margin_right = 20.1025
+margin_bottom = 19.0391
+custom_styles/normal = SubResource( 4 )
+text = "X"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Pause" type="Node" parent="."]
+script = ExtResource( 2 )
+
+[node name="PauseMenu" type="Node" parent="Pause"]
+
+[node name="PauseOverlay" type="NinePatchRect" parent="Pause"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -132.0
+margin_top = -53.0
+margin_right = 132.0
+margin_bottom = 47.0
+texture = ExtResource( 19 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="PauseText" type="RichTextLabel" parent="Pause/PauseOverlay"]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -77.3635
+margin_right = 102.637
+margin_bottom = 100.0
+custom_fonts/normal_font = SubResource( 1 )
+custom_colors/default_color = Color( 1, 1, 1, 1 )
+text = "Пауза"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button" type="Button" parent="Pause/PauseOverlay"]
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 154.551
+margin_top = 158.078
+margin_right = 55.551
+margin_bottom = 218.078
+custom_styles/hover = SubResource( 6 )
+custom_styles/pressed = SubResource( 7 )
+custom_styles/normal = SubResource( 5 )
+
+[node name="Button2" type="Button" parent="Pause/PauseOverlay"]
+margin_left = -51.0
+margin_top = 258.078
+margin_right = 114.0
+margin_bottom = 318.078
+custom_styles/hover = SubResource( 8 )
+custom_styles/focus = SubResource( 9 )
+custom_styles/normal = SubResource( 10 )
 [connection signal="timeout" from="ColdControl/ColdMeter/SoundTimers/25Timer" to="ColdControl/ColdMeter" method="_on_25Timer_timeout"]
 [connection signal="timeout" from="ColdControl/ColdMeter/SoundTimers/50Timer" to="ColdControl/ColdMeter" method="_on_50Timer_timeout"]
 [connection signal="timeout" from="ColdControl/ColdMeter/SoundTimers/75Timer" to="ColdControl/ColdMeter" method="_on_75Timer_timeout"]
+[connection signal="timeout" from="DetectionControl/ResetDetection" to="DetectionControl" method="_on_ResetDetection_timeout"]
 [connection signal="timeout" from="ChangeLocationTimer" to="." method="_on_ChangeLocationTimer_timeout"]
+[connection signal="pressed" from="Popup/Popup_Button" to="." method="_on_Popup_Button_pressed"]
+[connection signal="pressed" from="Pause/PauseOverlay/Button" to="." method="_on_Button_pressed"]
+[connection signal="pressed" from="Pause/PauseOverlay/Button2" to="Pause" method="_on_Button2_pressed"]
