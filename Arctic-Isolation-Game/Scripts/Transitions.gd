@@ -102,3 +102,10 @@ func _on_BrokenPlateDialogue_body_entered(body):
 
 func _on_EmptyPortDialogue_body_entered(body):
 	get_tree().call_group("Dialogue", "EmptyPort")
+	
+
+func Snowstorm_off():
+	$Snowstorm.hide()
+
+func Snowstorm_on():
+	$Snowstorm.show()

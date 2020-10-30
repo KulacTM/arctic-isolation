@@ -17,6 +17,7 @@ _global_script_class_icons={
 
 config/name="Arctic-Isolation-Game"
 run/main_scene="res://Scenes/Levels/Full Map.tscn"
+boot_splash/image="res://splash.png"
 config/icon="res://icon.png"
 
 [autoload]

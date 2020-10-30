@@ -59,8 +59,98 @@ volume_db = -10.0
 wait_time = 0.5
 one_shot = true
 
+[node name="PassFromRiver" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
 [node name="RiverFromForest" type="Timer" parent="Timers"]
 wait_time = 0.5
 one_shot = true
+
+[node name="PortFromForest" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="CoastFromPort" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="ForestFromPort" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="PortFromCoast" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="LighthouseFromCoast" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="CoastFromLighthouse" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="StationFromLighthouse" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="LighthouseFromStation" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="PassFromStation" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="TowerFromStation" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="StationFromTower" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="LakeFromTower" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="LakeFromTowerTop" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="TowerFromLake" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="TowerFromLakeTop" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="RiverFromPass" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
+
+[node name="StationFromPass" type="Timer" parent="Timers"]
+wait_time = 0.5
+one_shot = true
 [connection signal="timeout" from="Timers/ForestFromRiver" to="." method="_on_ForestFromRiver_timeout"]
+[connection signal="timeout" from="Timers/PassFromRiver" to="." method="_on_PassFromRiver_timeout"]
 [connection signal="timeout" from="Timers/RiverFromForest" to="." method="_on_RiverFromForest_timeout"]
+[connection signal="timeout" from="Timers/PortFromForest" to="." method="_on_PortFromForest_timeout"]
+[connection signal="timeout" from="Timers/CoastFromPort" to="." method="_on_CoastFromPort_timeout"]
+[connection signal="timeout" from="Timers/ForestFromPort" to="." method="_on_ForestFromPort_timeout"]
+[connection signal="timeout" from="Timers/PortFromCoast" to="." method="_on_PortFromCoast_timeout"]
+[connection signal="timeout" from="Timers/LighthouseFromCoast" to="." method="_on_LighthouseFromCoast_timeout"]
+[connection signal="timeout" from="Timers/CoastFromLighthouse" to="." method="_on_CoastFromLighthouse_timeout"]
+[connection signal="timeout" from="Timers/StationFromLighthouse" to="." method="_on_StationFromLighthouse_timeout"]
+[connection signal="timeout" from="Timers/LighthouseFromStation" to="." method="_on_LighthouseFromStation_timeout"]
+[connection signal="timeout" from="Timers/PassFromStation" to="." method="_on_PassFromStation_timeout"]
+[connection signal="timeout" from="Timers/TowerFromStation" to="." method="_on_TowerFromStation_timeout"]
+[connection signal="timeout" from="Timers/StationFromTower" to="." method="_on_StationFromTower_timeout"]
+[connection signal="timeout" from="Timers/LakeFromTower" to="." method="_on_LakeFromTower_timeout"]
+[connection signal="timeout" from="Timers/LakeFromTowerTop" to="." method="_on_LakeFromTowerTop_timeout"]
+[connection signal="timeout" from="Timers/TowerFromLake" to="." method="_on_TowerFromLake_timeout"]
+[connection signal="timeout" from="Timers/TowerFromLakeTop" to="." method="_on_TowerFromLakeTop_timeout"]
+[connection signal="timeout" from="Timers/RiverFromPass" to="." method="_on_RiverFromPass_timeout"]
+[connection signal="timeout" from="Timers/StationFromPass" to="." method="_on_StationFromPass_timeout"]

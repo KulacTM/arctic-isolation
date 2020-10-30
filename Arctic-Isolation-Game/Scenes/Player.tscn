@@ -1,35 +1,68 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
-[ext_resource path="res://GFX/textures/Chars/Player/GG1.png" type="Texture" id=2]
+[ext_resource path="res://GFX/Chars/Player/GG_Side3.png" type="Texture" id=2]
 [ext_resource path="res://GFX/Lightmaps/spot.png" type="Texture" id=3]
 [ext_resource path="res://GFX/textures/UI/pop-up.png" type="Texture" id=4]
 [ext_resource path="res://karkade.ttf" type="DynamicFontData" id=5]
 [ext_resource path="res://Scripts/DialogueWindow.gd" type="Script" id=6]
 [ext_resource path="res://SFX/Effects/ozvu4ka.ogg" type="AudioStream" id=7]
+[ext_resource path="res://GFX/Chars/Player/GGFrontaseprite1.png" type="Texture" id=8]
+[ext_resource path="res://GFX/Chars/Player/GGFrontaseprite3.png" type="Texture" id=9]
+[ext_resource path="res://GFX/Chars/Player/GG_Side2.png" type="Texture" id=10]
+[ext_resource path="res://GFX/Chars/Player/GGBackaseprite1.png" type="Texture" id=11]
+[ext_resource path="res://GFX/Chars/Player/GGBackaseprite2.png" type="Texture" id=12]
+[ext_resource path="res://GFX/Chars/Player/GGBackaseprite3.png" type="Texture" id=13]
+[ext_resource path="res://GFX/Chars/Player/GG_Side4.png" type="Texture" id=14]
+[ext_resource path="res://GFX/Chars/Player/GGFrontaseprite2.png" type="Texture" id=15]
+[ext_resource path="res://GFX/Chars/Player/GG_Side.png" type="Texture" id=16]
+[ext_resource path="res://GFX/Chars/Player/GG_Side1.png" type="Texture" id=17]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
-"frames": [ ExtResource( 2 ) ],
+"frames": [ ExtResource( 8 ) ],
 "loop": true,
 "name": "idle",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 17 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 14 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "walk_h",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 11 ), ExtResource( 12 ), ExtResource( 13 ) ],
 "loop": true,
 "name": "walk_top",
 "speed": 5.0
 }, {
-"frames": [  ],
+"frames": [ ExtResource( 15 ), ExtResource( 9 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "walk_bottom",
 "speed": 5.0
 } ]
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends AnimatedSprite
+
+
+func Idle():
+	animation = \"idle\"
+	
+
+func GoDown():
+	animation = \"walk_bottom\"
+	
+func GoUp():
+	animation = \"walk_top\"
+
+func GoLeft():
+	animation = \"walk_h\"
+	flip_h = true
+
+func GoRight():
+	animation = \"walk_h\"
+	flip_h = false
+"
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 14.6227, 21.6672 )
@@ -46,12 +79,14 @@ z_index = 9
 collision_mask = 2147483662
 script = ExtResource( 1 )
 
-[node name="Sprite" type="AnimatedSprite" parent="."]
+[node name="AnimationSprite" type="AnimatedSprite" parent="."]
 position = Vector2( 0, -30.7534 )
 scale = Vector2( 0.8, 0.8 )
 z_index = 1
 frames = SubResource( 1 )
 animation = "idle"
+playing = true
+script = SubResource( 4 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, -17.4125 )

@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=30 format=2]
 
 [ext_resource path="res://font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=2]
@@ -20,7 +20,7 @@
 [ext_resource path="res://Scenes/BlackScreen.gd" type="Script" id=18]
 [ext_resource path="res://GFX/textures/UI/pop-up.png" type="Texture" id=19]
 [ext_resource path="res://karkade.ttf" type="DynamicFontData" id=20]
-[ext_resource path="res://GFX/textures/UI/PlayQuitButtons/PlayQuitButton2.png" type="Texture" id=21]
+[ext_resource path="res://Scenes/QuitButton.tscn" type="PackedScene" id=21]
 [ext_resource path="res://GFX/textures/UI/PlayQuitButtons/PlayQuitButton1.png" type="Texture" id=22]
 
 [sub_resource type="Animation" id=2]
@@ -49,18 +49,6 @@ region_rect = Rect2( 0, 0, 320, 128 )
 [sub_resource type="DynamicFont" id=1]
 size = 100
 font_data = ExtResource( 1 )
-
-[sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 21 )
-region_rect = Rect2( 0, 0, 128, 64 )
-
-[sub_resource type="StyleBoxTexture" id=7]
-texture = ExtResource( 21 )
-region_rect = Rect2( 0, 0, 128, 64 )
-
-[sub_resource type="StyleBoxTexture" id=5]
-texture = ExtResource( 21 )
-region_rect = Rect2( 0, 0, 128, 64 )
 
 [sub_resource type="StyleBoxTexture" id=8]
 texture = ExtResource( 22 )
@@ -346,17 +334,7 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" type="Button" parent="Pause/PauseOverlay"]
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-margin_left = 154.551
-margin_top = 158.078
-margin_right = 55.551
-margin_bottom = 218.078
-custom_styles/hover = SubResource( 6 )
-custom_styles/pressed = SubResource( 7 )
-custom_styles/normal = SubResource( 5 )
+[node name="Button" parent="Pause/PauseOverlay" instance=ExtResource( 21 )]
 
 [node name="Button2" type="Button" parent="Pause/PauseOverlay"]
 margin_left = -51.0
@@ -372,5 +350,4 @@ custom_styles/normal = SubResource( 10 )
 [connection signal="timeout" from="DetectionControl/ResetDetection" to="DetectionControl" method="_on_ResetDetection_timeout"]
 [connection signal="timeout" from="ChangeLocationTimer" to="." method="_on_ChangeLocationTimer_timeout"]
 [connection signal="pressed" from="Popup/Popup_Button" to="." method="_on_Popup_Button_pressed"]
-[connection signal="pressed" from="Pause/PauseOverlay/Button" to="." method="_on_Button_pressed"]
 [connection signal="pressed" from="Pause/PauseOverlay/Button2" to="Pause" method="_on_Button2_pressed"]

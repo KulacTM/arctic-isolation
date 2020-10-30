@@ -2,15 +2,15 @@
 
 importer="texture"
 type="StreamTexture"
-path="res://.import/GG (2).png-d675be3ec8e83a0a91e5a2fd36bde315.stex"
+path="res://.import/GG_Side1.png-d9bb9155fb36577d86ada9ebe6458436.stex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://GFX/Chars/GG (2).png"
-dest_files=[ "res://.import/GG (2).png-d675be3ec8e83a0a91e5a2fd36bde315.stex" ]
+source_file="res://GFX/Chars/Player/GG_Side1.png"
+dest_files=[ "res://.import/GG_Side1.png-d9bb9155fb36577d86ada9ebe6458436.stex" ]
 
 [params]
 
