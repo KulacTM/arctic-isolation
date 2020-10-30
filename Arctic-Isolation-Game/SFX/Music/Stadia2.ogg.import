@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Stadia2.ogg-cbad4fcd195b512643a454dd6a8c8d76.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Stadia2.ogg"
+dest_files=[ "res://.import/Stadia2.ogg-cbad4fcd195b512643a454dd6a8c8d76.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -20,7 +20,7 @@
 [ext_resource path="res://GFX/textures/bridgeFront.png" type="Texture" id=18]
 
 [sub_resource type="RectangleShape2D" id=1]
-extents = Vector2( 66.2374, 63.7959 )
+extents = Vector2( 117.696, 117.276 )
 
 [sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 275.173, 369.959 )
@@ -44,7 +44,7 @@ position = Vector2( -218.835, -83.8819 )
 position = Vector2( 779.263, 1453.71 )
 
 [node name="Start2" parent="Starting_Points" index="1"]
-position = Vector2( 1677.93, 4310.79 )
+position = Vector2( 1567.44, 4278.45 )
 
 [node name="Start3" parent="Starting_Points" index="2"]
 position = Vector2( 3841.76, 1280.11 )
@@ -93,10 +93,11 @@ z_index = 11
 texture = ExtResource( 18 )
 
 [node name="River_To_Forest_Exit" type="Area2D" parent="." index="2"]
-position = Vector2( 1731.75, 4475.61 )
+position = Vector2( 1731.75, 4517.14 )
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="River_To_Forest_Exit" index="0"]
+position = Vector2( 0, -26.4287 )
 shape = SubResource( 1 )
 
 [node name="River_To_Pass" type="Area2D" parent="." index="3"]
@@ -153,7 +154,6 @@ tile_data = PoolIntArray( -983006, 12, 0, -983005, 12, 1, -983004, 12, 1, -98300
 position = Vector2( 1615.97, 1890.11 )
 
 [node name="Snowstorm" parent="." index="9" instance=ExtResource( 11 )]
-visible = false
 z_index = 2
 texture = ExtResource( 16 )
 [connection signal="body_entered" from="River_To_Forest_Exit" to="." method="_on_River_To_Forest_Exit"]

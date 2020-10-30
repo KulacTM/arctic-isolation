@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=21 format=2]
 
 [ext_resource path="res://font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=2]
@@ -17,10 +17,26 @@
 [ext_resource path="res://GFX/textures/UI/exclamationMark/exclamationMark2.png" type="Texture" id=15]
 [ext_resource path="res://GFX/textures/UI/exclamationMark/exclamationMark1.png" type="Texture" id=16]
 [ext_resource path="res://Scenes/DetectionControl.gd" type="Script" id=17]
+[ext_resource path="res://Scenes/BlackScreen.gd" type="Script" id=18]
 
 [sub_resource type="DynamicFont" id=1]
 size = 100
 font_data = ExtResource( 1 )
+
+[sub_resource type="Animation" id=2]
+resource_name = "Fadeout"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:color")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.5, 0.7, 1 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
+}
 
 [node name="GUI" type="CanvasLayer" groups=[
 "GUI",
@@ -173,7 +189,7 @@ margin_left = -48.0
 margin_top = -72.0
 margin_right = 48.0
 margin_bottom = 72.0
-step = 0.025
+step = 0.05
 texture_under = ExtResource( 12 )
 texture_progress = ExtResource( 13 )
 fill_mode = 3
@@ -181,6 +197,17 @@ script = ExtResource( 11 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="SoundTimers" type="Node" parent="ColdControl/ColdMeter"]
+
+[node name="25Timer" type="Timer" parent="ColdControl/ColdMeter/SoundTimers"]
+one_shot = true
+
+[node name="50Timer" type="Timer" parent="ColdControl/ColdMeter/SoundTimers"]
+one_shot = true
+
+[node name="75Timer" type="Timer" parent="ColdControl/ColdMeter/SoundTimers"]
+one_shot = true
 
 [node name="DetectionControl" type="Control" parent="." groups=[
 "Detection",
@@ -208,3 +235,24 @@ fill_mode = 3
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="BlackScreen" type="ColorRect" parent="." groups=[
+"BlackScreen",
+]]
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color( 0, 0, 0, 0 )
+script = ExtResource( 18 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen"]
+anims/Fadeout = SubResource( 2 )
+
+[node name="ChangeLocationTimer" type="Timer" parent="."]
+wait_time = 0.5
+[connection signal="timeout" from="ColdControl/ColdMeter/SoundTimers/25Timer" to="ColdControl/ColdMeter" method="_on_25Timer_timeout"]
+[connection signal="timeout" from="ColdControl/ColdMeter/SoundTimers/50Timer" to="ColdControl/ColdMeter" method="_on_50Timer_timeout"]
+[connection signal="timeout" from="ColdControl/ColdMeter/SoundTimers/75Timer" to="ColdControl/ColdMeter" method="_on_75Timer_timeout"]
+[connection signal="timeout" from="ChangeLocationTimer" to="." method="_on_ChangeLocationTimer_timeout"]

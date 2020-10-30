@@ -1,8 +1,12 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://GFX/textures/Chars/Player/GG1.png" type="Texture" id=2]
 [ext_resource path="res://GFX/Lightmaps/spot.png" type="Texture" id=3]
+[ext_resource path="res://GFX/textures/UI/pop-up.png" type="Texture" id=4]
+[ext_resource path="res://karkade.ttf" type="DynamicFontData" id=5]
+[ext_resource path="res://Scripts/DialogueWindow.gd" type="Script" id=6]
+[ext_resource path="res://SFX/Effects/ozvu4ka3.ogg" type="AudioStream" id=7]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -13,12 +17,12 @@ animations = [ {
 }, {
 "frames": [  ],
 "loop": true,
-"name": "walk_top",
+"name": "walk_h",
 "speed": 5.0
 }, {
 "frames": [  ],
 "loop": true,
-"name": "walk_h",
+"name": "walk_top",
 "speed": 5.0
 }, {
 "frames": [  ],
@@ -28,7 +32,11 @@ animations = [ {
 } ]
 
 [sub_resource type="RectangleShape2D" id=2]
-extents = Vector2( 14.6227, 18.5894 )
+extents = Vector2( 14.6227, 27.272 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 14
+font_data = ExtResource( 5 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
@@ -45,7 +53,7 @@ frames = SubResource( 1 )
 animation = "idle"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2( 0, -17.3854 )
+position = Vector2( 0, -25.4125 )
 rotation = -3.14159
 scale = Vector2( 0.946107, -1.02817 )
 shape = SubResource( 2 )
@@ -54,7 +62,7 @@ shape = SubResource( 2 )
 current = true
 
 [node name="Light2D" type="Light2D" parent="."]
-position = Vector2( 0, 11.7144 )
+position = Vector2( 0, -36.4485 )
 z_index = -1
 texture = ExtResource( 3 )
 texture_scale = 6.82
@@ -63,3 +71,56 @@ energy = 1.5
 [node name="Darkness" type="CanvasModulate" parent="."]
 position = Vector2( 274.216, 61.4499 )
 color = Color( 0, 0, 0, 0.964706 )
+
+[node name="DialogueWindow" type="NinePatchRect" parent="." groups=[
+"Dialogue",
+]]
+margin_left = 32.0
+margin_top = -186.405
+margin_right = 217.0
+margin_bottom = -88.4054
+texture = ExtResource( 4 )
+patch_margin_left = 10
+patch_margin_top = 10
+patch_margin_right = 10
+patch_margin_bottom = 10
+script = ExtResource( 6 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Dialogue" type="RichTextLabel" parent="DialogueWindow"]
+anchor_left = 0.508
+anchor_top = 0.51
+anchor_right = 0.508
+anchor_bottom = 0.51
+margin_left = -78.98
+margin_top = -37.98
+margin_right = 79.02
+margin_bottom = 38.02
+custom_fonts/normal_font = SubResource( 3 )
+text = "Здесь рассказывается о 
+нелегкой жизни главного героя"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Timer" type="Timer" parent="DialogueWindow"]
+wait_time = 4.0
+one_shot = true
+
+[node name="Voice" type="AudioStreamPlayer2D" parent="DialogueWindow"]
+position = Vector2( -32, 156.844 )
+stream = ExtResource( 7 )
+volume_db = -10.0
+pitch_scale = 0.85
+
+[node name="VoiceTimer" type="Timer" parent="DialogueWindow/Voice"]
+wait_time = 1.93
+one_shot = true
+
+[node name="StartMotion" type="Timer" parent="."]
+one_shot = true
+[connection signal="timeout" from="DialogueWindow/Timer" to="DialogueWindow" method="_on_Timer_timeout"]
+[connection signal="timeout" from="DialogueWindow/Voice/VoiceTimer" to="DialogueWindow" method="_on_VoiceTimer_timeout"]
+[connection signal="timeout" from="StartMotion" to="." method="_on_StartMotion_timeout"]

@@ -15,6 +15,7 @@ func _on_Battery_body_exited(body):
 func _process(delta):
 	if Input.is_action_just_pressed("action") and can_collect_battery1: # collect battery
 		Inventory.has_first_battery = true
+		get_tree().call_group("Dialogue", "AddedBattery")
 		can_collect_battery1 = false
 		queue_free()
 	if Inventory.has_first_battery: # never spawn battery if its collected

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/Back_ambient.ogg-e50904ea2f7e1192751bccf1b693b384.oggstr"
+
+[deps]
+
+source_file="res://SFX/Music/Back_ambient.ogg"
+dest_files=[ "res://.import/Back_ambient.ogg-e50904ea2f7e1192751bccf1b693b384.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,14 +1,15 @@
 extends Node2D
 
+
 func _ready():
 	$SceneNode.add_child(load("res://Scenes/Levels/01_River.tscn").instance())
 	$Player.position = $"SceneNode/01_River/Starting_Points/Start1".position	
 	
 
 func ForestFromRiver():
-	$"SceneNode/01_River".queue_free()
-	$SceneNode.add_child(load("res://Scenes/Levels/02_Forest.tscn").instance())
-	$Player.position = $"SceneNode/02_Forest/Starting_Points/Start1".position
+	$Timers/ForestFromRiver.start()
+	get_tree().call_group("Player", "StopMotion")
+	get_tree().call_group("BlackScreen", "Fadeout")
 	
 
 func PassFromRiver():
@@ -18,9 +19,9 @@ func PassFromRiver():
 	
 	
 func RiverFromForest():
-	$"SceneNode/02_Forest".queue_free()
-	$SceneNode.add_child(load("res://Scenes/Levels/01_River.tscn").instance())
-	$Player.position = $"SceneNode/01_River/Starting_Points/Start2".position
+	$Timers/RiverFromForest.start()
+	get_tree().call_group("Player", "StopMotion")
+	get_tree().call_group("BlackScreen", "Fadeout")
 
 
 func PortFromForest():
@@ -117,3 +118,16 @@ func StationFromPass():
 	$"SceneNode/07_Pass".queue_free()
 	$SceneNode.add_child(load("res://Scenes/Levels/06_Station2.tscn").instance())
 	$Player.position = $"SceneNode/06_Station2/Starting_Points/Start2".position
+
+
+func _on_ForestFromRiver_timeout():
+	$"SceneNode/01_River".queue_free()
+	$SceneNode.add_child(load("res://Scenes/Levels/02_Forest.tscn").instance())
+	$Player.position = $"SceneNode/02_Forest/Starting_Points/Start1".position
+
+
+func _on_RiverFromForest_timeout():
+	$"SceneNode/02_Forest".queue_free()
+	$SceneNode.add_child(load("res://Scenes/Levels/01_River.tscn").instance())
+	$Player.position = $"SceneNode/01_River/Starting_Points/Start2".position
+

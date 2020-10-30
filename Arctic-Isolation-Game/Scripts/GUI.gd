@@ -47,3 +47,4 @@ func ShowDetection():
 
 func HideDetection():
 	$DetectionControl/TextureProgress.hide()
+

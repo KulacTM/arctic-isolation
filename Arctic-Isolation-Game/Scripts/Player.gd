@@ -4,6 +4,8 @@ var motion = Vector2()
 
 var velocity_multiplier = 1
 
+var default_SPEED = 200
+var default_MAXSPEED = 1000
 export var SPEED = 200 #20 и 200 было
 export var MAX_SPEED = 1000
 const FRICTION = 0.3
@@ -52,3 +54,13 @@ func Out_Of_Cave():
 	$Light2D.shadow_enabled = false
 	$Light2D.texture_scale = 6.82
 	$Darkness.hide()
+
+func StopMotion():
+	SPEED = 0
+	MAX_SPEED = 0
+	$StartMotion.start()
+
+
+func _on_StartMotion_timeout():
+	SPEED = default_SPEED
+	MAX_SPEED = default_MAXSPEED

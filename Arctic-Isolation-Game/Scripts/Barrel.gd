@@ -29,6 +29,8 @@ func _process(delta):
 		$Timer.start()
 		is_fired = true
 		can_light = false
+	elif can_light == false and Input.is_action_just_pressed("action"):
+		get_tree().call_group("Dialogue", "NoLighter")
 		
 
 func _on_Timer_timeout():
