@@ -62,7 +62,7 @@ func ForestPopup():
 func IcePopup():
 	Inventory.in_popup = true
 	$"Popup/Popup_Text".text = """Осторожно! Тонкий лёд!
-Если услышите треск под ногами - постарайтесь обойти опасную зону."""
+Если услышите треск под ногами - вернитесь на безопасное место и постарайтесь обойти опасную зону."""
 	$Popup.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	

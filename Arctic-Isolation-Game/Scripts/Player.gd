@@ -4,10 +4,10 @@ var motion = Vector2()
 
 var velocity_multiplier = 1
 
-var default_SPEED = 30
-var default_MAXSPEED = 300
-var SPEED = 30 #20 и 200 было
-var MAX_SPEED = 300
+var default_SPEED = 28
+var default_MAXSPEED = 280
+var SPEED = 28 #20 и 200 было
+var MAX_SPEED = 280
 const FRICTION = 0.3
 
 
