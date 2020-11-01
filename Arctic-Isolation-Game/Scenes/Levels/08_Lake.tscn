@@ -159,11 +159,11 @@ script = SubResource( 1 )
 position = Vector2( 2347.22, -16 )
 shape = SubResource( 2 )
 
-[node name="Barrel" parent="Objects" index="4" instance=ExtResource( 7 )]
-position = Vector2( 1572.33, 397.538 )
-
-[node name="Barrel2" parent="Objects" index="5" instance=ExtResource( 7 )]
+[node name="Barrel2" parent="Objects" index="4" instance=ExtResource( 7 )]
 position = Vector2( 2817.47, -669.882 )
+
+[node name="Barrel" parent="Objects" index="5" instance=ExtResource( 7 )]
+position = Vector2( 1736.62, 436.412 )
 
 [node name="Warm_Zone" parent="Warm_Zones" index="0" instance=ExtResource( 8 )]
 position = Vector2( 1736.62, 1138.74 )
@@ -208,7 +208,7 @@ shape = SubResource( 7 )
 tile_data = PoolIntArray( -1310684, 11, 0, -1114079, 12, 0, -1114057, 11, 0, -982986, 7, 0, -982979, 11, 0, -917475, 11, 0, -917462, 5, 0, -917457, 12, 0, -851923, 12, 0, -720855, 13, 0, -720839, 11, 0, -720833, 5, 0, -524268, 11, 0, -524230, 7, 0, -393163, 11, 0, -196568, 8, 0, -65501, 8, 0, -65476, 11, 0, 22, 11, 0, 131082, 11, 0, 131095, 8, 0, 196623, 8, 0, 327700, 12, 0, 393225, 8, 0, 393251, 8, 0, 458771, 11, 0, 458802, 8, 0, 458809, 11, 0, 524307, 11, 0, 524313, 8, 0, 524332, 11, 0, 589835, 12, 0, 655414, 11, 0, 786480, 11, 0, 983085, 6, 0 )
 
 [node name="TileMap_Water_No_Collis" parent="." index="7"]
-tile_data = PoolIntArray( -851930, -1073741809, 65537, -786394, -1073741809, 65537, -786382, 15, 65540, -786381, 1610612751, 65540, -524265, 15, 65537, -524264, 15, 65537 )
+tile_data = PoolIntArray( -851930, 15, 5, -786394, 1610612751, 5, -786382, 15, 65540, -786381, 1610612751, 65540, -524265, -1073741809, 5, -524264, -1610612721, 5 )
 
 [node name="Bear1" parent="." index="8" instance=ExtResource( 2 )]
 position = Vector2( 2640.43, -274.63 )
@@ -221,7 +221,7 @@ position = Vector2( 1594.8, -790 )
 
 [node name="AnimatedSprite" parent="Bear3" index="0"]
 animation = "Walk"
-frame = 3
+frame = 1
 flip_h = true
 
 [node name="AnimationPlayer" parent="Bear3" index="2"]

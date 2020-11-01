@@ -1,6 +1,7 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://GFX/textures/snowFlake.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/Snowstorm.gd" type="Script" id=2]
 
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
@@ -13,7 +14,9 @@ initial_velocity_random = 0.5
 orbit_velocity = 0.0
 orbit_velocity_random = 0.0
 
-[node name="Snowstorm" type="Particles2D"]
+[node name="Snowstorm" type="Particles2D" groups=[
+"Snowstorm",
+]]
 position = Vector2( -527.411, -484.259 )
 amount = 1000
 lifetime = 10.0
@@ -22,3 +25,4 @@ randomness = 0.1
 visibility_rect = Rect2( -100, -100, 5000, 5000 )
 process_material = SubResource( 1 )
 texture = ExtResource( 1 )
+script = ExtResource( 2 )

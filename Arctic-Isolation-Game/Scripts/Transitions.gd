@@ -95,20 +95,20 @@ func _on_DetectionControllerZone_body_exited(body):
 
 
 func _on_BrokenPlateDialogue_body_entered(body):
-	get_tree().call_group("Dialogue", "BrokenPlate")
+	if Inventory.brokenanthena_dialogue == false:
+		get_tree().call_group("Dialogue", "BrokenPlate")
+		Inventory.brokenanthena_dialogue = true
 
 
 
 
 func _on_EmptyPortDialogue_body_entered(body):
-	get_tree().call_group("Dialogue", "EmptyPort")
-	
+	if Inventory.emptyport_dialogue == false:
+		get_tree().call_group("Dialogue", "EmptyPort")
+		Inventory.emptyport_dialogue = true
 
-func Snowstorm_off():
-	$Snowstorm.hide()
 
-func Snowstorm_on():
-	$Snowstorm.show()
+
 
 
 func _on_SnowStormDialogue_body_entered(body):

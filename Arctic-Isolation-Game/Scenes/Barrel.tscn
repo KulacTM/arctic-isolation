@@ -45,7 +45,7 @@ energy = 1.5
 
 [node name="Press_E" parent="." instance=ExtResource( 5 )]
 position = Vector2( 5.35144, -65.7037 )
-frame = 0
+frame = 1
 [connection signal="body_entered" from="." to="." method="_on_Barrel_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Barrel_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

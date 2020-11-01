@@ -38,14 +38,13 @@ func _on_IceSign_body_exited(body):
 	sign_on_ice = false
 
 
-
-func _on_LakeSign_body_exited(body):
+func _on_LakeSign_body_entered(body):
 	$Press_E.show()
 	can_press_e = true
 	sign_on_lake = true
 
 
-func _on_LakeSign_body_entered(body):
+func _on_LakeSign_body_exited(body):
 	$Press_E.hide()
 	can_press_e = false
 	sign_on_lake = false
