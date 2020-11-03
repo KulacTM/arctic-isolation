@@ -30,14 +30,14 @@ animations = [ {
 "name": "walk_top",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 9 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "walk_bottom",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 17 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 14 ), ExtResource( 16 ) ],
 "loop": true,
 "name": "walk_h",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walk_bottom",
 "speed": 5.0
 } ]
 
@@ -85,7 +85,6 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 1
 frames = SubResource( 1 )
 animation = "walk_top"
-frame = 1
 playing = true
 script = SubResource( 2 )
 

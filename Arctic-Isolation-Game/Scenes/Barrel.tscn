@@ -34,7 +34,8 @@ wait_time = 15.0
 [node name="BonfireSound" type="AudioStreamPlayer2D" parent="."]
 position = Vector2( 0, -2.11548 )
 stream = ExtResource( 1 )
-attenuation = 0.105112
+max_distance = 500.0
+attenuation = 0.450624
 
 [node name="Light2D" type="Light2D" parent="."]
 enabled = false
@@ -45,7 +46,7 @@ energy = 1.5
 
 [node name="Press_E" parent="." instance=ExtResource( 5 )]
 position = Vector2( 5.35144, -65.7037 )
-frame = 1
+frame = 2
 [connection signal="body_entered" from="." to="." method="_on_Barrel_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Barrel_body_exited"]
 [connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

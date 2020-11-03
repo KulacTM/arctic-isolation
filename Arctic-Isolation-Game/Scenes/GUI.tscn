@@ -187,14 +187,14 @@ __meta__ = {
 
 [node name="ColdMeter" type="TextureProgress" parent="ColdControl"]
 pause_mode = 1
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-margin_left = -48.0
-margin_top = -72.0
-margin_right = 48.0
-margin_bottom = 72.0
+anchor_left = -1.416
+anchor_top = 2.864
+anchor_right = -1.416
+anchor_bottom = 2.864
+margin_left = 28.64
+margin_top = -166.56
+margin_right = 124.64
+margin_bottom = -22.5595
 step = 0.025
 texture_under = ExtResource( 12 )
 texture_progress = ExtResource( 13 )
@@ -232,10 +232,10 @@ __meta__ = {
 pause_mode = 1
 anchor_top = 1.0
 anchor_bottom = 1.0
-margin_left = 124.632
-margin_top = -166.566
-margin_right = 1148.63
-margin_bottom = 433.434
+margin_left = 125.0
+margin_top = -167.0
+margin_right = 239.0
+margin_bottom = -2.99994
 step = 1.33
 texture_under = ExtResource( 15 )
 texture_progress = ExtResource( 16 )
@@ -338,10 +338,10 @@ __meta__ = {
 }
 
 [node name="ColorRect" type="ColorRect" parent="Pause/PauseOverlay"]
-margin_left = -1532.94
-margin_top = -1207.98
-margin_right = 2166.06
-margin_bottom = 1373.02
+margin_left = -1519.83
+margin_top = -1549.97
+margin_right = 2179.17
+margin_bottom = 1031.03
 color = Color( 0, 0, 0, 0.45098 )
 __meta__ = {
 "_edit_use_anchors_": false

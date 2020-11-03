@@ -5,20 +5,15 @@ var motion = Vector2()
 var velocity_multiplier = 1
 
 var default_SPEED = 28
-var default_MAXSPEED = 280
-var SPEED = 28 #28-280
-var MAX_SPEED = 280
+var default_MAXSPEED = 200
+var SPEED = 28 #28-200
+var MAX_SPEED = 200
 const FRICTION = 0.3
 
 
 func _ready():
 	$Darkness.hide()
 	$AnimationSprite.Idle()
-
-func _physics_process(delta):
-	update_movement()
-	animate()
-	move_and_slide(motion * velocity_multiplier)
 
 
 func update_movement():
@@ -35,6 +30,14 @@ func update_movement():
 		motion.x = clamp(motion.x + SPEED, 0, MAX_SPEED)
 	else:
 		motion.x = lerp(motion.x, 0, FRICTION)
+	
+
+func _physics_process(delta):
+	animate()
+	update_movement()
+	if Input.is_action_pressed("move_down") or Input.is_action_pressed("move_up") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
+		move_and_slide(motion.normalized() * MAX_SPEED)
+	print(motion)
 
 
 func animate():
@@ -73,7 +76,7 @@ func animate():
 
 
 func In_Cave():
-	print("Вошел в пещеру")
+	Inventory.in_cave = true
 	$Light2D.shadow_enabled = true
 	if Inventory.has_flashlight:
 		get_tree().call_group("Dialogue", "Lantern")
@@ -81,12 +84,11 @@ func In_Cave():
 		get_tree().call_group("Dialogue", "NoLantern")
 		$NewTimer.start()
 	$Darkness.show()
-	#animate canvas modulate
-	if Input.is_action_pressed("move_down"):
-		$Flashlight.rotation_degrees = 90
+
 	
 func Out_Of_Cave():
 	print("Вышел из пещеры")
+	Inventory.in_cave = false
 	$Light2D.shadow_enabled = false
 	$Light2D.texture_scale = 6.82
 	$Darkness.hide()
@@ -103,4 +105,5 @@ func _on_StartMotion_timeout():
 
 
 func _on_NewTimer_timeout():
-	$Light2D.texture_scale = 2.5
+	if Inventory.in_cave and Inventory.has_flashlight == false:
+		$Light2D.texture_scale = 2.5

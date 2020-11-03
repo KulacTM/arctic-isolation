@@ -10,7 +10,7 @@ func _on_Barrel_body_entered(body):
 	if Inventory.has_lighter:
 		can_light = true
 	if is_fired:
-		Cold.multiplier = -300
+		Cold.multiplier = -100
 		can_light = false
 		$Press_E.hide()
 
@@ -28,7 +28,7 @@ func _process(delta):
 		$Light2D.enabled = true
 		$Press_E.hide()
 		$BonfireSound.playing = true
-		Cold.multiplier = -50
+		Cold.multiplier = -100
 		$Timer.start()
 		is_fired = true
 		can_light = false

@@ -19,6 +19,7 @@ var in_popup = false
 var snowstorm_said = false
 var emptyport_dialogue = false
 var brokenanthena_dialogue = false
+var in_cave = false
 
 func _process(_delta):
 	if has_first_battery or has_second_battery or has_third_battery:
