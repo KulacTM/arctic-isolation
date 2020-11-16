@@ -1,14 +1,27 @@
 extends KinematicBody2D
 
-var motion = Vector2()
+var speed = 2000
+var friction = 0.2
+var acceleration = 0.1
 
-var velocity_multiplier = 1
+var velocity = Vector2()
 
-var default_SPEED = 28
-var default_MAXSPEED = 200
-var SPEED = 28 #28-200
-var MAX_SPEED = 200
-const FRICTION = 0.3
+func get_input():
+	var input = Vector2()
+	if Input.is_action_pressed('move_right'):
+		input.x += 1
+	if Input.is_action_pressed('move_left'):
+		input.x -= 1
+	if Input.is_action_pressed('move_down'):
+		input.y += 1
+	if Input.is_action_pressed('move_up'):
+		input.y -= 1
+	
+	if Input.is_action_pressed('move_right') or Input.is_action_pressed('move_left') or Input.is_action_pressed('move_down') or Input.is_action_pressed('move_up'):
+		FootstepsOn()
+	else:
+		FootstepsOff()
+	return input
 
 
 func _ready():
@@ -16,28 +29,14 @@ func _ready():
 	$AnimationSprite.Idle()
 
 
-func update_movement():
-	if Input.is_action_pressed("move_down") and not Input.is_action_pressed("move_up"):
-		motion.y = clamp(motion.y + SPEED, 0, MAX_SPEED)
-	elif Input.is_action_pressed("move_up") and not Input.is_action_pressed("move_down"):
-		motion.y = clamp(motion.y - SPEED, -MAX_SPEED, 0)
-	else:
-		motion.y = lerp(motion.y, 0, FRICTION)
-
-	if Input.is_action_pressed("move_left") and not Input.is_action_pressed("move_right"):
-		motion.x = clamp(motion.x - SPEED, -MAX_SPEED, 0)
-	elif Input.is_action_pressed("move_right") and not Input.is_action_pressed("move_left"):
-		motion.x = clamp(motion.x + SPEED, 0, MAX_SPEED)
-	else:
-		motion.x = lerp(motion.x, 0, FRICTION)
-	
-
 func _physics_process(delta):
+	var direction = get_input()
+	if direction.length() > 0:
+		velocity = lerp(velocity, direction.normalized() * speed, acceleration)
+	else:
+		velocity = lerp(velocity, Vector2.ZERO, friction)
+	velocity = move_and_slide(velocity)
 	animate()
-	update_movement()
-	if Input.is_action_pressed("move_down") or Input.is_action_pressed("move_up") or Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
-		move_and_slide(motion.normalized() * MAX_SPEED)
-	print(motion)
 
 
 func animate():
@@ -83,27 +82,51 @@ func In_Cave():
 	else:
 		get_tree().call_group("Dialogue", "NoLantern")
 		$NewTimer.start()
+	FootstepsIndoor()
 	$Darkness.show()
 
-	
+
 func Out_Of_Cave():
 	print("Вышел из пещеры")
 	Inventory.in_cave = false
 	$Light2D.shadow_enabled = false
 	$Light2D.texture_scale = 6.82
 	$Darkness.hide()
+	FootstepsSnow()
+
 
 func StopMotion():
-	SPEED = 0
-	MAX_SPEED = 0
+	speed = 0
 	$StartMotion.start()
 
 
 func _on_StartMotion_timeout():
-	SPEED = default_SPEED
-	MAX_SPEED = default_MAXSPEED
+	speed = 2000
 
 
 func _on_NewTimer_timeout():
 	if Inventory.in_cave and Inventory.has_flashlight == false:
 		$Light2D.texture_scale = 2.5
+
+
+func FootstepsOn():
+	if Inventory.not_in_motion:
+		$Footsteps.playing = true
+		Inventory.not_in_motion = false
+
+
+func FootstepsOff():
+	$Footsteps.playing = false
+	Inventory.not_in_motion = true
+
+
+func FootstepsSnow():
+	$Footsteps.playing = false
+	$Footsteps.stream = load("res://SFX/Effects/Footsteps/snowFootsteps.ogg")
+	$Footsteps.playing = true
+
+
+func FootstepsIndoor():
+	$Footsteps.playing = false
+	$Footsteps.stream = load("res://SFX/Effects/Footsteps/indoorFootsteps.ogg")
+	$Footsteps.playing = true

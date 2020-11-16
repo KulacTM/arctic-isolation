@@ -24,7 +24,7 @@ func _on_Barrel_body_exited(body):
 
 func _process(delta):
 	if can_light and Input.is_action_just_pressed("action"):
-		$Sprite.texture = load("res://GFX/textures/bochka/bochka2.png")
+		$Sprite.texture = load("res://GFX/Objects/Barrel/barrel2.png")
 		$Light2D.enabled = true
 		$Press_E.hide()
 		$BonfireSound.playing = true
@@ -38,12 +38,12 @@ func _process(delta):
 
 func _on_Timer_timeout():
 	Cold.multiplier = Cold.default_multiplier
-	$Sprite.texture = load("res://GFX/textures/bochka/bochka1.png")
+	$Sprite.texture = load("res://GFX/Objects/Barrel/barrel1.png")
 	$BonfireSound.playing = false
 	$Light2D.enabled = false
 	is_fired = false
 	can_light = true
 	$Press_E.show()
-
+	
 
 

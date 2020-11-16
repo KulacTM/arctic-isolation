@@ -7,7 +7,7 @@ func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 	
 func _process(delta):
-	if Input.is_action_just_pressed("esc"):
+	if Input.is_action_just_pressed("esc") and Inventory.can_press_pause:
 		var new_pause_state = !get_tree().paused
 		get_tree().paused = new_pause_state
 		if new_pause_state:
@@ -18,6 +18,10 @@ func _process(delta):
 			Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 		if Inventory.in_popup == true:
 			Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	elif Input.is_action_just_pressed("esc") and Inventory.in_popup:
+		get_tree().call_group("GUI", "HidePopup")
+	elif Input.is_action_just_pressed("action") and Inventory.in_popup:
+		get_tree().call_group("GUI", "HidePopup")
 
 
 func _on_Button2_pressed():

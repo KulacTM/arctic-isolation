@@ -1,0 +1,150 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://GFX/Objects/door.png" type="Texture" id=1]
+[ext_resource path="res://Scenes/UI/Press_E.tscn" type="PackedScene" id=2]
+
+[sub_resource type="GDScript" id=5]
+script/source = "extends Area2D
+
+
+var in_door_zone = false
+var on_cooldown = false
+
+func _on_body_entered(body):
+	in_door_zone = true
+	if not on_cooldown:
+		$Press_E.visible = true
+
+
+func _on_body_exited(body):
+	in_door_zone = false
+	$Press_E.visible = false
+
+
+func _ready():
+	$Press_E.visible = false
+	$AnimationPlayer.current_animation = \"Door_Close\"
+
+
+func _process(_delta):
+	if Inventory.has_key and in_door_zone and Input.is_action_just_pressed(\"action\") and not on_cooldown:
+		$AnimationPlayer.current_animation = \"Door_Open\"
+		$DoorCloseTimer.start()
+		$Press_E.visible = false
+		on_cooldown = true
+	elif not Inventory.has_key and in_door_zone and Input.is_action_just_pressed(\"action\"):
+		get_tree().call_group(\"Dialogue\", \"NoKey\")
+
+
+func _on_DoorCloseTimer_timeout():
+	$AnimationPlayer.current_animation = \"Door_Close\"
+	$CooldownTimer.start()
+
+
+func _on_CooldownTimer_timeout():
+	on_cooldown = false
+	if in_door_zone:
+		$Press_E.visible = true
+"
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 32.5379, 9.72461 )
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 32.5379, 43.3197 )
+
+[sub_resource type="Animation" id=4]
+resource_name = "Door_Close"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("StaticBody2D:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ -90.0, 0.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("StaticBody2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+
+[sub_resource type="Animation" id=3]
+resource_name = "Door_Open"
+length = 2.0
+tracks/0/type = "value"
+tracks/0/path = NodePath("StaticBody2D:rotation_degrees")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ 0.0, -90.0 ]
+}
+tracks/1/type = "value"
+tracks/1/path = NodePath("StaticBody2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 0, 1 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 0,
+"values": [ Vector2( 0, 0 ), Vector2( 0, 0 ) ]
+}
+
+[node name="Door" type="Area2D"]
+collision_layer = 2
+script = SubResource( 5 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+rotation = -1.5708
+collision_layer = 2
+
+[node name="Sprite" type="Sprite" parent="StaticBody2D"]
+position = Vector2( -25.8652, 0 )
+texture = ExtResource( 1 )
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2( -25.8652, 0 )
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( -25.8652, 0 )
+shape = SubResource( 2 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/Door_Close = SubResource( 4 )
+anims/Door_Open = SubResource( 3 )
+
+[node name="Press_E" parent="." instance=ExtResource( 2 )]
+position = Vector2( -25.8652, -68.7442 )
+frame = 1
+
+[node name="DoorCloseTimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
+
+[node name="CooldownTimer" type="Timer" parent="."]
+one_shot = true
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_body_exited"]
+[connection signal="timeout" from="DoorCloseTimer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="DoorCloseTimer" to="." method="_on_DoorCloseTimer_timeout"]
+[connection signal="timeout" from="CooldownTimer" to="." method="_on_CooldownTimer_timeout"]

@@ -19,7 +19,7 @@ config/name="Don't Freeze"
 config/description="Не замерзай...."
 run/main_scene="res://Scenes/Levels/Full Map.tscn"
 boot_splash/image="res://splash.png"
-config/icon="res://icon_my.png"
+config/icon="res://icon.png"
 
 [autoload]
 
@@ -31,8 +31,6 @@ Cold="*res://Scripts/ColdSingleton.gd"
 window/size/width=1280
 window/size/height=720
 window/size/resizable=false
-window/size/borderless=true
-window/size/fullscreen=true
 
 [importer_defaults]
 

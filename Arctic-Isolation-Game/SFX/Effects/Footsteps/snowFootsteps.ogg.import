@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/snowFootsteps.ogg-4c3bac49d0935e7e8a6c47f2aa80ff11.oggstr"
+
+[deps]
+
+source_file="res://SFX/Effects/Footsteps/snowFootsteps.ogg"
+dest_files=[ "res://.import/snowFootsteps.ogg-4c3bac49d0935e7e8a6c47f2aa80ff11.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

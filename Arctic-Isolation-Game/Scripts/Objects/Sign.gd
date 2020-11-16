@@ -1,5 +1,7 @@
 extends Area2D
 
+#var in
+
 var can_press_e = false
 
 var sign_in_forest = false
@@ -24,6 +26,7 @@ func _on_ForestSign_body_exited(body):
 	$Press_E.hide()
 	can_press_e = false
 	sign_in_forest = false
+	get_tree().call_group("GUI", "HidePopup")
 
 
 func _on_IceSign_body_entered(body):
@@ -36,7 +39,7 @@ func _on_IceSign_body_exited(body):
 	$Press_E.hide()
 	can_press_e = false
 	sign_on_ice = false
-
+	get_tree().call_group("GUI", "HidePopup")
 
 func _on_LakeSign_body_entered(body):
 	$Press_E.show()
@@ -48,3 +51,4 @@ func _on_LakeSign_body_exited(body):
 	$Press_E.hide()
 	can_press_e = false
 	sign_on_lake = false
+	get_tree().call_group("GUI", "HidePopup")

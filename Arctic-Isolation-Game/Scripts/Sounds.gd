@@ -40,3 +40,8 @@ func Stadia3_stop():
 #	$Stadia1.volume_db = -10
 
 
+#func SnowFootsteps():
+#	$Footsteps.playing = true
+
+
+

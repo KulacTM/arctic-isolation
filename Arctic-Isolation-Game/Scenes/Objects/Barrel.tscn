@@ -1,0 +1,52 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://GFX/Lightmaps/spot.png" type="Texture" id=1]
+[ext_resource path="res://GFX/Objects/Barrel/barrel1.png" type="Texture" id=2]
+[ext_resource path="res://SFX/Effects/Bonfire.ogg" type="AudioStream" id=3]
+[ext_resource path="res://Scenes/UI/Press_E.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scripts/Barrel.gd" type="Script" id=5]
+
+[sub_resource type="CircleShape2D" id=1]
+radius = 33.3407
+
+[sub_resource type="RectangleShape2D" id=2]
+extents = Vector2( 69.2593, 67.3386 )
+
+[node name="Barrel" type="Area2D"]
+collision_layer = 2
+script = ExtResource( 5 )
+
+[node name="Sprite" type="Sprite" parent="."]
+texture = ExtResource( 2 )
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+collision_layer = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+shape = SubResource( 1 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+shape = SubResource( 2 )
+
+[node name="Timer" type="Timer" parent="."]
+wait_time = 15.0
+
+[node name="BonfireSound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2( 0, -2.11548 )
+stream = ExtResource( 3 )
+max_distance = 500.0
+attenuation = 0.450624
+
+[node name="Light2D" type="Light2D" parent="."]
+enabled = false
+texture = ExtResource( 1 )
+texture_scale = 4.0
+color = Color( 0.72549, 0.623529, 0.305882, 1 )
+energy = 1.5
+
+[node name="Press_E" parent="." instance=ExtResource( 4 )]
+position = Vector2( 5.35144, -65.7037 )
+frame = 3
+[connection signal="body_entered" from="." to="." method="_on_Barrel_body_entered"]
+[connection signal="body_exited" from="." to="." method="_on_Barrel_body_exited"]
+[connection signal="timeout" from="Timer" to="." method="_on_Timer_timeout"]

@@ -22,5 +22,5 @@ func _on_Area2D_body_exited(body):
 
 
 func _on_TreshStart_timeout():
-	var tresh = add_child(load("res://Scenes/Treshinki.tscn").instance())
+	var tresh = add_child(load("res://Scenes/Effectors/Cracks.tscn").instance())
 	

@@ -1,13 +1,14 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=13 format=2]
 
-[ext_resource path="res://Scenes/Levels/00_Test.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Scenes/Levels/00_Core.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Scenes/Levels/Death_Ice.gd" type="Script" id=2]
 [ext_resource path="res://SFX/Effects/led9.ogg" type="AudioStream" id=3]
-[ext_resource path="res://Scenes/Barrel.tscn" type="PackedScene" id=4]
-[ext_resource path="res://Scenes/Sign.tscn" type="PackedScene" id=5]
-[ext_resource path="res://Scenes/Warm_Zone.tscn" type="PackedScene" id=6]
-[ext_resource path="res://Scenes/Snowstorm.tscn" type="PackedScene" id=7]
-[ext_resource path="res://Scenes/Objects/Flashlight.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Objects/Barrel.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Scenes/Objects/Sign.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Scenes/Effectors/Warm_Zone.tscn" type="PackedScene" id=6]
+[ext_resource path="res://Scenes/Effectors/Snowstorm.tscn" type="PackedScene" id=7]
+[ext_resource path="res://Scenes/Items/Flashlight.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Scenes/Objects/Door.tscn" type="PackedScene" id=9]
 
 [sub_resource type="RectangleShape2D" id=1]
 extents = Vector2( 246.909, 163.1 )
@@ -111,6 +112,18 @@ position = Vector2( -3110.43, -2860.82 )
 
 [node name="Flashlight" parent="Snowstorm" index="0" instance=ExtResource( 8 )]
 position = Vector2( 4736.43, 3124.82 )
+
+[node name="Door" parent="." index="12" instance=ExtResource( 9 )]
+position = Vector2( 1417.69, 313.052 )
+rotation = 1.57079
+
+[node name="StaticBody2D" parent="Door" index="0"]
+rotation = 0.0
+
+[node name="Press_E" parent="Door" index="3"]
+position = Vector2( -82.5497, -24.4071 )
+rotation = -1.5708
+frame = 3
 [connection signal="body_entered" from="Objects/IceSign" to="Objects/IceSign" method="_on_IceSign_body_entered"]
 [connection signal="body_exited" from="Objects/IceSign" to="Objects/IceSign" method="_on_IceSign_body_exited"]
 [connection signal="body_entered" from="Objects/IceSign2" to="Objects/IceSign2" method="_on_IceSign_body_entered"]
@@ -122,3 +135,5 @@ position = Vector2( 4736.43, 3124.82 )
 [connection signal="timeout" from="Death_Ice/TreshTimer" to="Death_Ice" method="_on_TreshStart_timeout"]
 [connection signal="body_entered" from="DetectionControllerZone" to="." method="_on_DetectionControllerZone_body_entered"]
 [connection signal="body_exited" from="DetectionControllerZone" to="." method="_on_DetectionControllerZone_body_exited"]
+
+[editable path="Door"]

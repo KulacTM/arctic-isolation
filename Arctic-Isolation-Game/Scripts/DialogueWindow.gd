@@ -37,7 +37,17 @@ func Lantern():
 func NoLantern():
 	$Dialogue.text = "Без фонаря совсем туго. Слышал, у смотрителя маяка есть такой. По крайней мере, был..."
 	dialogue_opened()
-	
+
+
+func NoKey():
+	$Dialogue.text = "Без ключа эту дверь не открыть..."
+	dialogue_opened()
+
+
+func NoShovel():
+	$Dialogue.text = "Руками я это не откопаю. Без какой-никакой лопаты не обойтись..."
+	dialogue_opened()
+
 
 func Snowstorm():
 	if Inventory.snowstorm_said == false:

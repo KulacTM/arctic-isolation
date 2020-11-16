@@ -1,6 +1,6 @@
 [gd_scene load_steps=2 format=2]
 
-[ext_resource path="res://GFX/Tiles/upper.tres" type="TileSet" id=1]
+[ext_resource path="res://GFX/TileMaps/upper.tres" type="TileSet" id=1]
 
 [node name="TileMap_Upper" type="TileMap"]
 tile_set = ExtResource( 1 )
