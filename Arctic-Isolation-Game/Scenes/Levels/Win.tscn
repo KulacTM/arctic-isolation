@@ -4,7 +4,6 @@
 [ext_resource path="res://karkade.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/UI/QuitButton.tscn" type="PackedScene" id=3]
 
-
 [sub_resource type="GDScript" id=1]
 script/source = "extends CanvasLayer
 
@@ -52,9 +51,12 @@ text = "Вам удалось отправить сигнал о том, что 
 Продолжение следует"
 
 [node name="Button" parent="NinePatchRect/RichTextLabel" instance=ExtResource( 3 )]
-anchor_left = 1.0
-margin_left = -258.0
-margin_top = -129.0
-margin_right = -3.0
-margin_bottom = -54.0
+anchor_left = 0.854
+anchor_top = 0.847
+anchor_right = 0.854
+anchor_bottom = 0.847
+margin_left = -105.759
+margin_top = -37.6317
+margin_right = 105.241
+margin_bottom = 37.3683
 [connection signal="pressed" from="NinePatchRect/RichTextLabel/Button" to="." method="_on_Button_pressed"]

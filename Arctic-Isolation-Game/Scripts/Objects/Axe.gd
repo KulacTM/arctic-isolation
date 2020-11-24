@@ -17,6 +17,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("action") and can_collect_axe: # collect battery
 		Inventory.has_axe = true
 		can_collect_axe = false
+		get_tree().call_group("GUI", "UI_Update")
 		queue_free()
 	if Inventory.has_axe: # never spawn battery if its collected
 		queue_free()

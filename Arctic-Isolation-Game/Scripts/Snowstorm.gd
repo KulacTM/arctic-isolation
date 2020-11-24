@@ -1,7 +1,7 @@
 extends Particles2D
 
 func Snowstorm_off():
-	hide()
+	emitting = false
 
 func Snowstorm_on():
-	show()
+	emitting = true

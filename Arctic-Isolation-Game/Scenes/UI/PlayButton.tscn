@@ -1,0 +1,42 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://GFX/textures/UI/PlayQuitButtons/PlayQuitButton1.png" type="Texture" id=1]
+
+[sub_resource type="StyleBoxTexture" id=1]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 128, 64 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 128, 64 )
+
+[sub_resource type="StyleBoxTexture" id=3]
+texture = ExtResource( 1 )
+region_rect = Rect2( 0, 0, 128, 64 )
+
+[sub_resource type="GDScript" id=4]
+script/source = "extends Button
+
+
+
+func _on_pressed():
+	get_tree().change_scene(\"res://Scenes/Levels/Full Map.tscn\")
+"
+
+[node name="PlayButton" type="Button"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -100.0
+margin_top = -40.0
+margin_right = 100.0
+margin_bottom = 40.0
+custom_styles/hover = SubResource( 1 )
+custom_styles/focus = SubResource( 2 )
+custom_styles/normal = SubResource( 3 )
+script = SubResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="." to="." method="_on_pressed"]

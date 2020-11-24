@@ -70,4 +70,16 @@ func _on_Timer_timeout():
 	hide()
 
 
+func TooMuchLogs():
+	$Dialogue.text = "Я столько не унесу..."
+	dialogue_opened()
 
+
+func NoLogs():
+	$Dialogue.text = "Мне нечего пилить..."
+	dialogue_opened()
+	
+
+func NoPlanks():
+	$Dialogue.text = "Нет нужных материалов...думаю, могу сделать их на лесопилке"
+	dialogue_opened()

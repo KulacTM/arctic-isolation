@@ -4,9 +4,6 @@ extends Area2D
 var in_landslide_area = false
 var can_dig = false
 
-func _ready():
-	$Press_E.visible = false
-
 
 func _process(delta):
 	if not Inventory.river_landslide_exist:

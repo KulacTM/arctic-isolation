@@ -17,6 +17,7 @@ func _process(delta):
 	if Input.is_action_just_pressed("action") and can_collect_key: # collect key
 		Inventory.has_key = true
 		can_collect_key = false
+		get_tree().call_group("GUI", "UI_Update")
 		queue_free()
 	if Inventory.has_key: # never spawn battery if its collected
 		queue_free()

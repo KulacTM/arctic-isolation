@@ -17,7 +17,7 @@ _global_script_class_icons={
 
 config/name="Don't Freeze"
 config/description="Не замерзай...."
-run/main_scene="res://Scenes/Levels/Full Map.tscn"
+run/main_scene="res://Scenes/Levels/StartMenu.tscn"
 boot_splash/image="res://splash.png"
 config/icon="res://icon.png"
 
@@ -30,7 +30,6 @@ Cold="*res://Scripts/ColdSingleton.gd"
 
 window/size/width=1280
 window/size/height=720
-window/size/resizable=false
 
 [importer_defaults]
 

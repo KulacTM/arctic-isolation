@@ -28,6 +28,6 @@ shape = SubResource( 2 )
 
 [node name="Press_E" parent="." instance=ExtResource( 2 )]
 position = Vector2( 7.55099, -79.7574 )
-frame = 1
+frame = 0
 [connection signal="body_entered" from="." to="." method="_on_Landslide_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Landslide_body_exited"]

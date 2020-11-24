@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=23 format=2]
 
 [ext_resource path="res://Scripts/Player.gd" type="Script" id=1]
 [ext_resource path="res://GFX/Chars/Player/GG_Side3.png" type="Texture" id=2]
@@ -17,6 +17,7 @@
 [ext_resource path="res://GFX/Chars/Player/GGFrontaseprite2.png" type="Texture" id=15]
 [ext_resource path="res://SFX/Effects/Footsteps/snowFootsteps.ogg" type="AudioStream" id=16]
 [ext_resource path="res://GFX/Chars/Player/GG_Side1.png" type="Texture" id=17]
+[ext_resource path="res://Scenes/Effectors/Snowstorm.tscn" type="PackedScene" id=18]
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
@@ -30,14 +31,14 @@ animations = [ {
 "name": "walk_top",
 "speed": 5.0
 }, {
-"frames": [ ExtResource( 15 ), ExtResource( 9 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "walk_bottom",
-"speed": 5.0
-}, {
 "frames": [ ExtResource( 17 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "walk_h",
+"speed": 5.0
+}, {
+"frames": [ ExtResource( 15 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walk_bottom",
 "speed": 5.0
 } ]
 
@@ -85,7 +86,7 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 1
 frames = SubResource( 1 )
 animation = "walk_top"
-frame = 2
+frame = 1
 playing = true
 script = SubResource( 2 )
 
@@ -106,7 +107,7 @@ position = Vector2( 0, -29.561 )
 z_index = -1
 texture = ExtResource( 3 )
 texture_scale = 6.82
-energy = 1.5
+energy = 1.75
 
 [node name="Darkness" type="CanvasModulate" parent="."]
 position = Vector2( 274.216, 61.4499 )
@@ -120,10 +121,6 @@ margin_top = -167.717
 margin_right = 210.6
 margin_bottom = -57.7172
 texture = ExtResource( 4 )
-patch_margin_left = 10
-patch_margin_top = 10
-patch_margin_right = 10
-patch_margin_bottom = 10
 script = ExtResource( 6 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -170,7 +167,7 @@ volume_db = -4.0
 pitch_scale = 0.85
 
 [node name="VoiceTimer" type="Timer" parent="DialogueWindow/Voice"]
-wait_time = 1.65
+wait_time = 2.0
 one_shot = true
 
 [node name="StartMotion" type="Timer" parent="."]
@@ -182,6 +179,10 @@ wait_time = 4.0
 [node name="Footsteps" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 16 )
 volume_db = -15.0
+
+[node name="Snowstorm" parent="." instance=ExtResource( 18 )]
+z_index = 99
+visibility_rect = Rect2( -100, -100, 1920, 1080 )
 [connection signal="timeout" from="DialogueWindow/Timer" to="DialogueWindow" method="_on_Timer_timeout"]
 [connection signal="timeout" from="DialogueWindow/Voice/VoiceTimer" to="DialogueWindow" method="_on_VoiceTimer_timeout"]
 [connection signal="timeout" from="StartMotion" to="." method="_on_StartMotion_timeout"]

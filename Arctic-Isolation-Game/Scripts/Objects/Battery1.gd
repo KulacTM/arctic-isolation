@@ -17,6 +17,7 @@ func _process(delta):
 		Inventory.has_first_battery = true
 		get_tree().call_group("Dialogue", "AddedBattery")
 		can_collect_battery1 = false
+		get_tree().call_group("GUI", "UI_Update")
 		queue_free()
 	if Inventory.has_first_battery: # never spawn battery if its collected
 		queue_free()

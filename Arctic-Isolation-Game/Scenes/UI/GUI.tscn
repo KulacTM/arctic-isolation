@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=2]
@@ -20,9 +20,10 @@
 [ext_resource path="res://Scripts/BlackScreen.gd" type="Script" id=18]
 [ext_resource path="res://GFX/textures/UI/pop-up.png" type="Texture" id=19]
 [ext_resource path="res://karkade.ttf" type="DynamicFontData" id=20]
-[ext_resource path="res://Scenes/UI/QuitButton.tscn" type="PackedScene" id=21]
-[ext_resource path="res://GFX/textures/UI/PlayQuitButtons/PlayQuitButton1.png" type="Texture" id=22]
-[ext_resource path="res://GFX/textures/UI/PlayQuitButtons/PlayQuitButton2.png" type="Texture" id=23]
+[ext_resource path="res://Scenes/UI/PlayButton.tscn" type="PackedScene" id=21]
+[ext_resource path="res://Scenes/UI/QuitButton.tscn" type="PackedScene" id=22]
+[ext_resource path="res://GFX/Items/materials/wood/log1.png" type="Texture" id=23]
+[ext_resource path="res://GFX/Items/materials/wood/plank1.png" type="Texture" id=24]
 
 [sub_resource type="Animation" id=1]
 resource_name = "Fadeout"
@@ -51,30 +52,6 @@ region_rect = Rect2( 0, 0, 320, 128 )
 size = 100
 font_data = ExtResource( 1 )
 
-[sub_resource type="StyleBoxTexture" id=5]
-texture = ExtResource( 22 )
-region_rect = Rect2( 0, 0, 128, 64 )
-
-[sub_resource type="StyleBoxTexture" id=6]
-texture = ExtResource( 22 )
-region_rect = Rect2( 0, 0, 128, 64 )
-
-[sub_resource type="StyleBoxTexture" id=7]
-texture = ExtResource( 22 )
-region_rect = Rect2( 0, 0, 128, 64 )
-
-[sub_resource type="StyleBoxTexture" id=8]
-texture = ExtResource( 23 )
-region_rect = Rect2( 0, 0, 128, 64 )
-
-[sub_resource type="StyleBoxTexture" id=9]
-texture = ExtResource( 23 )
-region_rect = Rect2( 0, 0, 128, 64 )
-
-[sub_resource type="StyleBoxTexture" id=10]
-texture = ExtResource( 23 )
-region_rect = Rect2( 0, 0, 128, 64 )
-
 [node name="GUI" type="CanvasLayer" groups=[
 "GUI",
 ]]
@@ -84,7 +61,7 @@ script = ExtResource( 4 )
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
 anchor_bottom = 1.0
-color = Color( 0.0431373, 0.0431373, 0.117647, 0.752941 )
+color = Color( 0.0431373, 0.0431373, 0.117647, 0.882353 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -95,9 +72,9 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -481.449
-margin_top = -66.5199
+margin_top = -74.5663
 margin_right = -9.44946
-margin_bottom = -2.5199
+margin_bottom = -10.5663
 alignment = 2
 __meta__ = {
 "_edit_use_anchors_": false
@@ -172,6 +149,20 @@ texture = ExtResource( 10 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+
+[node name="LogIcon" type="TextureRect" parent="IconContainer"]
+visible = false
+margin_left = 403.0
+margin_right = 467.0
+margin_bottom = 64.0
+texture = ExtResource( 23 )
+
+[node name="PlankIcon" type="TextureRect" parent="IconContainer"]
+visible = false
+margin_left = 407.0
+margin_right = 471.0
+margin_bottom = 64.0
+texture = ExtResource( 24 )
 
 [node name="ColdControl" type="Control" parent="."]
 anchor_top = 1.0
@@ -360,42 +351,20 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Button" parent="Pause/PauseOverlay" instance=ExtResource( 21 )]
-visible = false
+[node name="PlayButton" parent="Pause/PauseOverlay" instance=ExtResource( 21 )]
+margin_left = -193.877
+margin_top = 208.0
+margin_right = -28.8772
+margin_bottom = 268.0
 
-[node name="Button2" type="Button" parent="Pause/PauseOverlay"]
-anchor_left = 0.119
-anchor_top = 2.881
-anchor_right = 0.119
-anchor_bottom = 2.881
-margin_left = -82.416
-margin_top = -30.022
-margin_right = 82.584
-margin_bottom = 29.978
-custom_styles/hover = SubResource( 5 )
-custom_styles/focus = SubResource( 6 )
-custom_styles/normal = SubResource( 7 )
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Button3" type="Button" parent="Pause/PauseOverlay"]
-anchor_left = 0.854
-anchor_top = 2.88
-anchor_right = 0.854
-anchor_bottom = 2.88
-margin_left = -83.456
-margin_top = -30.0
-margin_right = 83.544
-margin_bottom = 30.0
-custom_styles/hover = SubResource( 8 )
-custom_styles/pressed = SubResource( 9 )
-custom_styles/normal = SubResource( 10 )
+[node name="QuitButton" parent="Pause/PauseOverlay" instance=ExtResource( 22 )]
+margin_left = 27.579
+margin_top = 210.0
+margin_right = 192.579
+margin_bottom = 270.0
 [connection signal="timeout" from="ColdControl/ColdMeter/SoundTimers/25Timer" to="ColdControl/ColdMeter" method="_on_25Timer_timeout"]
 [connection signal="timeout" from="ColdControl/ColdMeter/SoundTimers/50Timer" to="ColdControl/ColdMeter" method="_on_50Timer_timeout"]
 [connection signal="timeout" from="ColdControl/ColdMeter/SoundTimers/75Timer" to="ColdControl/ColdMeter" method="_on_75Timer_timeout"]
 [connection signal="timeout" from="DetectionControl/ResetDetection" to="DetectionControl" method="_on_ResetDetection_timeout"]
 [connection signal="timeout" from="ChangeLocationTimer" to="." method="_on_ChangeLocationTimer_timeout"]
 [connection signal="pressed" from="Popup/Popup_Button" to="." method="_on_Popup_Button_pressed"]
-[connection signal="pressed" from="Pause/PauseOverlay/Button2" to="Pause" method="_on_Button2_pressed"]
-[connection signal="pressed" from="Pause/PauseOverlay/Button3" to="." method="_on_Button3_pressed"]

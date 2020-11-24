@@ -3,10 +3,6 @@
 [ext_resource path="res://GFX/textures/snowFlake.png" type="Texture" id=1]
 [ext_resource path="res://Scripts/Snowstorm.gd" type="Script" id=2]
 
-
-
-
-
 [sub_resource type="ParticlesMaterial" id=1]
 emission_shape = 2
 emission_box_extents = Vector3( 100, 5000, 1 )

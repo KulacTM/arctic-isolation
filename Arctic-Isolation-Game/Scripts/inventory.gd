@@ -12,6 +12,8 @@ var has_key = false
 var has_axe = false
 var has_flashlight = false
 var has_lighter = false
+var logs = 0
+var planks = 0
 
 # EVENTS
 var bridge_repaired = false
@@ -25,25 +27,5 @@ var in_cave = false
 var can_press_pause = true
 var not_in_motion = true
 
-func _process(_delta):
-	if has_first_battery or has_second_battery or has_third_battery:
-		get_tree().call_group("GUI", "AddBatteryIcon")
-	if has_second_battery and has_first_battery or has_first_battery and has_third_battery or has_second_battery and has_third_battery:
-		get_tree().call_group("GUI", "AddTwoBatteryIcons")
-	if has_second_battery and has_first_battery and has_third_battery:
-		get_tree().call_group("GUI", "AddThreeBatteryIcons")
-	if has_pickaxe:
-		get_tree().call_group("GUI", "AddPickaxeIcon")
-	if has_shovel:
-		get_tree().call_group("GUI", "AddShovelIcon")
-	if has_key:
-		get_tree().call_group("GUI", "AddKeyIcon")
-	if has_axe:
-		get_tree().call_group("GUI", "AddAxeIcon")
-	if has_flashlight:
-		get_tree().call_group("GUI", "AddFlashlightIcon")
-	if has_lighter:
-		get_tree().call_group("GUI", "AddLighterIcon")
-	
-		
-		
+# REUSABLES
+var logs_list = {}

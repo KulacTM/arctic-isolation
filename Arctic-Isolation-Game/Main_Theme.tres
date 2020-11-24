@@ -1,0 +1,30 @@
+[gd_resource type="Theme" load_steps=7 format=2]
+
+[ext_resource path="res://karkade.ttf" type="DynamicFontData" id=1]
+[ext_resource path="res://GFX/UI/Slider.png" type="Texture" id=2]
+[ext_resource path="res://GFX/UI/SoundSlider1.png" type="Texture" id=3]
+
+[sub_resource type="StyleBoxFlat" id=1]
+bg_color = Color( 0.25098, 0.286275, 0.45098, 1 )
+border_width_left = 3
+border_width_top = 3
+border_width_bottom = 3
+border_color = Color( 0.0784314, 0.0941176, 0.180392, 1 )
+
+[sub_resource type="StyleBoxTexture" id=2]
+texture = ExtResource( 3 )
+region_rect = Rect2( 0, 0, 192, 20 )
+
+[sub_resource type="DynamicFont" id=3]
+size = 17
+font_data = ExtResource( 1 )
+
+[resource]
+default_font = SubResource( 3 )
+HSlider/icons/grabber = ExtResource( 2 )
+HSlider/icons/grabber_disabled = ExtResource( 2 )
+HSlider/icons/grabber_highlight = ExtResource( 2 )
+HSlider/icons/tick = null
+HSlider/styles/grabber_area = SubResource( 1 )
+HSlider/styles/grabber_area_highlight = SubResource( 1 )
+HSlider/styles/slider = SubResource( 2 )

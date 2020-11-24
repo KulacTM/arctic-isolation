@@ -4,7 +4,6 @@
 [ext_resource path="res://karkade.ttf" type="DynamicFontData" id=2]
 [ext_resource path="res://Scenes/UI/QuitButton.tscn" type="PackedScene" id=3]
 
-
 [sub_resource type="GDScript" id=1]
 script/source = "extends CanvasLayer
 
@@ -57,14 +56,14 @@ __meta__ = {
 }
 
 [node name="RestartButton" parent="NinePatchRect" instance=ExtResource( 3 )]
-anchor_left = 0.5
+anchor_left = 0.501
 anchor_top = 0.5
-anchor_right = 0.5
+anchor_right = 0.501
 anchor_bottom = 0.5
-margin_left = -127.5
-margin_top = -37.5
-margin_right = 127.5
-margin_bottom = 37.5
+margin_left = -127.346
+margin_top = -40.7882
+margin_right = 127.654
+margin_bottom = 34.2118
 custom_styles/hover = SubResource( 2 )
 custom_styles/pressed = SubResource( 3 )
 custom_styles/normal = SubResource( 4 )
