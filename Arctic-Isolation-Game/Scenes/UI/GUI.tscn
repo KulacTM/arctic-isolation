@@ -309,6 +309,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="Minigames" type="Node" parent="."]
+
 [node name="Pause" type="Node" parent="."]
 script = ExtResource( 2 )
 

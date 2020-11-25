@@ -114,7 +114,7 @@ shape = SubResource( 3 )
 
 [node name="Press_E" parent="Objects/BrokenBridge" index="3" instance=ExtResource( 5 )]
 position = Vector2( 107.48, -77.7815 )
-frame = 3
+frame = 2
 
 [node name="Broken" type="StaticBody2D" parent="Objects/BrokenBridge" index="4"]
 collision_layer = 4

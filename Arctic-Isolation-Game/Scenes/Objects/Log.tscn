@@ -17,7 +17,6 @@ func _ready():
 func _process(delta):	
 	if Inventory.has_axe and in_log_area and Input.is_action_just_pressed(\"action\") and log_name == name:
 		if Inventory.logs < 3:
-			print(Inventory.logs)
 			Add_Log()
 		else:
 			get_tree().call_group(\"Dialogue\", \"TooMuchLogs\")
@@ -40,10 +39,9 @@ func _on_Log_body_exited(body):
 func Add_Log():
 	Inventory.logs_list[name] = true
 	in_log_area = false
-	queue_free()
+	get_tree().call_group(\"GUI\", \"ShowWoodcuttingGame\")
 	Inventory.logs += 1
-	get_tree().call_group(\"GUI\", \"LogIcon\")
-	print(Inventory.logs)
+	queue_free()
 "
 
 [sub_resource type="RectangleShape2D" id=2]
@@ -52,7 +50,9 @@ extents = Vector2( 58.2115, 29.6318 )
 [sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 108.442, 86.4714 )
 
-[node name="Log" type="Area2D"]
+[node name="Log" type="Area2D" groups=[
+"Minigame",
+]]
 collision_layer = 2
 script = SubResource( 1 )
 
@@ -71,6 +71,5 @@ shape = SubResource( 3 )
 
 [node name="Press_E" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -49 )
-frame = 1
 [connection signal="body_entered" from="." to="." method="_on_Log_body_entered"]
 [connection signal="body_exited" from="." to="." method="_on_Log_body_exited"]

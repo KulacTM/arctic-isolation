@@ -121,6 +121,7 @@ func HidePopup():
 func _on_Button3_pressed():
 	get_tree().quit()
 
+
 func InPopup():
 	if Inventory.in_popup:
 		Inventory.can_press_pause = false
@@ -147,3 +148,8 @@ func UI_Update():
 		get_tree().call_group("GUI", "AddFlashlightIcon")
 	if Inventory.has_lighter:
 		get_tree().call_group("GUI", "AddLighterIcon")
+
+
+func ShowWoodcuttingGame():
+	$Minigames.add_child(load("res://Scenes/Minigames/Woodcutting.tscn").instance())
+	$Minigames/Woodcutting.show()

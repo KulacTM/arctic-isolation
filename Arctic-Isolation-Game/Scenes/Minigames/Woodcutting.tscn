@@ -1,0 +1,192 @@
+[gd_scene load_steps=10 format=2]
+
+[ext_resource path="res://GFX/UI/pop-up.png" type="Texture" id=1]
+[ext_resource path="res://GFX/UI/SoundSlider1.png" type="Texture" id=2]
+[ext_resource path="res://GFX/UI/Slider.png" type="Texture" id=3]
+[ext_resource path="res://GFX/UI/SoundSlider2.png" type="Texture" id=4]
+[ext_resource path="res://Scenes/UI/Press_E.tscn" type="PackedScene" id=5]
+[ext_resource path="res://SFX/Effects/chop-tree.ogg" type="AudioStream" id=6]
+
+[sub_resource type="GDScript" id=2]
+script/source = "extends Node2D
+
+onready var slider = $Slider
+onready var left_cursor = $Left_Cursor
+onready var right_cursor = $Right_Cursor
+
+var rand_generate = RandomNumberGenerator.new()
+var speed = 0
+var moving_left = true
+var can_chop = false
+var chop_count = 0
+
+
+func _ready():
+	hide()
+	rand_generate.randomize()
+	speed = int(rand_generate.randf_range(500, 1000))
+
+func _process(delta):
+	SliderMovement(delta)
+	ChopTree()
+	
+
+func SliderMovement(delta):
+	if slider.position.x > left_cursor.position.x and moving_left:
+		slider.position.x -= 1 * delta * speed
+		if slider.position.x - 1 < left_cursor.position.x:
+			moving_left = false
+	elif moving_left == false and slider.position.x < right_cursor.position.x:
+		slider.position.x += 1 * delta * speed
+		if slider.position.x + 1 > right_cursor.position.x:
+			moving_left = true
+
+
+func _on_ChopZone_area_entered(area):
+	can_chop = true
+	$ChopZone/Press_E.visible = true
+
+
+func _on_ChopZone_area_exited(area):
+	can_chop = false
+	$ChopZone/Press_E.visible = false
+
+
+func ChopTree():
+	if can_chop and Input.is_action_just_pressed(\"action\"):
+		slider.position.x = left_cursor.position.x + 1
+		$ChopSound.play()
+		$ChopSound/Timer.start()
+		chop_count += 1
+	if !can_chop and Input.is_action_just_pressed(\"action\"):
+		slider.position.x = left_cursor.position.x + 1
+		
+	if chop_count == 3:
+		get_tree().call_group(\"GUI\", \"LogIcon\")
+		chop_count = 0
+		$KillTimer.start()
+		hide()
+
+
+
+func _on_Timer_timeout():
+	$ChopSound.stop()
+
+
+func _on_KillTimer_timeout():
+	queue_free()
+"
+
+[sub_resource type="RectangleShape2D" id=3]
+extents = Vector2( 30.3528, 39.1073 )
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 11.9145, 26.902 )
+
+[node name="Woodcutting" type="Node2D" groups=[
+"Minigame",
+]]
+position = Vector2( 617.029, 351.121 )
+script = SubResource( 2 )
+
+[node name="Left_Cursor" type="Position2D" parent="."]
+position = Vector2( -368.473, 0 )
+
+[node name="Right_Cursor" type="Position2D" parent="."]
+position = Vector2( 361.931, 0 )
+
+[node name="Background" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -435.0
+margin_top = -162.0
+margin_right = 434.0
+margin_bottom = 156.0
+texture = ExtResource( 1 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CursorLine" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -382.76
+margin_top = -39.5559
+margin_right = 379.24
+margin_bottom = 41.4441
+texture = ExtResource( 2 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="ChopZone" type="Area2D" parent="."]
+position = Vector2( 190.109, -39.5559 )
+collision_layer = 16
+collision_mask = 16
+
+[node name="ChopZoneTexture" type="NinePatchRect" parent="ChopZone"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_right = 63.0
+margin_bottom = 81.0
+texture = ExtResource( 4 )
+patch_margin_left = 15
+patch_margin_top = 15
+patch_margin_right = 15
+patch_margin_bottom = 15
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="ChopZone"]
+position = Vector2( 31.486, 39.5559 )
+shape = SubResource( 3 )
+
+[node name="Press_E" parent="ChopZone" instance=ExtResource( 5 )]
+position = Vector2( 45.7845, -57.0702 )
+scale = Vector2( 1.60426, 1.36817 )
+frame = 3
+
+[node name="Slider" type="Area2D" parent="."]
+position = Vector2( 9.53674e-07, 2.6727 )
+scale = Vector2( 2.2918, 1.95453 )
+collision_layer = 16
+collision_mask = 16
+
+[node name="Sprite" type="Sprite" parent="Slider"]
+position = Vector2( 0, -1.36744 )
+scale = Vector2( 1, 1 )
+texture = ExtResource( 3 )
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Slider"]
+scale = Vector2( 1, 1 )
+shape = SubResource( 1 )
+
+[node name="ChopSound" type="AudioStreamPlayer" parent="."]
+stream = ExtResource( 6 )
+
+[node name="Timer" type="Timer" parent="ChopSound"]
+wait_time = 0.2
+one_shot = true
+
+[node name="KillTimer" type="Timer" parent="."]
+wait_time = 0.2
+one_shot = true
+[connection signal="area_entered" from="ChopZone" to="." method="_on_ChopZone_area_entered"]
+[connection signal="area_exited" from="ChopZone" to="." method="_on_ChopZone_area_exited"]
+[connection signal="timeout" from="ChopSound/Timer" to="." method="_on_Timer_timeout"]
+[connection signal="timeout" from="KillTimer" to="." method="_on_KillTimer_timeout"]
