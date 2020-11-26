@@ -102,6 +102,10 @@ flashlight={
 2d_physics/layer_3="Technical"
 2d_physics/layer_4="NPC"
 
+[locale]
+
+translations=PoolStringArray( "res://Locales/dialogues.en.translation", "res://Locales/dialogues.ru.translation", "res://Locales/ui.ru.translation", "res://Locales/ui.en.translation" )
+
 [rendering]
 
 quality/2d/use_pixel_snap=true

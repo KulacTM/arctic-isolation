@@ -21,6 +21,11 @@
 
 [sub_resource type="SpriteFrames" id=1]
 animations = [ {
+"frames": [ ExtResource( 8 ) ],
+"loop": true,
+"name": "idle",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "walk_top",
@@ -34,11 +39,6 @@ animations = [ {
 "frames": [ ExtResource( 15 ), ExtResource( 9 ), ExtResource( 8 ) ],
 "loop": true,
 "name": "walk_bottom",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 8 ) ],
-"loop": true,
-"name": "idle",
 "speed": 5.0
 } ]
 
@@ -86,6 +86,7 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 1
 frames = SubResource( 1 )
 animation = "walk_top"
+frame = 1
 playing = true
 script = SubResource( 2 )
 

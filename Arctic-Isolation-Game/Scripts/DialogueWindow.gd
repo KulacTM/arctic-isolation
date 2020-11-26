@@ -6,7 +6,7 @@ func _ready():
 	dialogue_opened()
 
 func AddedBattery():
-	$Dialogue.text = "Кто знает, что может пригодиться в пути..."
+	$Dialogue.text = tr("added_battery")
 	dialogue_opened()
 	
 func NoLighter():
