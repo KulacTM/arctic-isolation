@@ -42,7 +42,6 @@ func _ready():
 func _process(delta):
 	if can_repair and Input.is_action_just_pressed(\"action\"):
 		$bridge2.show()
-		$tree.queue_free()
 		$Press_E.hide()
 		Inventory.planks -= 3
 		Inventory.bridge_repaired = true
@@ -51,29 +50,29 @@ func _process(delta):
 		$Broken.queue_free()
 
 
-	if Inventory.has_axe == false and Input.is_action_just_pressed(\"action\") and in_zone == true:
+	if Inventory.items.axe == false and Input.is_action_just_pressed(\"action\") and in_zone == true:
 		get_tree().call_group(\"Dialogue\", \"NoPlanks\")
 
 
 
 "
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 156.542, 73.6156 )
 
-[sub_resource type="RectangleShape2D" id=4]
+[sub_resource type="RectangleShape2D" id=3]
 extents = Vector2( 85.4072, 59.1392 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 102.757, 89.7825 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=5]
 extents = Vector2( 211.635, 164.592 )
 
-[sub_resource type="RectangleShape2D" id=7]
+[sub_resource type="RectangleShape2D" id=6]
 extents = Vector2( 151.091, 234.972 )
 
-[sub_resource type="RectangleShape2D" id=8]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 82.3782, 63.5457 )
 
 [node name="03_Port" instance=ExtResource( 1 )]
@@ -110,11 +109,11 @@ texture = ExtResource( 7 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BrokenBridge" index="2"]
 position = Vector2( 39.2319, -14.4099 )
-shape = SubResource( 3 )
+shape = SubResource( 2 )
 
 [node name="Press_E" parent="Objects/BrokenBridge" index="3" instance=ExtResource( 5 )]
 position = Vector2( 107.48, -77.7815 )
-frame = 2
+frame = 0
 
 [node name="Broken" type="StaticBody2D" parent="Objects/BrokenBridge" index="4"]
 collision_layer = 4
@@ -127,7 +126,7 @@ texture = ExtResource( 6 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BrokenBridge/Broken" index="1"]
 position = Vector2( 106.476, 10.5947 )
-shape = SubResource( 4 )
+shape = SubResource( 3 )
 
 [node name="BrokenPlate" type="StaticBody2D" parent="Objects" index="1"]
 position = Vector2( 2137.04, 2474.25 )
@@ -137,20 +136,20 @@ collision_layer = 4
 texture = ExtResource( 8 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BrokenPlate" index="1"]
-shape = SubResource( 5 )
+shape = SubResource( 4 )
 
 [node name="BrokenPlateDialogue" type="Area2D" parent="Objects/BrokenPlate" index="2"]
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/BrokenPlate/BrokenPlateDialogue" index="0"]
-shape = SubResource( 6 )
+shape = SubResource( 5 )
 
 [node name="EmptyPortDialogue" type="Area2D" parent="Objects" index="2"]
 position = Vector2( 1280.47, 3352.84 )
 collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Objects/EmptyPortDialogue" index="0"]
-shape = SubResource( 7 )
+shape = SubResource( 6 )
 
 [node name="Barrel" parent="Objects" index="3" instance=ExtResource( 9 )]
 position = Vector2( -206.746, 1267.8 )
@@ -167,7 +166,7 @@ collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Port_to_Forest" index="0"]
 position = Vector2( 24.6942, 34.7963 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="Port_to_Coast" type="Area2D" parent="." index="4"]
 position = Vector2( 3804.02, 2006.66 )
@@ -175,7 +174,7 @@ collision_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Port_to_Coast" index="0"]
 position = Vector2( -24.5746, 54.795 )
-shape = SubResource( 8 )
+shape = SubResource( 7 )
 
 [node name="Warm_Zone" parent="Warm_Zones" index="0" instance=ExtResource( 11 )]
 position = Vector2( -1545.11, 2341.86 )

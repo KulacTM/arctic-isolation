@@ -2,56 +2,56 @@ extends NinePatchRect
 
 
 func _ready():
-	$Dialogue.text = "Вот и закончилась моя смена. Корабль уже наверняка ждёт. Скоро я буду дома!"
+	$Dialogue.text = tr("StartPhrase")
 	dialogue_opened()
 
 func AddedBattery():
-	$Dialogue.text = tr("added_battery")
+	$Dialogue.text = tr("AddedBattery")
 	dialogue_opened()
 	
 func NoLighter():
-	$Dialogue.text = "Зажечь нечем. Кажется, я оставил свою зажигалку в пещере у реки..."
+	$Dialogue.text = tr("NoLighter")
 	dialogue_opened()
 	
 func NoAxe():
-	$Dialogue.text = "Здесь мне нужен топор. Думаю, его можно найти на лесопилке в лесу."
+	$Dialogue.text = tr("NoAxe")
 	dialogue_opened()
 	
 
 func BrokenPlate():
-	$Dialogue.text = "Еще одна жертва метели. Да уж, теперь эта штука не поможет мне связаться с остальными..."
+	$Dialogue.text = tr("BrokenPlate")
 	dialogue_opened()
 	
 func EmptyPort():
-	$Dialogue.text = "Нет-нет-нет, корабль уже отчалил! Мне нужно срочно связаться с ним и сообщить, что я все ещё здесь!"
+	$Dialogue.text = tr("EmptyPort")
 	dialogue_opened()
 	
 func NoBatteries():
-	$Dialogue.text = "Кажется, не хватает питания. Нужно найти еще батарейки. Если искать в зданиях - наверняка найду"
+	$Dialogue.text = tr("NoBatteries")
 	dialogue_opened()
 	
 func Lantern():
-	$Dialogue.text = "Хорошо, что у меня есть фонарь. Без него бы я сейчас тут совсем потерялся."
+	$Dialogue.text = tr("Lantern")
 	dialogue_opened()
 
 func NoLantern():
-	$Dialogue.text = "Без фонаря совсем туго. Слышал, у смотрителя маяка есть такой. По крайней мере, был..."
+	$Dialogue.text = tr("NoLantern")
 	dialogue_opened()
 
 
 func NoKey():
-	$Dialogue.text = "Без ключа эту дверь не открыть..."
+	$Dialogue.text = tr("NoKey")
 	dialogue_opened()
 
 
 func NoShovel():
-	$Dialogue.text = "Руками я это не откопаю. Без какой-никакой лопаты не обойтись..."
+	$Dialogue.text = tr("NoShovel")
 	dialogue_opened()
 
 
 func Snowstorm():
 	if Inventory.snowstorm_said == false:
-		$Dialogue.text = "Ну и метель...нужно постараться не замерзнуть насмерть, пока добираюсь до корабля.."
+		$Dialogue.text = tr("Snowstorm")
 		dialogue_opened()
 		Inventory.snowstorm_said = true
 	elif Inventory.snowstorm_said:
@@ -71,15 +71,15 @@ func _on_Timer_timeout():
 
 
 func TooMuchLogs():
-	$Dialogue.text = "Я столько не унесу..."
+	$Dialogue.text = tr("TooMuchLogs")
 	dialogue_opened()
 
 
 func NoLogs():
-	$Dialogue.text = "Мне нечего пилить..."
+	$Dialogue.text = tr("NoLogs")
 	dialogue_opened()
 	
 
 func NoPlanks():
-	$Dialogue.text = "Нет нужных материалов...думаю, могу сделать их на лесопилке"
+	$Dialogue.text = tr("NoPlanks")
 	dialogue_opened()

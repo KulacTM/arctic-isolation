@@ -7,7 +7,7 @@ var in_barrel_area = false
 func _on_Barrel_body_entered(body):
 	$Press_E.show()
 	in_barrel_area = true
-	if Inventory.has_lighter:
+	if Inventory.items.lighter:
 		can_light = true
 	if is_fired:
 		Cold.multiplier = -100
@@ -32,7 +32,7 @@ func _process(delta):
 		$Timer.start()
 		is_fired = true
 		can_light = false
-	elif in_barrel_area and Input.is_action_just_pressed("action") and Inventory.has_lighter == false:
+	elif in_barrel_area and Input.is_action_just_pressed("action") and Inventory.items.lighter == false:
 		get_tree().call_group("Dialogue", "NoLighter")
 		
 

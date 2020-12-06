@@ -77,7 +77,7 @@ func animate():
 func In_Cave():
 	Inventory.in_cave = true
 	$Light2D.shadow_enabled = true
-	if Inventory.has_flashlight:
+	if Inventory.items.flashlight:
 		get_tree().call_group("Dialogue", "Lantern")
 	else:
 		get_tree().call_group("Dialogue", "NoLantern")
@@ -105,7 +105,7 @@ func _on_StartMotion_timeout():
 
 
 func _on_NewTimer_timeout():
-	if Inventory.in_cave and Inventory.has_flashlight == false:
+	if Inventory.in_cave and Inventory.items.flashlight == false:
 		$Light2D.texture_scale = 2.5
 
 

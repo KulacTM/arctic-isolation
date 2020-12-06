@@ -1,19 +1,24 @@
 extends Node
 
-# batteries
-var has_first_battery = false
-var has_second_battery = false
-var has_third_battery = false
+var items = {
+	"first_battery" : false,
+	"second_battery" : false,
+	"third_battery" : false,
+	"pickaxe" : false,
+	"shovel" : false,
+	"key" : false,
+	"axe" : false,
+	"flashlight" : false,
+	"lighter" : false,
+	"logs" : 0,
+	"planks" : 0
+}
 
-# inventory items
-var has_pickaxe = false
-var has_shovel = false
-var has_key = false
-var has_axe = false
-var has_flashlight = false
-var has_lighter = false
-var logs = 0
-var planks = 0
+var location = {
+	"current_scene" : "01_River",
+	"current_location" : ""
+	
+}
 
 # EVENTS
 var bridge_repaired = false
@@ -29,3 +34,4 @@ var not_in_motion = true
 
 # REUSABLES
 var logs_list = {}
+

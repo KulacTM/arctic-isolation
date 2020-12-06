@@ -5,6 +5,8 @@ var stadia1_playing = false
 var stadia2_playing = false
 var stadia3_playing = false
 
+var multiplier = 25
+
 func _ready():
 	value = 0
 	

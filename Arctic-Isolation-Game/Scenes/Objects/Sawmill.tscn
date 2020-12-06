@@ -23,15 +23,15 @@ func _on_body_exited(body):
 
 func _process(_delta):
 	if Input.is_action_just_pressed(\"action\") and in_sawmill_zone:
-		if Inventory.logs > 0:
+		if Inventory.items.logs > 0:
 			AddPlank()
 		else:
 			get_tree().call_group(\"Dialogue\", \"NoLogs\")
 
 
 func AddPlank():
-	Inventory.planks += 1
-	Inventory.logs -= 1
+	Inventory.items.planks += 1
+	Inventory.items.logs -= 1
 	$Saw/Saw_Timer.start()
 	$Saw.play()
 	get_tree().call_group(\"GUI\", \"LogIcon\")
@@ -69,6 +69,7 @@ shape = SubResource( 3 )
 
 [node name="Press_E" parent="." instance=ExtResource( 2 )]
 position = Vector2( 0, -59.7036 )
+frame = 3
 
 [node name="Saw" type="AudioStreamPlayer" parent="."]
 stream = ExtResource( 3 )

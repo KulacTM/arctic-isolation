@@ -24,7 +24,7 @@ func _process(delta):
 		get_tree().call_group("GUI", "HidePopup")
 
 
-func _on_Button2_pressed():
+func _on_PlayButton_pressed():
 	var new_pause_state = !get_tree().paused
 	get_tree().paused = new_pause_state
 	if new_pause_state:

@@ -26,6 +26,11 @@ animations = [ {
 "name": "idle",
 "speed": 5.0
 }, {
+"frames": [ ExtResource( 15 ), ExtResource( 9 ), ExtResource( 8 ) ],
+"loop": true,
+"name": "walk_bottom",
+"speed": 5.0
+}, {
 "frames": [ ExtResource( 12 ), ExtResource( 13 ), ExtResource( 11 ) ],
 "loop": true,
 "name": "walk_top",
@@ -34,11 +39,6 @@ animations = [ {
 "frames": [ ExtResource( 17 ), ExtResource( 10 ), ExtResource( 2 ), ExtResource( 14 ) ],
 "loop": true,
 "name": "walk_h",
-"speed": 5.0
-}, {
-"frames": [ ExtResource( 15 ), ExtResource( 9 ), ExtResource( 8 ) ],
-"loop": true,
-"name": "walk_bottom",
 "speed": 5.0
 } ]
 
@@ -69,14 +69,13 @@ func GoRight():
 extents = Vector2( 12.7034, 19.2211 )
 
 [sub_resource type="DynamicFont" id=4]
-size = 14
 font_data = ExtResource( 5 )
 
 [node name="Player" type="KinematicBody2D" groups=[
 "Player",
 ]]
 position = Vector2( -274.216, -61.4499 )
-z_index = 9
+z_index = 1
 collision_mask = 2147483662
 script = ExtResource( 1 )
 
@@ -86,7 +85,7 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 1
 frames = SubResource( 1 )
 animation = "walk_top"
-frame = 1
+frame = 2
 playing = true
 script = SubResource( 2 )
 
@@ -132,26 +131,12 @@ anchor_top = 0.51
 anchor_right = 0.508
 anchor_bottom = 0.51
 margin_left = -78.98
-margin_top = -44.1
+margin_top = -45.0999
 margin_right = 79.02
-margin_bottom = 41.9
+margin_bottom = 41.9001
 custom_fonts/normal_font = SubResource( 4 )
 text = "Здесь рассказывается о 
 нелегкой жизни главного героя"
-__meta__ = {
-"_edit_use_anchors_": false
-}
-
-[node name="Dialogue2" type="RichTextLabel" parent="DialogueWindow"]
-anchor_left = 0.508
-anchor_top = 0.51
-anchor_right = 0.508
-anchor_bottom = 0.51
-margin_left = -78.98
-margin_top = -44.1
-margin_right = 79.02
-margin_bottom = 41.9
-custom_fonts/normal_font = SubResource( 4 )
 __meta__ = {
 "_edit_use_anchors_": false
 }

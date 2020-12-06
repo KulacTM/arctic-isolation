@@ -15,11 +15,11 @@ func _on_Shovel_body_exited(body):
 
 func _process(delta):
 	if Input.is_action_just_pressed("action") and can_collect_shovel: # collect shovel
-		Inventory.has_shovel = true
+		Inventory.items.shovel = true
 		can_collect_shovel = false
 		get_tree().call_group("GUI", "UI_Update")
 		queue_free()
-	if Inventory.has_shovel: # never spawn battery if its collected
+	if Inventory.items.shovel: # never spawn battery if its collected
 		queue_free()
 
 

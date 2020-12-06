@@ -2,6 +2,7 @@ extends Area2D
 
 var is_warm_place = false
 
+
 func _on_Warm_Zone_body_entered(body):
 	is_warm_place = true
 	get_tree().call_group("Player", "FootstepsIndoor")

@@ -7,7 +7,7 @@ var can_click
 func _on_WinGame_body_entered(body):
 	$Press_E.show()
 	can_click = true
-	if Inventory.has_first_battery and Inventory.has_second_battery and Inventory.has_third_battery:
+	if Inventory.items.first_battery and Inventory.items.second_battery and Inventory.items.third_battery:
 		can_win = true
 		
 func _on_WinGame_body_exited(body):

@@ -9,19 +9,20 @@ script/source = "extends Area2D
 var in_log_area = false
 var can_chop = false
 var log_name
+var can_delete_log = false
 
 func _ready():
 	if name in Inventory.logs_list:
 		queue_free()
 
 func _process(delta):	
-	if Inventory.has_axe and in_log_area and Input.is_action_just_pressed(\"action\") and log_name == name:
-		if Inventory.logs < 3:
+	if Inventory.items.axe and in_log_area and Input.is_action_just_pressed(\"action\") and log_name == name:
+		if Inventory.items.logs < 3:
 			Add_Log()
 		else:
 			get_tree().call_group(\"Dialogue\", \"TooMuchLogs\")
 
-	if not Inventory.has_axe and in_log_area and Input.is_action_just_pressed(\"action\"):
+	if not Inventory.items.axe and in_log_area and Input.is_action_just_pressed(\"action\"):
 		get_tree().call_group(\"Dialogue\", \"NoAxe\")
 
 
@@ -37,10 +38,11 @@ func _on_Log_body_exited(body):
 	
 
 func Add_Log():
+	can_delete_log = false
 	Inventory.logs_list[name] = true
 	in_log_area = false
 	get_tree().call_group(\"GUI\", \"ShowWoodcuttingGame\")
-	Inventory.logs += 1
+	Inventory.items.logs += 1
 	queue_free()
 "
 

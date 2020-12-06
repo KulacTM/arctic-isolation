@@ -18,7 +18,7 @@ func _process(delta):
 func _on_Landslide_body_entered(body):
 	in_landslide_area = true
 	$Press_E.visible = true
-	if Inventory.has_shovel:
+	if Inventory.items.shovel:
 		can_dig = true
 
 

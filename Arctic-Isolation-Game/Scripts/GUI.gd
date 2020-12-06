@@ -52,28 +52,28 @@ func HideDetection():
 	$DetectionControl/TextureProgress.hide()
 
 func LogIcon():
-	if Inventory.logs == 1:
+	if Inventory.items.logs == 1:
 		$IconContainer/LogIcon.texture = load("res://GFX/Items/materials/wood/log1.png")
-	elif Inventory.logs == 2:
+	elif Inventory.items.logs == 2:
 		$IconContainer/LogIcon.texture = load("res://GFX/Items/materials/wood/log2.png")
-	elif Inventory.logs == 3:
+	elif Inventory.items.logs == 3:
 		$IconContainer/LogIcon.texture = load("res://GFX/Items/materials/wood/log3.png")
 	
-	if Inventory.logs >= 1:
+	if Inventory.items.logs >= 1:
 		$IconContainer/LogIcon.show()
 	else:
 		$IconContainer/LogIcon.hide()
 
 
 func PlankIcon():
-	if Inventory.planks == 1:
+	if Inventory.items.planks == 1:
 		$IconContainer/PlankIcon.texture = load("res://GFX/Items/materials/wood/plank1.png")
-	elif Inventory.planks == 2:
+	elif Inventory.items.planks == 2:
 		$IconContainer/PlankIcon.texture = load("res://GFX/Items/materials/wood/plank2.png")
-	elif Inventory.planks == 3:
+	elif Inventory.items.planks == 3:
 		$IconContainer/PlankIcon.texture = load("res://GFX/Items/materials/wood/plank3.png")
 	
-	if Inventory.planks >= 1:
+	if Inventory.items.planks >= 1:
 		$IconContainer/PlankIcon.show()
 	else:
 		$IconContainer/PlankIcon.hide()
@@ -130,26 +130,34 @@ func InPopup():
 
 
 func UI_Update():
-	if Inventory.has_first_battery or Inventory.has_second_battery or Inventory.has_third_battery:
+	if Inventory.items.first_battery or Inventory.items.second_battery or Inventory.items.third_battery:
 		get_tree().call_group("GUI", "AddBatteryIcon")
-	if Inventory.has_second_battery and Inventory.has_first_battery or Inventory.has_first_battery and Inventory.has_third_battery or Inventory.has_second_battery and Inventory.has_third_battery:
+	if Inventory.items.second_battery and Inventory.items.first_battery or Inventory.items.first_battery and Inventory.items.third_battery or Inventory.items.second_battery and Inventory.items.third_battery:
 		get_tree().call_group("GUI", "AddTwoBatteryIcons")
-	if Inventory.has_second_battery and Inventory.has_first_battery and Inventory.has_third_battery:
+	if Inventory.items.second_battery and Inventory.items.first_battery and Inventory.items.third_battery:
 		get_tree().call_group("GUI", "AddThreeBatteryIcons")
-	if Inventory.has_pickaxe:
+	if Inventory.items.pickaxe:
 		get_tree().call_group("GUI", "AddPickaxeIcon")
-	if Inventory.has_shovel:
+	if Inventory.items.shovel:
 		get_tree().call_group("GUI", "AddShovelIcon")
-	if Inventory.has_key:
+	if Inventory.items.key:
 		get_tree().call_group("GUI", "AddKeyIcon")
-	if Inventory.has_axe:
+	if Inventory.items.axe:
 		get_tree().call_group("GUI", "AddAxeIcon")
-	if Inventory.has_flashlight:
+	if Inventory.items.flashlight:
 		get_tree().call_group("GUI", "AddFlashlightIcon")
-	if Inventory.has_lighter:
+	if Inventory.items.lighter:
 		get_tree().call_group("GUI", "AddLighterIcon")
 
 
 func ShowWoodcuttingGame():
 	$Minigames.add_child(load("res://Scenes/Minigames/Woodcutting.tscn").instance())
 	$Minigames/Woodcutting.show()
+
+
+func _on_Save_pressed():
+	get_tree().call_group("Saver", "SaveData")
+
+
+func _on_Load_pressed():
+	get_tree().call_group("Saver", "LoadData")

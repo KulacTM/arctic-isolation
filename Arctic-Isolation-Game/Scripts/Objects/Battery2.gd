@@ -6,11 +6,11 @@ var can_collect_battery2 = false
 	
 func _process(delta):
 	if Input.is_action_just_pressed("action") and can_collect_battery2: # collect battery
-		Inventory.has_second_battery = true
+		Inventory.items.second_battery = true
 		can_collect_battery2 = false
 		get_tree().call_group("GUI", "UI_Update")
 		queue_free()
-	if Inventory.has_second_battery: # never spawn battery if its collected
+	if Inventory.items.second_battery: # never spawn battery if its collected
 		queue_free()
 	
 

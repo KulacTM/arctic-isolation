@@ -5,11 +5,11 @@ var can_collect_flashlight = false
 
 func _process(delta):
 	if Input.is_action_just_pressed("action") and can_collect_flashlight: # collect flashlight
-		Inventory.has_flashlight = true
+		Inventory.items.flashlight = true
 		can_collect_flashlight = false
 		get_tree().call_group("GUI", "UI_Update")
 		queue_free()
-	if Inventory.has_flashlight: # never spawn battery if its collected
+	if Inventory.items.flashlight: # never spawn battery if its collected
 		queue_free()
 
 

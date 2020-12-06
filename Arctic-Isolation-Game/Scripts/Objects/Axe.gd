@@ -15,11 +15,11 @@ func _on_Axe_body_exited(body):
 
 func _process(delta):
 	if Input.is_action_just_pressed("action") and can_collect_axe: # collect battery
-		Inventory.has_axe = true
+		Inventory.items.axe = true
 		can_collect_axe = false
 		get_tree().call_group("GUI", "UI_Update")
 		queue_free()
-	if Inventory.has_axe: # never spawn battery if its collected
+	if Inventory.items.axe: # never spawn battery if its collected
 		queue_free()
 
 
