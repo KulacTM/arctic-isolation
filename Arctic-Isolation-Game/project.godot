@@ -25,7 +25,7 @@ config/icon="res://icon.png"
 [autoload]
 
 Inventory="*res://Scripts/inventory.gd"
-Cold="*res://Scripts/Cold.gd"
+Cold="*res://Scripts/ColdSingleton.gd"
 
 [display]
 

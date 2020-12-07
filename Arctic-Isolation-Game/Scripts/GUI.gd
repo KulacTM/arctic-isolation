@@ -4,6 +4,7 @@ func _ready():
 	$Pause/PauseOverlay/PauseText.text = "Пауза"
 	$DetectionControl/TextureProgress.hide()
 	$Popup.hide()
+	$Loose/LooseOverlay.visible = false
 
 
 
@@ -161,3 +162,12 @@ func _on_Save_pressed():
 
 func _on_Load_pressed():
 	get_tree().call_group("Saver", "LoadData")
+	
+
+func ShowLoose():
+	$Loose/LooseOverlay.visible = true
+	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+
+func HideLoose():
+	$Loose/LooseOverlay.visible = false
+	get_tree().paused = false

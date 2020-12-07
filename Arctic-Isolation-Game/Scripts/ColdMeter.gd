@@ -5,8 +5,6 @@ var stadia1_playing = false
 var stadia2_playing = false
 var stadia3_playing = false
 
-var multiplier = 25
-
 func _ready():
 	value = 0
 	
@@ -36,7 +34,8 @@ func _physics_process(delta):
 		$"SoundTimers/75Timer".start()
 		
 	if value == max_value:
-		get_tree().change_scene("res://Scenes/Levels/Loose.tscn")
+		get_tree().paused = true
+		get_tree().call_group("GUI", "ShowLoose")
 
 
 func _on_25Timer_timeout():
@@ -49,3 +48,6 @@ func _on_50Timer_timeout():
 
 func _on_75Timer_timeout():
 	stadia3_playing = false
+
+func Null_Cold():
+	value = 0

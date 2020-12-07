@@ -5,8 +5,8 @@ var save_path = "user://save.dat"
 
 func SaveData():
 	var data = {}
-	data["Items"] = Inventory.items
-	data["Location"] = Inventory.location
+	data["items"] = Inventory.items
+	data["location"] = Inventory.location
 	var file = File.new()
 	var error = file.open(save_path, File.WRITE)
 	if error == OK:
@@ -23,4 +23,6 @@ func LoadData():
 		if error == OK:
 			var player_data = file.get_var()
 			file.close()
+			Inventory.saved.position = player_data.location.current_position
+			Inventory.saved.scene = player_data.location.current_scene
 			print(player_data)

@@ -1,36 +1,23 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://GFX/textures/UI/pop-up.png" type="Texture" id=1]
 [ext_resource path="res://karkade.ttf" type="DynamicFontData" id=2]
-[ext_resource path="res://Scenes/UI/QuitButton.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Main_Theme.tres" type="Theme" id=3]
 
 [sub_resource type="GDScript" id=1]
-script/source = "extends CanvasLayer
+script/source = "extends Node
 
 func _ready():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 
 
-func _on_Button_pressed():
-	get_tree().quit()
-
-
 func _on_RestartButton_pressed():
-	get_tree().change_scene(\"res://Scenes/Levels/Full Map.tscn\")
+	get_tree().call_group(\"GUI\", \"HideLoose\")
+	get_tree().call_group(\"Saver\", \"LoadData\")
+	get_tree().call_group(\"ColdMeter\", \"Null_Cold\")
+	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
+
 "
-
-[sub_resource type="StyleBoxFlat" id=2]
-bg_color = Color( 0.176471, 0.160784, 0.160784, 1 )
-
-[sub_resource type="StyleBoxFlat" id=3]
-bg_color = Color( 0.176471, 0.160784, 0.160784, 1 )
-
-[sub_resource type="StyleBoxFlat" id=4]
-bg_color = Color( 0.176471, 0.160784, 0.160784, 1 )
-
-[sub_resource type="DynamicFont" id=5]
-size = 26
-font_data = ExtResource( 2 )
 
 [sub_resource type="DynamicFont" id=6]
 size = 72
@@ -40,12 +27,18 @@ font_data = ExtResource( 2 )
 size = 36
 font_data = ExtResource( 2 )
 
-[node name="Control" type="CanvasLayer"]
+[node name="Loose" type="Node"]
 script = SubResource( 1 )
 
-[node name="NinePatchRect" type="NinePatchRect" parent="."]
-anchor_right = 1.0
-anchor_bottom = 1.0
+[node name="LooseOverlay" type="NinePatchRect" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -324.0
+margin_top = -165.0
+margin_right = 324.0
+margin_bottom = 165.0
 texture = ExtResource( 1 )
 patch_margin_left = 10
 patch_margin_top = 10
@@ -55,37 +48,22 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RestartButton" parent="NinePatchRect" instance=ExtResource( 3 )]
-anchor_left = 0.501
-anchor_top = 0.5
-anchor_right = 0.501
-anchor_bottom = 0.5
-margin_left = -127.346
-margin_top = -40.7882
-margin_right = 127.654
-margin_bottom = 34.2118
-custom_styles/hover = SubResource( 2 )
-custom_styles/pressed = SubResource( 3 )
-custom_styles/normal = SubResource( 4 )
-custom_fonts/font = SubResource( 5 )
-text = "Попробовать снова  "
-
-[node name="RichTextLabel" type="RichTextLabel" parent="NinePatchRect"]
+[node name="RichTextLabel" type="RichTextLabel" parent="LooseOverlay"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-margin_left = -211.762
-margin_top = -135.776
-margin_right = 221.238
-margin_bottom = -43.7764
+margin_left = -212.0
+margin_top = -136.0
+margin_right = 278.0
+margin_bottom = -44.0
 custom_fonts/normal_font = SubResource( 6 )
 text = "Вы проиграли."
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="RichTextLabel2" type="RichTextLabel" parent="NinePatchRect"]
+[node name="RichTextLabel2" type="RichTextLabel" parent="LooseOverlay"]
 anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
@@ -99,4 +77,15 @@ text = "(предметы сохраняются)"
 __meta__ = {
 "_edit_use_anchors_": false
 }
-[connection signal="pressed" from="NinePatchRect/RestartButton" to="." method="_on_RestartButton_pressed"]
+
+[node name="RestartButton" type="Button" parent="LooseOverlay"]
+margin_left = 124.177
+margin_top = 106.861
+margin_right = 524.177
+margin_bottom = 206.861
+rect_min_size = Vector2( 400, 100 )
+theme = ExtResource( 3 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="pressed" from="LooseOverlay/RestartButton" to="." method="_on_RestartButton_pressed"]

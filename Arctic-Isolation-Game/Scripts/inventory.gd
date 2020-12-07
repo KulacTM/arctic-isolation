@@ -15,9 +15,13 @@ var items = {
 }
 
 var location = {
-	"current_scene" : "01_River",
-	"current_location" : ""
-	
+	"current_scene" : "",
+	"current_position" : ""	
+}
+
+var saved = {
+	"scene" : "",
+	"position" : ""
 }
 
 # EVENTS

@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=31 format=2]
 
 [ext_resource path="res://font.ttf" type="DynamicFontData" id=1]
 [ext_resource path="res://Scripts/Pause.gd" type="Script" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Scripts/ColdMeter.gd" type="Script" id=11]
 [ext_resource path="res://GFX/textures/freazingSilhuete1.png" type="Texture" id=12]
 [ext_resource path="res://GFX/textures/freazingSilhuete2.png" type="Texture" id=13]
+[ext_resource path="res://Scenes/Levels/Loose.tscn" type="PackedScene" id=14]
 [ext_resource path="res://GFX/textures/UI/exclamationMark/exclamationMark2.png" type="Texture" id=15]
 [ext_resource path="res://GFX/textures/UI/exclamationMark/exclamationMark1.png" type="Texture" id=16]
 [ext_resource path="res://Scripts/DetectionControl.gd" type="Script" id=17]
@@ -25,15 +26,14 @@
 [ext_resource path="res://GFX/Items/materials/wood/plank1.png" type="Texture" id=24]
 [ext_resource path="res://Main_Theme.tres" type="Theme" id=25]
 
-[sub_resource type="GDScript" id=5]
+[sub_resource type="GDScript" id=1]
 script/source = "extends Control
 
 var default_multiplier = 30
 var multiplier = 30
 "
 
-[sub_resource type="Animation" id=1]
-resource_name = "Fadeout"
+[sub_resource type="Animation" id=2]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:color")
 tracks/0/interp = 1
@@ -47,15 +47,15 @@ tracks/0/keys = {
 "values": [ Color( 0, 0, 0, 0 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 1 ), Color( 0, 0, 0, 0 ) ]
 }
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=3]
 size = 32
 font_data = ExtResource( 20 )
 
-[sub_resource type="StyleBoxTexture" id=3]
+[sub_resource type="StyleBoxTexture" id=4]
 texture = ExtResource( 19 )
 region_rect = Rect2( 0, 0, 320, 128 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=5]
 size = 100
 font_data = ExtResource( 1 )
 
@@ -178,12 +178,14 @@ margin_left = 56.6325
 margin_top = -114.566
 margin_right = 96.6325
 margin_bottom = -74.5662
-script = SubResource( 5 )
+script = SubResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="ColdMeter" type="TextureProgress" parent="ColdControl"]
+[node name="ColdMeter" type="TextureProgress" parent="ColdControl" groups=[
+"ColdMeter",
+]]
 pause_mode = 1
 anchor_left = -1.416
 anchor_top = 2.864
@@ -257,7 +259,7 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="BlackScreen"]
-anims/Fadeout = SubResource( 1 )
+anims/Fadeout = SubResource( 2 )
 
 [node name="ChangeLocationTimer" type="Timer" parent="."]
 wait_time = 0.5
@@ -289,7 +291,7 @@ margin_left = -237.5
 margin_top = -134.0
 margin_right = 237.5
 margin_bottom = 134.0
-custom_fonts/normal_font = SubResource( 2 )
+custom_fonts/normal_font = SubResource( 3 )
 text = "текст не имеет значения
 
 ничего не имеет значения
@@ -310,7 +312,7 @@ margin_left = -19.8975
 margin_top = -16.9609
 margin_right = 20.1025
 margin_bottom = 19.0391
-custom_styles/normal = SubResource( 3 )
+custom_styles/normal = SubResource( 4 )
 text = "X"
 __meta__ = {
 "_edit_use_anchors_": false
@@ -353,7 +355,7 @@ anchor_right = 0.5
 margin_left = -77.3635
 margin_right = 102.637
 margin_bottom = 100.0
-custom_fonts/normal_font = SubResource( 4 )
+custom_fonts/normal_font = SubResource( 5 )
 custom_colors/default_color = Color( 1, 1, 1, 1 )
 text = "Пауза"
 __meta__ = {
@@ -374,10 +376,14 @@ margin_right = 192.579
 margin_bottom = 270.0
 
 [node name="Debug" type="Control" parent="Pause/PauseOverlay"]
-margin_left = -479.367
-margin_top = -289.0
-margin_right = -439.367
-margin_bottom = -249.0
+anchor_left = -1.924
+anchor_top = -3.07
+anchor_right = -1.924
+anchor_bottom = -3.07
+margin_left = 28.569
+margin_top = 18.0
+margin_right = 68.569
+margin_bottom = 58.0
 __meta__ = {
 "_edit_use_anchors_": false
 }
@@ -404,6 +410,9 @@ margin_right = 40.0
 margin_bottom = 40.0
 theme = ExtResource( 25 )
 text = "load"
+
+[node name="Loose" parent="." instance=ExtResource( 14 )]
+pause_mode = 2
 [connection signal="timeout" from="ColdControl/ColdMeter/SoundTimers/25Timer" to="ColdControl/ColdMeter" method="_on_25Timer_timeout"]
 [connection signal="timeout" from="ColdControl/ColdMeter/SoundTimers/50Timer" to="ColdControl/ColdMeter" method="_on_50Timer_timeout"]
 [connection signal="timeout" from="ColdControl/ColdMeter/SoundTimers/75Timer" to="ColdControl/ColdMeter" method="_on_75Timer_timeout"]

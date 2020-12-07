@@ -1,11 +1,14 @@
 extends Node2D
 
+var child
 
 func _ready():
+
 	Inventory.location.current_scene = "res://Scenes/Levels/01_River.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
 	Inventory.location.current_position = $"SceneNode/01_River/Starting_Points/Start1".position	
 	$Player.position = Inventory.location.current_position
+	get_tree().call_group("Saver", "SaveData")
 
 
 func ForestFromRiver():
@@ -129,7 +132,8 @@ func StationFromPass():
 
 
 func _on_ForestFromRiver_timeout():
-	$"SceneNode/01_River".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/02_Forest.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -139,7 +143,8 @@ func _on_ForestFromRiver_timeout():
 
 
 func _on_RiverFromForest_timeout():
-	$"SceneNode/02_Forest".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/01_River.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -150,7 +155,8 @@ func _on_RiverFromForest_timeout():
 
 
 func _on_PassFromRiver_timeout():
-	$"SceneNode/01_River".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/07_Pass.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -160,7 +166,8 @@ func _on_PassFromRiver_timeout():
 
 
 func _on_PortFromForest_timeout():
-	$"SceneNode/02_Forest".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/03_Port.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -170,7 +177,8 @@ func _on_PortFromForest_timeout():
 
 
 func _on_CoastFromPort_timeout():
-	$"SceneNode/03_Port".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/04_Coast.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -180,7 +188,8 @@ func _on_CoastFromPort_timeout():
 
 
 func _on_ForestFromPort_timeout():
-	$"SceneNode/03_Port".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/02_Forest.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -190,7 +199,8 @@ func _on_ForestFromPort_timeout():
 
 
 func _on_PortFromCoast_timeout():
-	$"SceneNode/04_Coast".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/03_Port.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -200,7 +210,8 @@ func _on_PortFromCoast_timeout():
 
 
 func _on_LighthouseFromCoast_timeout():
-	$"SceneNode/04_Coast".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/05_Lighthouse.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -210,7 +221,8 @@ func _on_LighthouseFromCoast_timeout():
 
 
 func _on_CoastFromLighthouse_timeout():
-	$"SceneNode/05_Lighthouse".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/04_Coast.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -220,7 +232,8 @@ func _on_CoastFromLighthouse_timeout():
 
 
 func _on_StationFromLighthouse_timeout():
-	$"SceneNode/05_Lighthouse".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/06_Station2.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -230,7 +243,8 @@ func _on_StationFromLighthouse_timeout():
 
 
 func _on_LighthouseFromStation_timeout():
-	$"SceneNode/06_Station2".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/05_Lighthouse.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -240,7 +254,8 @@ func _on_LighthouseFromStation_timeout():
 
 
 func _on_PassFromStation_timeout():
-	$"SceneNode/06_Station2".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/07_Pass.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -250,7 +265,8 @@ func _on_PassFromStation_timeout():
 
 
 func _on_TowerFromStation_timeout():
-	$"SceneNode/06_Station2".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/09_RadioTower.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -260,7 +276,8 @@ func _on_TowerFromStation_timeout():
 
 
 func _on_StationFromTower_timeout():
-	$"SceneNode/09_RadioTower".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/06_Station2.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -270,7 +287,8 @@ func _on_StationFromTower_timeout():
 
 
 func _on_LakeFromTower_timeout():
-	$"SceneNode/09_RadioTower".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/08_Lake.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -280,7 +298,8 @@ func _on_LakeFromTower_timeout():
 
 
 func _on_LakeFromTowerTop_timeout():
-	$"SceneNode/09_RadioTower".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/08_Lake.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -290,7 +309,8 @@ func _on_LakeFromTowerTop_timeout():
 
 
 func _on_TowerFromLake_timeout():
-	$"SceneNode/08_Lake".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/09_RadioTower.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -300,7 +320,8 @@ func _on_TowerFromLake_timeout():
 
 
 func _on_TowerFromLakeTop_timeout():
-	$"SceneNode/08_Lake".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 
 	Inventory.location.current_scene = "res://Scenes/Levels/09_RadioTower.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -310,7 +331,8 @@ func _on_TowerFromLakeTop_timeout():
 
 
 func _on_RiverFromPass_timeout():
-	$"SceneNode/07_Pass".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/01_River.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -320,7 +342,8 @@ func _on_RiverFromPass_timeout():
 
 
 func _on_StationFromPass_timeout():
-	$"SceneNode/07_Pass".queue_free()
+	child = $SceneNode.get_child(0)
+	child.queue_free()
 	
 	Inventory.location.current_scene = "res://Scenes/Levels/06_Station2.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
@@ -334,5 +357,7 @@ func ReloadAll():
 
 
 func LoadScene():
-	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
-	$Player.position = Inventory.location.current_position
+	var child = $SceneNode.get_child(0)
+	child.queue_free()
+	$SceneNode.add_child(load(Inventory.saved.scene).instance())
+	$Player.position = Inventory.saved.position
