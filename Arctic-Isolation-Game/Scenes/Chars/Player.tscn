@@ -85,7 +85,6 @@ scale = Vector2( 0.8, 0.8 )
 z_index = 1
 frames = SubResource( 1 )
 animation = "walk_top"
-frame = 2
 playing = true
 script = SubResource( 2 )
 
@@ -115,6 +114,7 @@ color = Color( 0, 0, 0, 0.960784 )
 [node name="DialogueWindow" type="NinePatchRect" parent="." groups=[
 "Dialogue",
 ]]
+visible = false
 margin_left = 25.6
 margin_top = -167.717
 margin_right = 210.6

@@ -220,6 +220,7 @@ position = Vector2( 1594.8, -790 )
 
 [node name="AnimatedSprite" parent="Bear3" index="0"]
 animation = "Walk"
+frame = 1
 flip_h = true
 
 [node name="AnimationPlayer" parent="Bear3" index="2"]

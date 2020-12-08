@@ -77,7 +77,7 @@ scale = Vector2( 1.1, 1 )
 [node name="Press_E" parent="Objects/Landslide" index="2"]
 position = Vector2( -109.328, -0.334473 )
 rotation = -1.5708
-frame = 1
+frame = 4
 
 [node name="River_To_Forest_Exit" type="Area2D" parent="." index="2"]
 position = Vector2( 1731.75, 4517.14 )

@@ -6,7 +6,7 @@ var stadia2_playing = false
 var stadia3_playing = false
 
 func _ready():
-	value = 0
+	value = Cold.value
 	
 	
 func _physics_process(delta):
@@ -48,6 +48,7 @@ func _on_50Timer_timeout():
 
 func _on_75Timer_timeout():
 	stadia3_playing = false
+
 
 func Null_Cold():
 	value = 0

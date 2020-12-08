@@ -3,12 +3,11 @@ extends Node2D
 var child
 
 func _ready():
-
+	get_tree().call_group("Saver", "LoadData")
 	Inventory.location.current_scene = "res://Scenes/Levels/01_River.tscn"
 	$SceneNode.add_child(load(Inventory.location.current_scene).instance())
 	Inventory.location.current_position = $"SceneNode/01_River/Starting_Points/Start1".position	
 	$Player.position = Inventory.location.current_position
-	get_tree().call_group("Saver", "SaveData")
 
 
 func ForestFromRiver():
@@ -140,6 +139,8 @@ func _on_ForestFromRiver_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/02_Forest/Starting_Points/Start1".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_RiverFromForest_timeout():
@@ -151,6 +152,8 @@ func _on_RiverFromForest_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/01_River/Starting_Points/Start2".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 
@@ -163,6 +166,8 @@ func _on_PassFromRiver_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/07_Pass/Starting_Points/Start1".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_PortFromForest_timeout():
@@ -174,6 +179,8 @@ func _on_PortFromForest_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/03_Port/Starting_Points/Start1".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_CoastFromPort_timeout():
@@ -185,6 +192,8 @@ func _on_CoastFromPort_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/04_Coast/Starting_Points/Start1".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_ForestFromPort_timeout():
@@ -196,6 +205,8 @@ func _on_ForestFromPort_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/02_Forest/Starting_Points/Start2".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_PortFromCoast_timeout():
@@ -207,6 +218,8 @@ func _on_PortFromCoast_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/03_Port/Starting_Points/Start2".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_LighthouseFromCoast_timeout():
@@ -218,6 +231,8 @@ func _on_LighthouseFromCoast_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/05_Lighthouse/Starting_Points/Start1".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_CoastFromLighthouse_timeout():
@@ -229,6 +244,8 @@ func _on_CoastFromLighthouse_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/04_Coast/Starting_Points/Start2".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_StationFromLighthouse_timeout():
@@ -240,6 +257,8 @@ func _on_StationFromLighthouse_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/06_Station2/Starting_Points/Start1".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_LighthouseFromStation_timeout():
@@ -251,6 +270,8 @@ func _on_LighthouseFromStation_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/05_Lighthouse/Starting_Points/Start2".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_PassFromStation_timeout():
@@ -262,6 +283,8 @@ func _on_PassFromStation_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/07_Pass/Starting_Points/Start2".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_TowerFromStation_timeout():
@@ -273,6 +296,8 @@ func _on_TowerFromStation_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/09_RadioTower/Starting_Points/Start1".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_StationFromTower_timeout():
@@ -284,6 +309,8 @@ func _on_StationFromTower_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/06_Station2/Starting_Points/Start3".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_LakeFromTower_timeout():
@@ -295,6 +322,8 @@ func _on_LakeFromTower_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/08_Lake/Starting_Points/Start1".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_LakeFromTowerTop_timeout():
@@ -306,6 +335,8 @@ func _on_LakeFromTowerTop_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/08_Lake/Starting_Points/Start2".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_TowerFromLake_timeout():
@@ -317,6 +348,8 @@ func _on_TowerFromLake_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/09_RadioTower/Starting_Points/Start2".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_TowerFromLakeTop_timeout():
@@ -328,6 +361,8 @@ func _on_TowerFromLakeTop_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/09_RadioTower/Starting_Points/Start3".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_RiverFromPass_timeout():
@@ -339,6 +374,8 @@ func _on_RiverFromPass_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/01_River/Starting_Points/Start3".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func _on_StationFromPass_timeout():
@@ -350,6 +387,8 @@ func _on_StationFromPass_timeout():
 	
 	Inventory.location.current_position = $"SceneNode/06_Station2/Starting_Points/Start2".position	
 	$Player.position = Inventory.location.current_position
+	
+	get_tree().call_group("Saver", "SaveData")
 
 
 func ReloadAll():

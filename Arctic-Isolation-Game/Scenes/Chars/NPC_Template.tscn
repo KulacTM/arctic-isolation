@@ -7,10 +7,7 @@
 [ext_resource path="res://GFX/textures/bear/bear2.png" type="Texture" id=5]
 [ext_resource path="res://GFX/textures/bear/bear1.png" type="Texture" id=6]
 
-
-
-
-[sub_resource type="SpriteFrames" id=3]
+[sub_resource type="SpriteFrames" id=1]
 animations = [ {
 "frames": [ ExtResource( 6 ) ],
 "loop": true,
@@ -23,10 +20,10 @@ animations = [ {
 "speed": 5.0
 } ]
 
-[sub_resource type="RectangleShape2D" id=1]
+[sub_resource type="RectangleShape2D" id=2]
 extents = Vector2( 70.0991, 45.5619 )
 
-[sub_resource type="CircleShape2D" id=2]
+[sub_resource type="CircleShape2D" id=3]
 radius = 267.482
 
 [node name="KinematicBody2D" type="KinematicBody2D"]
@@ -36,13 +33,13 @@ script = ExtResource( 2 )
 
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 scale = Vector2( 1.5, 1.5 )
-frames = SubResource( 3 )
+frames = SubResource( 1 )
 animation = "Stand"
 playing = true
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 2.97302 )
-shape = SubResource( 1 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" parent="." instance=ExtResource( 3 )]
 
@@ -51,6 +48,6 @@ collision_layer = 8
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Area2D"]
 position = Vector2( 0, 2.97302 )
-shape = SubResource( 2 )
+shape = SubResource( 3 )
 [connection signal="body_entered" from="Area2D" to="." method="_on_Area2D_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_Area2D_body_exited"]

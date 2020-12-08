@@ -319,6 +319,7 @@ __meta__ = {
 }
 
 [node name="Minigames" type="Node" parent="."]
+pause_mode = 1
 
 [node name="Pause" type="Node" parent="."]
 script = ExtResource( 2 )

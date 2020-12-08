@@ -2,8 +2,9 @@ extends NinePatchRect
 
 
 func _ready():
-	$Dialogue.text = tr("StartPhrase")
-	dialogue_opened()
+#	$Dialogue.text = tr("StartPhrase")
+#	dialogue_opened()
+	pass	
 
 func AddedBattery():
 	$Dialogue.text = tr("AddedBattery")
@@ -50,11 +51,11 @@ func NoShovel():
 
 
 func Snowstorm():
-	if Inventory.snowstorm_said == false:
+	if Inventory.events.snowstorm_said == false:
 		$Dialogue.text = tr("Snowstorm")
 		dialogue_opened()
-		Inventory.snowstorm_said = true
-	elif Inventory.snowstorm_said:
+		Inventory.events.snowstorm_said = true
+	elif Inventory.events.snowstorm_said:
 		pass
 
 func dialogue_opened():

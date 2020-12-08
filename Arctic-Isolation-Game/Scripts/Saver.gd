@@ -7,6 +7,8 @@ func SaveData():
 	var data = {}
 	data["items"] = Inventory.items
 	data["location"] = Inventory.location
+	data["events"] = Inventory.events
+	data["world"] = Inventory.world
 	var file = File.new()
 	var error = file.open(save_path, File.WRITE)
 	if error == OK:

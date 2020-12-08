@@ -1,5 +1,12 @@
 extends Node2D
 
+var player
+
+
+func _ready():
+	player = get_tree().get_root().get_node("Full Map").find_node("Player")
+#	RoadMovement()
+	pass
 
 func _on_River_To_Forest_Exit(_body):
 	get_tree().call_group("FullMap", "ForestFromRiver")
@@ -95,23 +102,22 @@ func _on_DetectionControllerZone_body_exited(body):
 
 
 func _on_BrokenPlateDialogue_body_entered(body):
-	if Inventory.brokenanthena_dialogue == false:
+	if Inventory.events.brokenanthena_dialogue == false:
 		get_tree().call_group("Dialogue", "BrokenPlate")
-		Inventory.brokenanthena_dialogue = true
-
-
+		Inventory.events.brokenanthena_dialogue = true
 
 
 func _on_EmptyPortDialogue_body_entered(body):
-	if Inventory.emptyport_dialogue == false:
+	if Inventory.events.emptyport_dialogue == false:
 		get_tree().call_group("Dialogue", "EmptyPort")
-		Inventory.emptyport_dialogue = true
-
-
-
+		Inventory.events.emptyport_dialogue = true
 
 
 func _on_SnowStormDialogue_body_entered(body):
 	get_tree().call_group("Dialogue", "Snowstorm")
 
 
+func RoadMovement():
+	var cell_coord = $TileMap.world_to_map(player.position)
+	var cell_id = $TileMap.get_cellv(cell_coord)
+	print(cell_id)

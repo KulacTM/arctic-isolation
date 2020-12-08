@@ -18,9 +18,9 @@ var can_repair = false
 var in_zone = false
 
 func _on_BrokenBridge_body_entered(body):
-	if Inventory.planks >= 3 and Inventory.bridge_repaired == false:
+	if Inventory.planks >= 3 and Inventory.events.bridge_repaired == false:
 		can_repair = true
-	if Inventory.bridge_repaired == false:
+	if Inventory.events.bridge_repaired == false:
 		$Press_E.show()
 	in_zone = true
 
@@ -32,7 +32,7 @@ func _on_BrokenBridge_body_exited(body):
 
 
 func _ready():
-	if Inventory.bridge_repaired:
+	if Inventory.events.bridge_repaired:
 		$bridge2.show()
 		$tree.queue_free()
 		$Press_E.hide()
@@ -44,7 +44,7 @@ func _process(delta):
 		$bridge2.show()
 		$Press_E.hide()
 		Inventory.planks -= 3
-		Inventory.bridge_repaired = true
+		Inventory.events.bridge_repaired = true
 		get_tree().call_group(\"GUI\", \"PlankIcon\")
 		can_repair = false
 		$Broken.queue_free()
@@ -113,7 +113,6 @@ shape = SubResource( 2 )
 
 [node name="Press_E" parent="Objects/BrokenBridge" index="3" instance=ExtResource( 5 )]
 position = Vector2( 107.48, -77.7815 )
-frame = 0
 
 [node name="Broken" type="StaticBody2D" parent="Objects/BrokenBridge" index="4"]
 collision_layer = 4

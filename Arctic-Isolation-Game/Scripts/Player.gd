@@ -75,7 +75,7 @@ func animate():
 
 
 func In_Cave():
-	Inventory.in_cave = true
+	Inventory.events.in_cave = true
 	$Light2D.shadow_enabled = true
 	if Inventory.items.flashlight:
 		get_tree().call_group("Dialogue", "Lantern")
@@ -88,7 +88,7 @@ func In_Cave():
 
 func Out_Of_Cave():
 	print("Вышел из пещеры")
-	Inventory.in_cave = false
+	Inventory.events.in_cave = false
 	$Light2D.shadow_enabled = false
 	$Light2D.texture_scale = 6.82
 	$Darkness.hide()
@@ -105,19 +105,19 @@ func _on_StartMotion_timeout():
 
 
 func _on_NewTimer_timeout():
-	if Inventory.in_cave and Inventory.items.flashlight == false:
+	if Inventory.events.in_cave and Inventory.items.flashlight == false:
 		$Light2D.texture_scale = 2.5
 
 
 func FootstepsOn():
-	if Inventory.not_in_motion:
+	if Inventory.events.not_in_motion:
 		$Footsteps.playing = true
-		Inventory.not_in_motion = false
+		Inventory.events.not_in_motion = false
 
 
 func FootstepsOff():
 	$Footsteps.playing = false
-	Inventory.not_in_motion = true
+	Inventory.events.not_in_motion = true
 
 
 func FootstepsSnow():

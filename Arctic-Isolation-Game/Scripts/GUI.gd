@@ -81,7 +81,7 @@ func PlankIcon():
 
 
 func ForestPopup():
-	Inventory.in_popup = true
+	Inventory.events.in_popup = true
 	InPopup()
 	$"Popup/Popup_Text".text = """Вы находитесь на лесном перекрестке
 База на реке на севере 
@@ -92,14 +92,14 @@ func ForestPopup():
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 func IcePopup():
-	Inventory.in_popup = true
+	Inventory.events.in_popup = true
 	$"Popup/Popup_Text".text = """Осторожно! Тонкий лёд!
 Если услышите треск под ногами - вернитесь на безопасное место и постарайтесь обойти опасную зону."""
 	$Popup.show()
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
 	
 func LakePopup():
-	Inventory.in_popup = true
+	Inventory.events.in_popup = true
 	$"Popup/Popup_Text".text = """Осторожно! Здесь живут медведи.
 	В это время года они очень голодные. Постарайтесь к ним не подходить."""
 	$Popup.show()
@@ -107,16 +107,16 @@ func LakePopup():
 
 
 func _on_Popup_Button_pressed():
-	Inventory.in_popup = false
+	Inventory.events.in_popup = false
 	$Popup.hide()
-	Inventory.can_press_pause = true
+	Inventory.events.can_press_pause = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_HIDDEN)
 
 
 func HidePopup():
-	Inventory.in_popup = false
+	Inventory.events.in_popup = false
 	$Popup.hide()
-	Inventory.can_press_pause = true
+	Inventory.events.can_press_pause = true
 
 
 func _on_Button3_pressed():
@@ -124,10 +124,10 @@ func _on_Button3_pressed():
 
 
 func InPopup():
-	if Inventory.in_popup:
-		Inventory.can_press_pause = false
+	if Inventory.events.in_popup:
+		Inventory.events.can_press_pause = false
 	else:
-		Inventory.can_press_pause = true
+		Inventory.events.can_press_pause = true
 
 
 func UI_Update():
@@ -167,7 +167,9 @@ func _on_Load_pressed():
 func ShowLoose():
 	$Loose/LooseOverlay.visible = true
 	Input.set_mouse_mode(Input.MOUSE_MODE_VISIBLE)
+	Inventory.events.can_press_pause = false
 
 func HideLoose():
 	$Loose/LooseOverlay.visible = false
 	get_tree().paused = false
+	Inventory.events.can_press_pause = true

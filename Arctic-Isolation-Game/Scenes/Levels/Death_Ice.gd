@@ -6,7 +6,7 @@ func _physics_process(_delta):
 	if on_death_ice:
 		get_tree().call_group("Detection", "AddSus")
 
-	elif on_death_ice == false and Inventory.in_lake_zone == false:
+	elif on_death_ice == false and Inventory.events.in_lake_zone == false:
 		get_tree().call_group("Detection", "RemoveSus")
 	
 

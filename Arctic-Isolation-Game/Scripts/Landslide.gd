@@ -6,10 +6,10 @@ var can_dig = false
 
 
 func _process(delta):
-	if not Inventory.river_landslide_exist:
+	if not Inventory.events.river_landslide_exist:
 		queue_free()
 	if can_dig and in_landslide_area and Input.is_action_just_pressed("action"):
-		Inventory.river_landslide_exist = false
+		Inventory.events.river_landslide_exist = false
 		queue_free()
 	if not can_dig and in_landslide_area and Input.is_action_just_pressed("action"):
 		get_tree().call_group("Dialogue", "NoShovel")

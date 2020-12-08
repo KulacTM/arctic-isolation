@@ -9,7 +9,7 @@
 texture = ExtResource( 4 )
 region_rect = Rect2( 0, 0, 1600, 400 )
 
-[sub_resource type="StyleBoxTexture" id=6]
+[sub_resource type="StyleBoxTexture" id=2]
 texture = ExtResource( 2 )
 region_rect = Rect2( 0, 0, 1600, 400 )
 
@@ -40,7 +40,7 @@ margin_top = -40.0
 margin_right = 100.0
 margin_bottom = 40.0
 custom_styles/hover = SubResource( 1 )
-custom_styles/focus = SubResource( 6 )
+custom_styles/focus = SubResource( 2 )
 custom_styles/normal = SubResource( 3 )
 script = SubResource( 4 )
 __meta__ = {

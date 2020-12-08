@@ -24,18 +24,23 @@ var saved = {
 	"position" : ""
 }
 
-# EVENTS
-var bridge_repaired = false
-var river_landslide_exist = true
-var in_lake_zone = false
-var in_popup = false
-var snowstorm_said = false
-var emptyport_dialogue = false
-var brokenanthena_dialogue = false
-var in_cave = false
-var can_press_pause = true
-var not_in_motion = true
+var events = {
+	"bridge_repaired" : false,
+	"river_landslide_exist" : true,
+	"in_lake_zone" : false,
+	"in_popup" : false,
+	"snowstorm_said" : false,
+	"emptyport_dialogue" : false,
+	"brokenanthena_dialogue" : false,
+	"in_cave" : false,
+	"can_press_pause" : true,
+	"not_in_motion" : true
+}
+
+var world = {
+	"logs_list" : {}
+}
 
 # REUSABLES
-var logs_list = {}
+#var logs_list = {}
 

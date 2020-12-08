@@ -14,7 +14,8 @@ func RemoveSus():
 func AddBearSus():
 	$TextureProgress.value += $TextureProgress.step * multiplier 
 	if $TextureProgress.value == $TextureProgress.max_value:
-		get_tree().change_scene("res://Scenes/Levels/Loose.tscn")
+		get_tree().paused = true
+		get_tree().call_group("GUI", "ShowLoose")
 	
 func RemoveBearSus():
 	$TextureProgress.value = $TextureProgress.value
