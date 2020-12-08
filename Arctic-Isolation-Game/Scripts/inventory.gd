@@ -38,6 +38,8 @@ var events = {
 }
 
 var world = {
+	"player_speed" : 180,
+	"default_player_speed" : 180,
 	"logs_list" : {}
 }
 

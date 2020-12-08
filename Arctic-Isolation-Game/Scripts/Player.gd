@@ -1,6 +1,5 @@
 extends KinematicBody2D
 
-var speed = 2000
 var friction = 0.2
 var acceleration = 0.1
 
@@ -32,7 +31,7 @@ func _ready():
 func _physics_process(delta):
 	var direction = get_input()
 	if direction.length() > 0:
-		velocity = lerp(velocity, direction.normalized() * speed, acceleration)
+		velocity = lerp(velocity, direction.normalized() * Inventory.world.player_speed, acceleration)
 	else:
 		velocity = lerp(velocity, Vector2.ZERO, friction)
 	velocity = move_and_slide(velocity)
@@ -96,12 +95,12 @@ func Out_Of_Cave():
 
 
 func StopMotion():
-	speed = 0
+	Inventory.world.player_speed = 0
 	$StartMotion.start()
 
 
 func _on_StartMotion_timeout():
-	speed = 2000
+	Inventory.world.player_speed = Inventory.world.default_player_speed
 
 
 func _on_NewTimer_timeout():
@@ -121,12 +120,14 @@ func FootstepsOff():
 
 
 func FootstepsSnow():
-	$Footsteps.playing = false
-	$Footsteps.stream = load("res://SFX/Effects/Footsteps/snowFootsteps.ogg")
-	$Footsteps.playing = true
+	if $Footsteps.stream != load("res://SFX/Effects/Footsteps/snowFootsteps.ogg"):
+		$Footsteps.playing = false
+		$Footsteps.stream = load("res://SFX/Effects/Footsteps/snowFootsteps.ogg")
+		$Footsteps.playing = true
 
 
 func FootstepsIndoor():
-	$Footsteps.playing = false
-	$Footsteps.stream = load("res://SFX/Effects/Footsteps/indoorFootsteps.ogg")
-	$Footsteps.playing = true
+	if $Footsteps.stream != load("res://SFX/Effects/Footsteps/indoorFootsteps.ogg"):
+		$Footsteps.playing = false
+		$Footsteps.stream = load("res://SFX/Effects/Footsteps/indoorFootsteps.ogg")
+		$Footsteps.playing = true

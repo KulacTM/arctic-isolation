@@ -1,6 +1,6 @@
 extends Control
 
-var default_multiplier = 500
-var multiplier = 500
+var default_multiplier = 50
+var multiplier = 50
 
 var value = 0

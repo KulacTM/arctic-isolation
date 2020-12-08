@@ -1,12 +1,20 @@
 extends Node2D
 
+# tile recognition
 var player
-
+var cell_coord
+var cell_id
+var tileset
+var tile_name
 
 func _ready():
 	player = get_tree().get_root().get_node("Full Map").find_node("Player")
-#	RoadMovement()
-	pass
+	tileset = $TileMap.tile_set
+
+
+func _process(delta):
+	RoadMovement()
+
 
 func _on_River_To_Forest_Exit(_body):
 	get_tree().call_group("FullMap", "ForestFromRiver")
@@ -118,6 +126,12 @@ func _on_SnowStormDialogue_body_entered(body):
 
 
 func RoadMovement():
-	var cell_coord = $TileMap.world_to_map(player.position)
-	var cell_id = $TileMap.get_cellv(cell_coord)
-	print(cell_id)
+	cell_coord = $TileMap.world_to_map(player.position)
+	cell_id = $TileMap.get_cellv(cell_coord)
+	tile_name = tileset.tile_get_name(cell_id)
+	if tile_name == "Road":
+		Inventory.world.player_speed = 250
+		get_tree().call_group("Player", "FootstepsIndoor")
+	else:
+		Inventory.world.player_speed = Inventory.world.default_player_speed
+		get_tree().call_group("Player", "FootstepsSnow")
